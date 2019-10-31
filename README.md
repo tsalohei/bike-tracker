@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka-kurssin harjoitustyö: Bike tracker
 
-## Sovelluksen kuvaus
+## Sovelluksen alustava kuvaus
 
 Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen _kilometrien_ __kirjanpitoon__. Sovelluksessa voi:
 
