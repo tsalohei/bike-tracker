@@ -1,7 +1,15 @@
-# The cyclist's kilometer tracker
+# Ohjelmistotekniikka-kurssin harjoitustyö: Bike tracker
 
-This application can be used to _track_ kilometers spent __biking__. Using this app can:
+## Sovelluksen kuvaus
 
-* Make you want to bike more.
-* Spend more time outdoors.
-* Improve your health.
+Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen _kilometrien_ __kirjanpitoon__. Sovelluksessa voi:
+
+* Pitää kirjaa omista pyöräilykilometreista.
+* Verrata omaa tilannetta toisiin pyöräilijöihin.
+
+## Tehtävät
+
+### Viikko 1
+
+[gitlog.txt] (https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko1/gitlog.txt)
+[komentorivi.txt] (https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko1/komentorivi.txt)
