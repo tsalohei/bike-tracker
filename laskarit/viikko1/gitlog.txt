@@ -1,0 +1,117 @@
+Niklass-MacBook-Pro:tiedostoja taru$ git log --stat | cat
+commit 21d2e07d0810f1e0a3d996264364daafc2f538e3
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 12:57:18 2019 +0200
+ 
+    file2 poistettu ja file1 uudelleennimetty
+ 
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ 
+commit c37fbee9c44db3763ac0003f65780ed8b14e33ee
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 12:52:30 2019 +0200
+ 
+    kolme uutta tiedostoa uudessa kansiossa
+ 
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ 
+commit a87af06107f0cd46cc798fee1209e7d08f0246a1
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 12:42:41 2019 +0200
+ 
+    todella tärkeitä päivityksiä
+ 
+ eka.txt    | 4 +++-
+ kolmas.txt | 3 ++-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+ 
+commit 75afc9bf7754f7d0eca081d6b4730004bfbe4ec0
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 12:37:39 2019 +0200
+ 
+    tiedosto uudelleennimetty
+ 
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ 
+commit 0f299680dcdadb8a90ba898ebf3990b469630735
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 12:36:33 2019 +0200
+ 
+    poistettu toinen.txt
+ 
+ toinen.txt | 3 ---
+ 1 file changed, 3 deletions(-)
+ 
+commit 6673a8cf46782a0f02d9ca5777113f6cb9e4f4a0
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 10:47:08 2019 +0200
+ 
+    otsikko lisätty tähän tärkeään artikkeliin
+ 
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ 
+commit 4897845e873eed6e9b4906041c89a0cf72b2ab2f
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 10:45:45 2019 +0200
+ 
+    tietoja pupu-agilitystä
+ 
+ tiedosto.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+ 
+commit 48657ac55018caa813cd65e22be98af9c76b7799
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 10:37:53 2019 +0200
+ 
+    tonttu-tiedosto kansiossa stuff
+ 
+ stuff/tonttu.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ 
+commit 7cdfa81e1776683cb691577581e05d2dd534ffac
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 10:35:41 2019 +0200
+ 
+    muutoksia tiedostoihin
+ 
+ kolmas.txt | 4 ++++
+ toinen.txt | 3 +++
+ 2 files changed, 7 insertions(+)
+ 
+commit 4701a1474700b2422e5dbfd7a41cee3519d0e341
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 10:32:38 2019 +0200
+ 
+    lisätty tiedosto nimeltä kolmas.txt
+ 
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ 
+commit 91018db1c2fe71bd7e43d49d67fc9a2c8b5183fb
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 10:25:23 2019 +0200
+ 
+    muutos ja lisäys
+ 
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+ 
+commit d7589cba4ea50ceffd8fb911353d5d0b2065e5bc
+Author: Taru Saloheimo <taru.saloheimo@gmail.com>
+Date:   Thu Oct 31 10:06:57 2019 +0200
+ 
+    tiedosto.txt luotuls
+ 
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+Niklass-MacBook-Pro:tiedostoja taru$ git add .
+
+
