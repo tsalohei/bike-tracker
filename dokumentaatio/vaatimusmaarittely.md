@@ -4,6 +4,10 @@
 
 Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa siitä, kuinka paljon he ovat pyöräilleet. Sovelluksen käyttäminen edellyttää rekisteröitymistä. Sovellusta voi käyttää useampi käyttäjä, ja heillä kaikilla on oma kirjanpitonsa. 
 
+## Toimintaympäristön rajoitteet
+
+Sovelluksen tulee toimia koneissa, joissa on Linux- tai OSX-käyttöjärjestelmät. Käyttäjien ja heidän pyöräilymerkintöjensä tiedot tallennetaan paikallisen koneen levylle. 
+
 ## Perusversion tarjoama toiminnallisuus 
 
 ### Ennen kirjautumista
