@@ -28,3 +28,9 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen _kilometri
 [osa 2: Unicafe](https://github.com/tsalohei/bike-tracker/tree/master/laskarit/viikko2/Unicafe)
 
 [osa 2: Unicafen testikattavuusraportti](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko2/testikattavuusraportti.png)
+
+### Viikko 3
+
+[Tehtävä 1](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava1.JPG)
+[Tehtävä 2](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava2.JPG)
+
