@@ -32,5 +32,6 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen _kilometri
 ### Viikko 3
 
 [Tehtävä 1](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava1.JPG)
+
 [Tehtävä 2](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava2.JPG)
 
