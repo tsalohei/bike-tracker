@@ -31,8 +31,10 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen _kilometri
 
 ### Viikko 3
 
-[Tehtävä 1](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava1.JPG)
+[Tehtävä 1: monopoli, luokkakaavio](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava1.JPG)
 
-[Tehtävä 2](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava2.JPG)
+[Tehtävä 2: laajennettu monopoli, luokkakaavio](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava2.JPG)
 
-[Tehtävä 3](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava3.JPG)
+[Tehtävä 3: machine, sekvenssikaavio](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava3.JPG)
+
+[Tehtävä 4: HKL, sekvenssikaavio](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava4.JPG)
