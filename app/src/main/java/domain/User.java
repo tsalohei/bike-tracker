@@ -1,7 +1,7 @@
 package domain;
 
 /**
- * Class that represents the user of the application
+ * Käyttäjää edustava luokka
  */
 
 
@@ -22,7 +22,7 @@ public class User {
         return username;
     }    
 
-    /* Mallimetodi referenssisovelluksesta
+    
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof User)) {
@@ -32,5 +32,5 @@ public class User {
         User other = (User) obj;
         return username.equals(other.username);
     }
-    */
+    
 }
