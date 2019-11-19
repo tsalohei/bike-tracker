@@ -13,28 +13,3 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen _kilometri
 
 [Työaikakirjanpito](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/tuntikirjanpito.md)
 
-## Tehtävät
-
-### Viikko 1
-
-[gitlog.txt](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko1/komentorivi.txt)
-
-### Viikko 2
-
-[osa 1: Maksukortti](https://github.com/tsalohei/bike-tracker/tree/master/laskarit/viikko2/Maksukortti)
-
-[osa 2: Unicafe](https://github.com/tsalohei/bike-tracker/tree/master/laskarit/viikko2/Unicafe)
-
-[osa 2: Unicafen testikattavuusraportti](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko2/testikattavuusraportti.png)
-
-### Viikko 3
-
-[Tehtävä 1: monopoli, luokkakaavio](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava1.JPG)
-
-[Tehtävä 2: laajennettu monopoli, luokkakaavio](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava2.JPG)
-
-[Tehtävä 3: machine, sekvenssikaavio](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava3.JPG)
-
-[Tehtävä 4: HKL, sekvenssikaavio](https://github.com/tsalohei/bike-tracker/blob/master/laskarit/viikko3/tehtava4.JPG)
