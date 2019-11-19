@@ -12,9 +12,10 @@ import java.util.Scanner;
  *
  * @author taru
  */
+/*
 public class FileUserDao implements UserDao{
-        private List<User> users;
-        private String file;
+    private List<User> users;
+    private String file;
         
     public FileUserDao(String file) throws Exception {
         this.users = new ArrayList<>();
@@ -44,8 +45,8 @@ public class FileUserDao implements UserDao{
     @Override
     public User findByUsername(String username) throws Exception {
         return users.stream()
-            .filter(u->u.getUsername()
-            .equals(username))
+            .filter(u->u.getUsername().equals(username))
+            //filter(u->u.getPassword).equals(password))
             .findFirst()
             .orElse(null);
     }
@@ -60,6 +61,6 @@ public class FileUserDao implements UserDao{
     @Override
     public List<User> getAll() {
         return users;
-    }
-    
+    }    
 }
+*/

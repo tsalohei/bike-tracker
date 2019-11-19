@@ -13,12 +13,13 @@ public class SqlUserDao implements UserDao {
         this.database = database;
     }
   
-    //save vs. create?
-    public User save(User user) {
+    @Override    
+    public User create(User user) {
         try (Connection conn = database.getConnection()) {    
             PreparedStatement stmt = conn.prepareStatement("INSERT INTO User (name, username) VALUES (?,?)");
             stmt.setString(1, user.getName());
             stmt.setString(2, user.getUsername());
+            //stmt.setString(3, user.getPassword());
 
             stmt.executeUpdate();
 
@@ -34,15 +35,19 @@ public class SqlUserDao implements UserDao {
     }
 
     @Override
-    public User findByUsername(String username) throws SQLException {
+    public User findByUsername(String username) {
         try (Connection conn = database.getConnection()) {
+            
             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE username = ?");
+            
+            stmt.setString(1, username);
+            
             ResultSet rs = stmt.executeQuery();
             boolean hasOne = rs.next();
             if (!hasOne){
                 return null;
             }
-
+            
             User u = new User(rs.getString("name"), rs.getString("username"));
 
             stmt.close();
@@ -54,11 +59,6 @@ public class SqlUserDao implements UserDao {
             return null;
         }
         
-    }
-
-    @Override
-    public User create(User user) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

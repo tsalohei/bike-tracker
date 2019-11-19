@@ -2,6 +2,7 @@ package domain;
 
 import dao.NoteDao;
 import dao.UserDao;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,6 +40,7 @@ public class NoteService {
     //uusi päiväkirjamerkintä kirjautuneelle käyttäjälle
     public boolean createNote(int km, String content){
         Note note = new Note(km, content, currentUser);
+        note.setDate(LocalDate.now());
         try {
             noteDao.create(note);
             return true;
@@ -50,9 +52,8 @@ public class NoteService {
     }
     
     //käyttäjän sisäänkirjautuminen
-    //miksi java haluaa lisätä tähän throws Exception?
-    //lisää tähän mukaan salasana
-    public boolean login(String username) throws Exception {
+    
+    public boolean login(String username) {
         User user = userDao.findByUsername(username);
         if (user == null) {
             return false;
@@ -66,25 +67,28 @@ public class NoteService {
         currentUser = null;
     }
     
-    //kirjautunut käyttäjä
     
-    public User currentUser(){
-        return currentUser;
-    }
+    
      
     //uusi käyttäjä
-    //miksi java halusi tähän throws exceptionin?
-    public boolean createUser(String username, String name) throws Exception{
+    public boolean createUser(String name, String username) {
         if (userDao.findByUsername(username) != null){
             return false;
         }
-        User user = new User(username, name);
+        User user = new User(name, username);
         try {
             userDao.create(user);
         } catch (Exception e){
             return false;
         }
         return true;
+    }
+
+    //kirjautunut käyttäjä
+    
+    
+    public User getLoggedUser() {
+        return currentUser;
     }
         
 }

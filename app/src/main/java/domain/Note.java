@@ -25,16 +25,52 @@ public class Note {
     }
     
     public Note(int km, String content, User user){
-        this.date = LocalDate.now();
         this.km = km;
         this.content = content;
     }
     
+    public void setId(int id){
+        this.id = id;
+    }
+    
+    public int getId(){
+        return this.id;
+    }
+    
+    public void setDate(LocalDate date){
+        this.date = date;
+    }
+    
+    public LocalDate getDate(){
+        return this.date;
+    }
+    
+    public void setKm(int km){
+        this.km = km;
+    }
+    
+    public int getKm(){
+        return this.km;
+    }
+    
+    public void setContent(String content){
+        this.content = content;
+    }
+    
+    public String getContent(){
+        return this.content;
+    }
+    
+    public void setUser(User user){
+        this.user = user;
+    }
     
     public User getUser(){
         return this.user;
     }
-    //getterit ja setterit
+    
+    
+    
     
     /* equals. Mihin tarvitaan?
     @Override

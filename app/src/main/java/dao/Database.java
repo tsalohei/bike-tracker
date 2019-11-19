@@ -17,11 +17,11 @@ public class Database {
     }
     
     //luodaan tietokantaan tietokantataulut (ensimmäisellä kerralla)
-    public static void createTables(String databaseAddress){
+    public void createTables(){
         String userTable = "CREATE TABLE IF NOT EXISTS User (\n"
         +   "id integer PRIMARY KEY,\n"
         +   "name text NOT NULL,\n"
-        +   "username text NOT NULL\n"
+        +   "username text NOT NULL\n"       
         +   ");";
         
         String noteTable = "CREATE TABLE IF NOT EXISTS Note (\n"
@@ -33,13 +33,13 @@ public class Database {
         +    "FOREIGN KEY(user) REFERENCES User(id)\n"    
         +   ");";  
       
-        try (Connection conn = DriverManager.getConnection(databaseAddress)) {
-            Statement stmt = conn.createStatement(); //miksi ei preparedstatement?
+        try (Connection conn = getConnection()) {
+            Statement stmt = conn.createStatement(); 
             stmt.execute(userTable);
             stmt.execute(noteTable);
             
         } catch (Throwable t) {
-            
+            System.out.println("Error: " + t);
         }
     }
 }
