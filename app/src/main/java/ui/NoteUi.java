@@ -1,3 +1,4 @@
+/*
 package ui;
 
 import dao.Database;
@@ -188,7 +189,7 @@ public class NoteUi extends Application {
             redrawTodolist();
         });
         */
-        
+        /*
         // seutp primary stage
         
         primaryStage.setTitle("Notes");
@@ -216,4 +217,6 @@ public class NoteUi extends Application {
         
         
     }
+
 }
+*/
