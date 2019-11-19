@@ -63,6 +63,7 @@ public class NoteService {
     }
     
     //uloskirjautuminen
+    
     public void logout(){
         currentUser = null;
     }
