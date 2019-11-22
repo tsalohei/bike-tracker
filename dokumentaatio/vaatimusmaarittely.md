@@ -6,18 +6,17 @@ Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa siitä, kuinka pal
 
 ## Toimintaympäristön rajoitteet
 
-Sovelluksen tulee toimia koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Käyttäjien ja heidän pyöräilymerkintöjensä tiedot tallennetaan paikallisen koneen levylle. 
+Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Käyttäjien ja heidän pyöräilymerkintöjensä tiedot tallennetaan paikallisen koneen levylle. 
 
 ## Perusversion tarjoama toiminnallisuus 
 
 ### Ennen kirjautumista
-- käyttäjä voi luoda järjestelmään käyttäjätunnuksen rekisteröitymislomakkeen avulla 
-  - käyttäjätunnuksen tulee olla uniikki ja pituudeltaan vähintään 3 merkkiä
-  - järjestelmä antaa virheilmoituksen mikäli käyttäjätunnus ei täytä kriteereitä
+- uusi käyttäjä voi luoda järjestelmään käyttäjätunnuksen (tehty) 
+  - käyttäjätunnuksen tulee olla uniikki ja pituudeltaan vähintään 3 merkkiä 
+  - järjestelmä antaa virheilmoituksen mikäli käyttäjätunnus ei täytä kriteereitä 
 
-- käyttäjä voi kirjautua järjestelmään
-  - kirjautuminen tapahtuu siten, että olemassaoleva käyttäjätunnus syötetään kirjautumislomakkeelle
-  - järjestelmä antaa virheilmoituksen jos syötettyä käyttäjätunnusta ei olekaan olemassa
+- käyttäjä voi kirjautua järjestelmään syöttämällä aiemmin luomansa käyttäjätunnuksen käyttöliittymään (tehty)
+  - järjestelmä antaa virheilmoituksen jos syötettyä käyttäjätunnusta ei olekaan olemassa 
 
 ### Kirjautumisen jälkeen
 - käyttäjä näkee kuinka monta kilometriä hän on pyöräillyt kokonaisuudessaan
