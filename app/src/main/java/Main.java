@@ -1,7 +1,9 @@
-//import ui.NoteUi;
+
+import java.util.Scanner;
+import ui.TextUi;
 
 public class Main {
-    public static void main(String[] args) {
-        //NoteUi.main(args);
+    public static void main(String[] args) throws Exception {
+        TextUi.main(args);
     }
 }

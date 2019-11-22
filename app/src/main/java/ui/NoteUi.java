@@ -2,8 +2,6 @@
 package ui;
 
 import dao.Database;
-//import dao.FileNoteDao;
-//import dao.FileUserDao;
 import dao.NoteDao;
 import dao.SqlNoteDao;
 import dao.SqlUserDao;

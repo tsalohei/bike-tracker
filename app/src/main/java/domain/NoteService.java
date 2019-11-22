@@ -87,7 +87,6 @@ public class NoteService {
 
     //kirjautunut käyttäjä
     
-    
     public User getLoggedUser() {
         return currentUser;
     }
