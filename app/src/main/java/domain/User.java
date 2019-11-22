@@ -25,7 +25,7 @@ public class User {
     }    
     
     /*
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
     */

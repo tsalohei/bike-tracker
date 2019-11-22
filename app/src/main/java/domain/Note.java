@@ -16,7 +16,7 @@ public class Note {
     private String content;
     private User user;
  
-    public Note(int id, LocalDate date, int km, String content, User user){
+    public Note(int id, LocalDate date, int km, String content, User user) {
         this.id = id;
         this.date = date;
         this.km = km;
@@ -24,55 +24,51 @@ public class Note {
         this.user = user;
     }
     
-    public Note(int km, String content, User user){
+    public Note(int km, String content, User user) {
         this.km = km;
         this.content = content;
     }
     
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
     
-    public int getId(){
+    public int getId() {
         return this.id;
     }
     
-    public void setDate(LocalDate date){
+    public void setDate(LocalDate date) {
         this.date = date;
     }
     
-    public LocalDate getDate(){
+    public LocalDate getDate() {
         return this.date;
     }
     
-    public void setKm(int km){
+    public void setKm(int km) {
         this.km = km;
     }
     
-    public int getKm(){
+    public int getKm() {
         return this.km;
     }
     
-    public void setContent(String content){
+    public void setContent(String content) {
         this.content = content;
     }
     
-    public String getContent(){
+    public String getContent() {
         return this.content;
     }
     
-    public void setUser(User user){
+    public void setUser(User user) {
         this.user = user;
     }
     
-    public User getUser(){
+    public User getUser() {
         return this.user;
     }
     
-    
-    
-    
-    /* equals. Mihin tarvitaan?
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Note)) {
@@ -81,5 +77,5 @@ public class Note {
         Note other = (Note) obj;
         return id == other.id;
     }
-    */
+
 }

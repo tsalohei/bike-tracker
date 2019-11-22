@@ -17,7 +17,7 @@ public class NoteService {
     private UserDao userDao;
     private User currentUser;
     
-    public NoteService(NoteDao noteDao, UserDao userDao){
+    public NoteService(NoteDao noteDao, UserDao userDao) {
         this.noteDao = noteDao;
         this.userDao = userDao;
     }
@@ -29,7 +29,7 @@ public class NoteService {
     //päiväkirjamerkinnän muokkaaminen
     
     //kirjautuneen käyttäjän kaikki pyöräilymerkinnät
-    public List<Note> getAll(){
+    public List<Note> getAll() {
         return noteDao.getAll()
             .stream()
             .filter(n->n.getUser().equals(currentUser))
@@ -38,7 +38,7 @@ public class NoteService {
     
     
     //uusi päiväkirjamerkintä kirjautuneelle käyttäjälle
-    public boolean createNote(int km, String content){
+    public boolean createNote(int km, String content) {
         Note note = new Note(km, content, currentUser);
         note.setDate(LocalDate.now());
         try {
@@ -64,22 +64,19 @@ public class NoteService {
     
     //uloskirjautuminen
     
-    public void logout(){
+    public void logout() {
         currentUser = null;
     }
     
-    
-    
-     
     //uusi käyttäjä
     public boolean createUser(String name, String username) {
-        if (userDao.findByUsername(username) != null){
+        if (userDao.findByUsername(username) != null) {
             return false;
         }
         User user = new User(name, username);
         try {
             userDao.create(user);
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
         return true;

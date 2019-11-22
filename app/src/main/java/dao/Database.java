@@ -17,22 +17,22 @@ public class Database {
     }
     
     //luodaan tietokantaan tietokantataulut (ensimmäisellä kerralla)
-    public void createTables(){
+    public void createTables() {
         String userTable = "CREATE TABLE IF NOT EXISTS User (\n"
-        +   "id integer PRIMARY KEY,\n"
-        +   "name text NOT NULL,\n"
-        +   "username text NOT NULL\n"       
-        +   ");";
-        
+            +   "id integer PRIMARY KEY,\n"
+            +   "name text NOT NULL,\n"
+            +   "username text NOT NULL\n"       
+            +   ");";
+
         String noteTable = "CREATE TABLE IF NOT EXISTS Note (\n"
-        +   "id integer PRIMARY KEY,\n" 
-        +   "date date NOT NULL,\n"
-        +   "km integer NOT NULL,\n"
-        +   "content text NOT NULL,\n"
-        +   "user integer NOT NULL,\n" //USER
-        +    "FOREIGN KEY(user) REFERENCES User(id)\n"    
-        +   ");";  
-      
+            +   "id integer PRIMARY KEY,\n" 
+            +   "date date NOT NULL,\n"
+            +   "km integer NOT NULL,\n"
+            +   "content text NOT NULL,\n"
+            +   "user integer NOT NULL,\n" //USER
+            +    "FOREIGN KEY(user) REFERENCES User(id)\n"    
+            +   ");";  
+
         try (Connection conn = getConnection()) {
             Statement stmt = conn.createStatement(); 
             stmt.execute(userTable);

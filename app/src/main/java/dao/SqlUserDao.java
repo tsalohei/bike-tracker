@@ -9,7 +9,7 @@ public class SqlUserDao implements UserDao {
 
     private Database database;
     
-    public SqlUserDao(Database database){
+    public SqlUserDao(Database database) {
         this.database = database;
     }
   
@@ -44,7 +44,7 @@ public class SqlUserDao implements UserDao {
             
             ResultSet rs = stmt.executeQuery();
             boolean hasOne = rs.next();
-            if (!hasOne){
+            if (!hasOne) {
                 return null;
             }
             
@@ -55,7 +55,7 @@ public class SqlUserDao implements UserDao {
 
             return u;
             
-        } catch (Throwable t){
+        } catch (Throwable t) {
             return null;
         }
         

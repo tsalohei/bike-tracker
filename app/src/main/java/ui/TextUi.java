@@ -27,7 +27,7 @@ public class TextUi {
         this.commands = createCommands();
     }
     
-    private TreeMap<String, String> createCommands(){
+    private TreeMap<String, String> createCommands() {
         TreeMap commands = new TreeMap<>();
         commands.put("x", "x: close the program"); 
         commands.put("1", "1: login");
@@ -36,25 +36,27 @@ public class TextUi {
         return commands;
     }
     
-    public void start(){
+    public void start() {
         System.out.println("***Kilometer tracker for cycling***");
         printInstructions();
-        while(true){
+        while (true) {
             System.out.println();
             System.out.print("Command: ");
             String command = scanner.nextLine();
-            if (!commands.keySet().contains(command)){
+            
+            //komentojen käsittely omaksi metodikseen
+            if (!commands.keySet().contains(command)) {
                 System.out.println("Command was not recognized");
                 printInstructions();
             }
             
-            if (command.equals("x")){
+            if (command.equals("x")) {
                 break;
-            } else if (command.equals("1")){
+            } else if (command.equals("1")) {
                 login();
-            } else if (command.equals("2")){
+            } else if (command.equals("2")) {
                 createUser();
-            } else if (command.equals("3")){
+            } else if (command.equals("3")) {
                 logout();
                 break;
             }
@@ -63,17 +65,17 @@ public class TextUi {
 
     private void printInstructions() {
         System.out.println("Choose one of the following commands:");
-        for (Map.Entry<String, String> entry : commands.entrySet()){
+        for (Map.Entry<String, String> entry : commands.entrySet()) {
             System.out.println(entry.getValue());
         }    
     }
     
-    private void logout(){
+    private void logout() {
         noteService.logout();
         System.out.print("You have been logged out");      
     }
     
-    private void login(){
+    private void login() {
         System.out.print("Username: ");
         String username = scanner.nextLine();
         
@@ -90,7 +92,7 @@ public class TextUi {
     
     }
     
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         
         Properties properties = new Properties();        
         properties.load(new FileInputStream("config.properties"));
@@ -100,7 +102,7 @@ public class TextUi {
         db.createTables();
         UserDao userDao = new SqlUserDao(db); 
         NoteDao noteDao = new SqlNoteDao();
-        NoteService noteService= new NoteService(noteDao, userDao);
+        NoteService noteService = new NoteService(noteDao, userDao);
         
         Scanner scanner = new Scanner(System.in);
         
