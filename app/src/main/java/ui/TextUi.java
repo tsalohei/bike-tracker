@@ -87,9 +87,7 @@ public class TextUi {
         String username = scanner.nextLine();
         
         noteService.createUser(name, username);
-        
-        
-        
+    
     }
     
     public static void main(String[] args) throws Exception{
