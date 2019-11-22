@@ -8,6 +8,9 @@
 | 15.11.|  4   | alustavan koodirakenteen tekemistä|
 | 18.11.|  6   | JavaFX:n opiskelua, alustavan koodirakenteen tekemistä|
 | 19.11.|  8   | ensimmäiset testit
-| yht   |  22  | |
+| 21.11.|  3   | tekstikäyttöliittymän tekeminen aloitettu |
+| 22.11.|  3   | tietokantayhteys käyttöliittymästä, käyttöliittymä pois testikattavuusraportista |
+| 22.11.|  1   | checkstyle käyttöön, checkstyle-virheiden korjaamista |
+| yht   |  29  | |
 
   
