@@ -44,7 +44,7 @@ public class TextUi {
             System.out.print("Command: ");
             String command = scanner.nextLine();
             
-            //komentojen käsittely omaksi metodikseen
+            //komentojen käsittely omaksi metodikseen?
             if (!commands.keySet().contains(command)) {
                 System.out.println("Command was not recognized");
                 printInstructions();
