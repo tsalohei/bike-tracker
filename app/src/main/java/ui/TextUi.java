@@ -2,8 +2,10 @@ package ui;
 
 
 import dao.Database;
+import dao.NoteDao;
 import dao.SqlNoteDao;
 import dao.SqlUserDao;
+import dao.UserDao;
 import domain.NoteService;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,34 +19,21 @@ public class TextUi {
 
     private Scanner scanner;
     private NoteService noteService;
-    private SqlNoteDao noteDao;
-    private SqlUserDao userDao;
     private Map<String, String> commands;
-    private Properties properties;
     
-    public TextUi(Scanner scanner) throws Exception {
+    public TextUi(Scanner scanner, NoteService noteService) throws Exception {
         this.scanner = scanner;
-        
-        this.properties = new Properties();
-        
-        properties.load(new FileInputStream("config.properties"));
-        String databaseAddress = properties.getProperty("databaseAddress");
-        Database db = new Database(databaseAddress);
-        db.getConnection();
-        db.createTables();
-
-        this.userDao = new SqlUserDao(db); 
-        //this.noteDao = new SqlNoteDao();
-        this.noteService = new NoteService(noteDao, userDao);
-        
-        
-        commands = new TreeMap<>();
-        
-        commands.put("x", "x: close the program"); //jos ei-kirjautunut käyttäjä haluaa poistua
+        this.noteService = noteService;
+        this.commands = createCommands();
+    }
+    
+    private TreeMap<String, String> createCommands(){
+        TreeMap commands = new TreeMap<>();
+        commands.put("x", "x: close the program"); 
         commands.put("1", "1: login");
         commands.put("2", "2: register as a new user");
         commands.put("3", "3: logout");
-        
+        return commands;
     }
     
     public void start(){
@@ -65,6 +54,9 @@ public class TextUi {
                 login();
             } else if (command.equals("2")){
                 createUser();
+            } else if (command.equals("3")){
+                logout();
+                break;
             }
         }
     }
@@ -73,10 +65,13 @@ public class TextUi {
         System.out.println("Choose one of the following commands:");
         for (Map.Entry<String, String> entry : commands.entrySet()){
             System.out.println(entry.getValue());
-        }
-        
+        }    
     }
     
+    private void logout(){
+        noteService.logout();
+        System.out.print("You have been logged out");      
+    }
     
     private void login(){
         System.out.print("Username: ");
@@ -98,9 +93,20 @@ public class TextUi {
     }
     
     public static void main(String[] args) throws Exception{
+        
+        Properties properties = new Properties();        
+        properties.load(new FileInputStream("config.properties"));
+        String databaseAddress = properties.getProperty("databaseAddress");
+        Database db = new Database(databaseAddress);
+        db.getConnection();
+        db.createTables();
+        UserDao userDao = new SqlUserDao(db); 
+        NoteDao noteDao = new SqlNoteDao();
+        NoteService noteService= new NoteService(noteDao, userDao);
+        
         Scanner scanner = new Scanner(System.in);
         
-        TextUi textUi = new TextUi(scanner);
+        TextUi textUi = new TextUi(scanner, noteService);
         
         textUi.start();
     
