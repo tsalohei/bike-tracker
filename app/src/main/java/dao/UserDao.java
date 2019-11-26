@@ -11,5 +11,7 @@ public interface UserDao {
     //muuta tämä findbyUsernameAndPassword
     User findByUsername(String username);
     
+    /*
     List<User> getAll();
+    */
 }

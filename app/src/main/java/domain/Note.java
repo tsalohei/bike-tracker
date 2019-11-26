@@ -10,14 +10,15 @@ import java.util.Date;
 
 public class Note {
     
-    private int id;
+    //id:tä tarvitaan equals-metodissa
+    //private int id;
     private LocalDate date;
     private int km;
     private String content;
     private User user;
  
-    public Note(int id, LocalDate date, int km, String content, User user) {
-        this.id = id;
+    public Note(LocalDate date, int km, String content, User user) {
+        //this.id = id;
         this.date = date;
         this.km = km;
         this.content = content;
@@ -29,6 +30,7 @@ public class Note {
         this.content = content;
     }
     
+    /*
     public void setId(int id) {
         this.id = id;
     }
@@ -36,7 +38,8 @@ public class Note {
     public int getId() {
         return this.id;
     }
-    
+    */    
+
     public void setDate(LocalDate date) {
         this.date = date;
     }
@@ -69,6 +72,7 @@ public class Note {
         return this.user;
     }
     
+    /*
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Note)) {
@@ -77,5 +81,6 @@ public class Note {
         Note other = (Note) obj;
         return id == other.id;
     }
+    */
 
 }

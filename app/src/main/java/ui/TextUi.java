@@ -101,7 +101,7 @@ public class TextUi {
         db.getConnection();
         db.createTables();
         UserDao userDao = new SqlUserDao(db); 
-        NoteDao noteDao = new SqlNoteDao();
+        NoteDao noteDao = new SqlNoteDao(db);
         NoteService noteService = new NoteService(noteDao, userDao);
         
         Scanner scanner = new Scanner(System.in);
