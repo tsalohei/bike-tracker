@@ -25,6 +25,7 @@ public class NoteService {
     
     //NOTE-METODIT
     
+    
     //päiväkirjamerkinnän poistaminen
     //päiväkirjamerkinnän muokkaaminen
     
@@ -40,6 +41,7 @@ public class NoteService {
     //uusi päiväkirjamerkintä kirjautuneelle käyttäjälle
     public boolean createNote(int km, String content) {
         Note note = new Note(km, content, currentUser);
+        //vai pitäisikö käyttäjän saada itse valita päivämäärä? joo
         note.setDate(LocalDate.now());
         try {
             noteDao.create(note);
