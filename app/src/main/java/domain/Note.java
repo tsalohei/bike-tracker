@@ -47,6 +47,7 @@ public class Note {
     public LocalDate getDate() {
         return this.date;
     }
+   
     
     public void setKm(int km) {
         this.km = km;
@@ -71,6 +72,8 @@ public class Note {
     public User getUser() {
         return this.user;
     }
+    
+    
     
     /*
     @Override

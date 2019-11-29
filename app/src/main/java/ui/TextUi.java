@@ -10,6 +10,8 @@ import domain.NoteService;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.DriverManager;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Scanner;
@@ -32,7 +34,8 @@ public class TextUi {
         commands.put("x", "x: close the program"); 
         commands.put("1", "1: login");
         commands.put("2", "2: register as a new user");
-        commands.put("3", "3: logout");
+        commands.put("3", "3: add a new daily note");
+        commands.put("5", "5: logout");
         return commands;
     }
     
@@ -57,12 +60,30 @@ public class TextUi {
             } else if (command.equals("2")) {
                 createUser();
             } else if (command.equals("3")) {
+                createNote();
+            } else if (command.equals("5")) {
                 logout();
                 break;
             }
         }
     }
 
+    private void createNote() {
+        System.out.print("Date (dd/mm/yyyy): ");
+        String stringDate = scanner.nextLine();
+        System.out.print("Kilometers: ");
+        String stringKm = scanner.nextLine();
+        int km = Integer.parseInt(stringKm);
+        System.out.print("Your notes about the day: ");
+        String note = scanner.nextLine();
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        LocalDate localDate = LocalDate.parse(stringDate, formatter);
+
+        noteService.createNote(localDate, km, note);
+        
+    }
+    
     private void printInstructions() {
         System.out.println("Choose one of the following commands:");
         for (Map.Entry<String, String> entry : commands.entrySet()) {

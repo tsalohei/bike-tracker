@@ -3,6 +3,7 @@ package domain;
 import dao.NoteDao;
 import dao.UserDao;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,12 +40,11 @@ public class NoteService {
     
     
     //uusi päiväkirjamerkintä kirjautuneelle käyttäjälle
-    public boolean createNote(int km, String content) {
-        Note note = new Note(km, content, currentUser);
-        //vai pitäisikö käyttäjän saada itse valita päivämäärä? joo
-        note.setDate(LocalDate.now());
+    public boolean createNote(LocalDate date, int km, String content) {
+        Note note = new Note(date, km, content, currentUser);
+
         try {
-            noteDao.create(note);
+            Note success = noteDao.create(note, currentUser);
             return true;
         } catch (Exception e) {
             return false;
