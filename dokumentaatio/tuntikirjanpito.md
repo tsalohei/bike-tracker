@@ -11,6 +11,9 @@
 | 21.11.|  3   | tekstikäyttöliittymän tekeminen aloitettu |
 | 22.11.|  3   | tietokantayhteys käyttöliittymästä, käyttöliittymä pois testikattavuusraportista |
 | 22.11.|  1   | checkstyle käyttöön, checkstyle-virheiden korjaamista |
+| 26.11.|  5   | luokkakaavio |
+| 27.11.|  2   | Note-luokan koodaamista |
+| 29.11.|  1   | Checkstyle:n käyttöönoton viimeistelyä, käyttäjä voi lisätä Noten |
 | yht   |  29  | |
 
   
