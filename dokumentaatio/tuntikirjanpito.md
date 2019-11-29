@@ -14,6 +14,6 @@
 | 26.11.|  5   | luokkakaavio |
 | 27.11.|  2   | Note-luokan koodaamista |
 | 29.11.|  1   | Checkstyle:n käyttöönoton viimeistelyä, käyttäjä voi lisätä Noten |
-| yht   |  29  | |
+| yht   |  37  | |
 
   
