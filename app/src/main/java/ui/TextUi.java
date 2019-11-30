@@ -9,6 +9,8 @@ import dao.UserDao;
 import domain.NoteService;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.DriverManager;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -23,9 +25,7 @@ public class TextUi {
     private NoteService noteService;
     private Map<String, String> commands;
     
-    public TextUi(Scanner scanner, NoteService noteService) throws Exception {
-        this.scanner = scanner;
-        this.noteService = noteService;
+    public TextUi() throws Exception {
         this.commands = createCommands();
     }
     
@@ -114,9 +114,14 @@ public class TextUi {
     }
     
     public static void main(String[] args) throws Exception {
-        
-        Properties properties = new Properties();        
-        properties.load(new FileInputStream("config.properties"));
+        TextUi ui = new TextUi();
+        ui.init();  
+    }
+    
+    void init() throws Exception {
+        Properties properties = new Properties();
+        InputStream cpResource = this.getClass().getClassLoader().getResourceAsStream("config.properties");
+        properties.load(cpResource);
         String databaseAddress = properties.getProperty("databaseAddress");
         Database db = new Database(databaseAddress);
         db.getConnection();
@@ -126,11 +131,10 @@ public class TextUi {
         NoteService noteService = new NoteService(noteDao, userDao);
         
         Scanner scanner = new Scanner(System.in);
-        
-        TextUi textUi = new TextUi(scanner, noteService);
-        
-        textUi.start();
-    
+                
+        this.scanner = scanner;
+        this.noteService = noteService;
+        start();    
     }
 
     
