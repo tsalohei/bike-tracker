@@ -35,6 +35,8 @@ public class TextUi {
         commands.put("1", "1: login");
         commands.put("2", "2: register as a new user");
         commands.put("3", "3: add a new daily note");
+        //4: paljonko kilometrejä yhteensä
+        //5: lista kaikista muistiinpanoista
         commands.put("5", "5: logout");
         return commands;
     }
@@ -118,7 +120,7 @@ public class TextUi {
         ui.init();  
     }
     
-    void init() throws Exception {
+    private void init() throws Exception {
         Properties properties = new Properties();
         InputStream cpResource = this.getClass().getClassLoader().getResourceAsStream("config.properties");
         properties.load(cpResource);

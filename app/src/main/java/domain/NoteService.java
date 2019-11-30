@@ -26,7 +26,7 @@ public class NoteService {
     
     //NOTE-METODIT
     
-    
+    //tarkista kilometrisaldo (kokonaisuudessaan)
     //päiväkirjamerkinnän poistaminen
     //päiväkirjamerkinnän muokkaaminen
     
@@ -49,8 +49,6 @@ public class NoteService {
         } catch (Exception e) {
             return false;
         }
-        
-
     }
     
     //käyttäjän sisäänkirjautuminen

@@ -2,7 +2,7 @@
 
 ## Sovelluksen alustava kuvaus
 
-Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen _kilometrien_ __kirjanpitoon__. Sovelluksessa voi:
+Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen kilometrien kirjanpitoon. Sovelluksessa voi:
 
 * Kirjata talteen päiväkohtaiset kilometrisaldot ja niihin liittyvät muistiinpanot.
 * Tarkastella kuinka paljon kilometreja on kertynyt yhteensä.
@@ -15,3 +15,6 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen _kilometri
 
 [Työaikakirjanpito](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/tuntikirjanpito.md)
 
+## Releaset
+
+## Komentorivitoiminnot
