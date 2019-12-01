@@ -4,13 +4,13 @@ package dao;
 
 import domain.Note;
 import domain.User;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface NoteDao {
     
-    Note create(Note note, User user) throws Exception;
-    
-    Integer getUserId(User user);
+    Note create(LocalDate date, int km, String content, User user) throws Exception;
     
     List<Note> getAll();
     

@@ -41,10 +41,9 @@ public class NoteService {
     
     //uusi päiväkirjamerkintä kirjautuneelle käyttäjälle
     public boolean createNote(LocalDate date, int km, String content) {
-        Note note = new Note(date, km, content, currentUser);
-
+        
         try {
-            Note success = noteDao.create(note, currentUser);
+            Note note = noteDao.create(date, km, content, currentUser);
             return true;
         } catch (Exception e) {
             return false;
@@ -73,9 +72,9 @@ public class NoteService {
         if (userDao.findByUsername(username) != null) {
             return false;
         }
-        User user = new User(name, username);
+        //User user = new User(name, username);
         try {
-            userDao.create(user);
+            User user = userDao.create(name, username);
         } catch (Exception e) {
             return false;
         }

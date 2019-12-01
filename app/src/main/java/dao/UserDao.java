@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserDao {
     
-    User create(User user); 
+    User create(String name, String username); 
     
     //muuta tämä findbyUsernameAndPassword
     User findByUsername(String username);

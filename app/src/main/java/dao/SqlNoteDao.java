@@ -19,30 +19,58 @@ public class SqlNoteDao implements NoteDao {
         this.database = database;
     }
 
+    
     @Override
-    public Note create(Note note, User user) throws Exception {
+    public Note create(LocalDate date, int km, String content, User user) throws Exception {
         
         try (Connection conn = database.getConnection()) {  
             
-            int id = getUserId(user);
-            
             PreparedStatement stmt = conn.prepareStatement("INSERT INTO Note (date, km, content, user) VALUES (?,?,?,?)");
-            stmt.setDate(1, Date.valueOf(note.getDate()));
-            stmt.setInt(2, note.getKm());
-            stmt.setString(3, note.getContent());
-            stmt.setInt(4, id); 
+            stmt.setDate(1, Date.valueOf(date));
+            stmt.setInt(2, km);
+            stmt.setString(3, content);           
+            stmt.setInt(4, user.getId()); 
 
             stmt.executeUpdate();
 
             stmt.close();
             conn.close();
-
-            return note;
+            
+            return findByUsernameAndDate(user, date);
             
         } catch (Throwable t) {
             return null;
         }
     
+    }
+    //TARKISTA TOIMIIKO
+    public Note findByUsernameAndDate(User user, LocalDate date){
+        String username = user.getUsername();        
+        Date sqlDate = Date.valueOf(date);
+        
+        try (Connection conn = database.getConnection()) {
+            
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Note, User WHERE User.username = ? AND Note.date = ?");
+            stmt.setString(1, username);
+            stmt.setDate(2, sqlDate);
+            
+            ResultSet rs = stmt.executeQuery();
+            boolean hasOne = rs.next();
+            if (!hasOne) {
+                return null;
+            }
+
+            Note n = new Note(rs.getDate("date").toLocalDate(), rs.getInt("km"), rs.getString("content"), user, rs.getInt("id"));
+
+            stmt.close();
+            conn.close();
+
+            return n;
+            
+        } catch (Throwable t) {
+            return null;
+        }
+        
     }
 
     @Override
@@ -61,33 +89,5 @@ public class SqlNoteDao implements NoteDao {
     public void remove(Note note) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public Integer getUserId(User user) {
-        try (Connection conn = database.getConnection()) {  
-            String username = user.getUsername();
-            
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE username = ?");
-            
-            stmt.setString(1, username);
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            boolean hasOne = rs.next();
-            if (!hasOne) {
-                return null;
-            }
-            
-            int id = rs.getInt("id");
-            
-            stmt.close();
-            conn.close();
-
-            return id;
-            
-        } catch (Throwable t) {
-            return null;
-        }
-    }
-   
+ 
 }

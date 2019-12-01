@@ -10,19 +10,19 @@ import java.util.Date;
 
 public class Note {
     
-    //id:tä tarvitaan equals-metodissa
-    //private int id;
     private LocalDate date;
     private int km;
     private String content;
     private User user;
+    private int id;
  
-    public Note(LocalDate date, int km, String content, User user) {
-        //this.id = id;
+    public Note(LocalDate date, int km, String content, User user, int id) {
+        
         this.date = date;
         this.km = km;
         this.content = content;
         this.user = user;
+        this.id = id;
     }
     
     public Note(int km, String content, User user) {
@@ -30,15 +30,10 @@ public class Note {
         this.content = content;
     }
     
-    /*
-    public void setId(int id) {
-        this.id = id;
-    }
-    
     public int getId() {
         return this.id;
     }
-    */    
+      
 
     public void setDate(LocalDate date) {
         this.date = date;
@@ -73,6 +68,10 @@ public class Note {
         return this.user;
     }
     
+    public String toString() {
+        return "Date: " + this.date + "\n" + "Kilometers: " + this.km + "\n" +
+               "Your notes: " + this.content;
+    }
     
     
     /*

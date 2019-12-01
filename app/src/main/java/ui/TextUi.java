@@ -3,9 +3,10 @@ package ui;
 
 import dao.Database;
 import dao.NoteDao;
-import dao.SqlNoteDao;
+import dao.SqlNoteDao; //OTA NÄMÄ KAKSI POIS
 import dao.SqlUserDao;
 import dao.UserDao;
+import domain.Note;
 import domain.NoteService;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,6 +15,8 @@ import java.io.InputStream;
 import java.sql.DriverManager;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Scanner;
@@ -34,10 +37,11 @@ public class TextUi {
         commands.put("x", "x: close the program"); 
         commands.put("1", "1: login");
         commands.put("2", "2: register as a new user");
-        commands.put("3", "3: add a new daily note");
+        commands.put("3", "3: add a new cycling note");
         //4: paljonko kilometrejä yhteensä
         //5: lista kaikista muistiinpanoista
-        commands.put("5", "5: logout");
+        commands.put("5", "5: list all cycling notes");
+        commands.put("6", "6: logout");
         return commands;
     }
     
@@ -63,13 +67,21 @@ public class TextUi {
                 createUser();
             } else if (command.equals("3")) {
                 createNote();
-            } else if (command.equals("5")) {
+            } else if (command.equals("6")) {
                 logout();
                 break;
             }
         }
     }
 
+    //JATKA TÄSTÄ
+    private void listAllNotes(){
+        List<Note> notes = noteService.getAll();
+        for (Note n : notes){
+            n.toString();
+        }
+    }
+    
     private void createNote() {
         System.out.print("Date (dd/mm/yyyy): ");
         String stringDate = scanner.nextLine();
@@ -77,12 +89,12 @@ public class TextUi {
         String stringKm = scanner.nextLine();
         int km = Integer.parseInt(stringKm);
         System.out.print("Your notes about the day: ");
-        String note = scanner.nextLine();
+        String content = scanner.nextLine();
         
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         LocalDate localDate = LocalDate.parse(stringDate, formatter);
 
-        noteService.createNote(localDate, km, note);
+        noteService.createNote(localDate, km, content);
         
     }
     

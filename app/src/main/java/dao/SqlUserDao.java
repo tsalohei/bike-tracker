@@ -14,19 +14,20 @@ public class SqlUserDao implements UserDao {
     }
   
     @Override    
-    public User create(User user) {
+    public User create(String name, String username) {
         try (Connection conn = database.getConnection()) {    
             PreparedStatement stmt = conn.prepareStatement("INSERT INTO User (name, username) VALUES (?,?)");
-            stmt.setString(1, user.getName());
-            stmt.setString(2, user.getUsername());
-            //stmt.setString(3, user.getPassword());
-
+            
+            stmt.setString(1, name);
+            stmt.setString(2, username);
+            //password
+            
             stmt.executeUpdate();
 
             stmt.close();
             conn.close();
 
-            return user;
+            return findByUsername(username);
             
         } catch (Throwable t) {
             return null;
@@ -48,7 +49,7 @@ public class SqlUserDao implements UserDao {
                 return null;
             }
             
-            User u = new User(rs.getString("name"), rs.getString("username"));
+            User u = new User(rs.getString("name"), rs.getString("username"), rs.getInt("id"));
 
             stmt.close();
             conn.close();
