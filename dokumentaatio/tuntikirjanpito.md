@@ -15,6 +15,8 @@
 | 27.11.|  2   | Note-luokan koodaamista |
 | 29.11.|  1   | Checkstyle:n käyttöönoton viimeistelyä, käyttäjä voi lisätä Noten |
 | 30.11.|  1   | Jar-tiedosto|
-| yht   |  38  | |
+| 1.12. |  1   | User-olion id:n käsittely järkevämmäksi|
+| 2.12. |  1   | Note-olion id:n käsittely järkevämmäksi|
+| yht   |  40  | |
 
   
