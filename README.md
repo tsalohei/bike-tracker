@@ -23,7 +23,7 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen kilometrie
 
 Suorita testit komennolla:
 
-mvn test
+	mvn test
 
 Luo testikattavuusraportti komennolla:
 
