@@ -39,7 +39,6 @@ public class TextUi {
         commands.put("2", "2: register as a new user");
         commands.put("3", "3: add a new cycling note");
         //4: paljonko kilometrejä yhteensä
-        //5: lista kaikista muistiinpanoista
         commands.put("5", "5: list all cycling notes");
         commands.put("6", "6: logout");
         return commands;
@@ -67,6 +66,8 @@ public class TextUi {
                 createUser();
             } else if (command.equals("3")) {
                 createNote();
+            } else if (command.equals("5")) {
+                listAllNotes();            
             } else if (command.equals("6")) {
                 logout();
                 break;
@@ -74,11 +75,11 @@ public class TextUi {
         }
     }
 
-    //JATKA TÄSTÄ
     private void listAllNotes(){
         List<Note> notes = noteService.getAll();
         for (Note n : notes){
-            n.toString();
+            System.out.println(n.toString());
+            System.out.println("***");
         }
     }
     
@@ -91,12 +92,14 @@ public class TextUi {
         System.out.print("Your notes about the day: ");
         String content = scanner.nextLine();
         
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate localDate = LocalDate.parse(stringDate, formatter);
 
         noteService.createNote(localDate, km, content);
         
     }
+    
+    
     
     private void printInstructions() {
         System.out.println("Choose one of the following commands:");

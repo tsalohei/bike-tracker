@@ -17,6 +17,7 @@
 | 30.11.|  1   | Jar-tiedosto|
 | 1.12. |  1   | User-olion id:n käsittely järkevämmäksi|
 | 2.12. |  1   | Note-olion id:n käsittely järkevämmäksi|
-| yht   |  40  | |
+| 3.12. |  1   | Koodattu metodi: käyttäjä näkee listan kaikista muistiinpanoista|
+| yht   |  41  | |
 
   

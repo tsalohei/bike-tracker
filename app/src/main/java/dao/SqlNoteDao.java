@@ -43,7 +43,7 @@ public class SqlNoteDao implements NoteDao {
         }
     
     }
-    //TARKISTA TOIMIIKO
+
     public Note findByUsernameAndDate(User user, LocalDate date){
         String username = user.getUsername();        
         Date sqlDate = Date.valueOf(date);
@@ -74,15 +74,35 @@ public class SqlNoteDao implements NoteDao {
     }
 
     @Override
-    public List<Note> getAll() {
+    public List<Note> getAll(User user) {
         List<Note> list = new ArrayList<>();
         
-        /*
-        userid = getUserId()
-        SELECT * FROM Note WHERE user = ?
-        */
+        int userId = user.getId();
         
-        return list;
+        try (Connection conn = database.getConnection()) {
+            
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Note WHERE user = ? ORDER BY date DESC");
+            stmt.setInt(1, userId);
+            
+            ResultSet rs = stmt.executeQuery();
+            boolean hasOne = rs.next();
+            if (!hasOne) {
+                return null;
+            }
+            
+            while(rs.next()) {
+                Note n = new Note(rs.getDate("date").toLocalDate(), rs.getInt("km"), rs.getString("content"), user, rs.getInt("id"));
+                list.add(n);
+            }
+            
+            stmt.close();
+            conn.close();
+
+            return list;
+            
+        } catch (Throwable t) {
+            return null;
+        }
     }
 
     @Override

@@ -12,7 +12,7 @@ public interface NoteDao {
     
     Note create(LocalDate date, int km, String content, User user) throws Exception;
     
-    List<Note> getAll();
+    List<Note> getAll(User user);
     
     void remove(Note note);
     

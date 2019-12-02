@@ -2,6 +2,8 @@ package domain;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Date;
 
 /**
@@ -25,11 +27,12 @@ public class Note {
         this.id = id;
     }
     
+    /*
     public Note(int km, String content, User user) {
         this.km = km;
         this.content = content;
     }
-    
+    */
     public int getId() {
         return this.id;
     }
@@ -68,9 +71,12 @@ public class Note {
         return this.user;
     }
     
+    @Override
     public String toString() {
-        return "Date: " + this.date + "\n" + "Kilometers: " + this.km + "\n" +
-               "Your notes: " + this.content;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        return "Date: " + this.date.format(formatter) + "\n" + "Kilometers: " + 
+                this.km + "\n" + "Your notes: " + this.content;
     }
     
     
