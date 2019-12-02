@@ -39,6 +39,7 @@ public class SqlNoteDao implements NoteDao {
             return findByUsernameAndDate(user, date);
             
         } catch (Throwable t) {
+            System.err.println("Ooops " + t);
             return null;
         }
     
@@ -68,6 +69,7 @@ public class SqlNoteDao implements NoteDao {
             return n;
             
         } catch (Throwable t) {
+            System.err.println("Ooops " + t);
             return null;
         }
         
@@ -85,24 +87,28 @@ public class SqlNoteDao implements NoteDao {
             stmt.setInt(1, userId);
             
             ResultSet rs = stmt.executeQuery();
+            
+            /* bugi bugi...
             boolean hasOne = rs.next();
             if (!hasOne) {
                 return null;
             }
+            */
             
             while(rs.next()) {
-                Note n = new Note(rs.getDate("date").toLocalDate(), rs.getInt("km"), rs.getString("content"), user, rs.getInt("id"));
+                Note n = new Note(rs.getDate("date").toLocalDate(), 
+                        rs.getInt("km"), rs.getString("content"), user, 
+                        rs.getInt("id"));
                 list.add(n);
             }
             
             stmt.close();
             conn.close();
-
-            return list;
-            
         } catch (Throwable t) {
-            return null;
+            System.err.println("Ooops " + t);            
         }
+       
+        return list;
     }
 
     @Override

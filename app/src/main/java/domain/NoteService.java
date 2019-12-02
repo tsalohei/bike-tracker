@@ -32,13 +32,7 @@ public class NoteService {
     
     //kirjautuneen käyttäjän kaikki pyöräilymerkinnät
     public List<Note> getAll() {
-        return noteDao.getAll(currentUser);
-        /*
-        return noteDao.getAll()
-            .stream()
-            .filter(n->n.getUser().equals(currentUser))
-            .collect(Collectors.toList());
-        */    
+        return noteDao.getAll(currentUser);   
     }
     
     

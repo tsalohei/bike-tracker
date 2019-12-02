@@ -20,7 +20,6 @@ public class SqlUserDao implements UserDao {
             
             stmt.setString(1, name);
             stmt.setString(2, username);
-            //password
             
             stmt.executeUpdate();
 
@@ -61,10 +60,5 @@ public class SqlUserDao implements UserDao {
         }
         
     }
-    /*
-    @Override
-    public List<User> getAll() {
-        return null;
-    }
-    */
+    
 }

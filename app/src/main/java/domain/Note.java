@@ -27,12 +27,6 @@ public class Note {
         this.id = id;
     }
     
-    /*
-    public Note(int km, String content, User user) {
-        this.km = km;
-        this.content = content;
-    }
-    */
     public int getId() {
         return this.id;
     }

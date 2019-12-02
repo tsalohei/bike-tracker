@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dao;
 
 import domain.User;
@@ -18,10 +14,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- *
- * @author taru
- */
+
 public class SqlUserDaoTest {
     
     Database database;
@@ -33,12 +26,9 @@ public class SqlUserDaoTest {
         Connection connection = database.getConnection();
         database.createTables();
         
-        //testikäyttäjän tietojen tallentaminen tietokantaan
-        
         PreparedStatement stmt = connection.prepareStatement("INSERT INTO User (name, username) VALUES (?,?)");
             stmt.setString(1, "Cynthia Cyclist");
             stmt.setString(2, "cycy");
-            //stmt.setString(3, "123");
 
             stmt.executeUpdate();
 
@@ -68,21 +58,12 @@ public class SqlUserDaoTest {
     
     @Test 
     public void newUserIsFound() {
-        User user1 = new User("Jill Homer", "jill");        
-        dao.create(user1);
+        dao.create("Jill Homer", "jill");
         
-        User user2 = dao.findByUsername("jill");
+        User user = dao.findByUsername("jill");
         
-        assertEquals("Jill Homer", user2.getName());
-        assertEquals("jill", user2.getUsername());
+        assertEquals("Jill Homer", user.getName());
+        assertEquals("jill", user.getUsername());
     }
     
-    
-    @Test
-    public void creatingNewUserWorks() {
-        User user = new User("Jill Homer", "jill");        
-        dao.create(user);
-    }
-    
-    //eri testi: jos hakee usernamella jota ei ole olemassa (pos & neg)
 }

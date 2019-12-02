@@ -3,6 +3,7 @@ package domain;
 import dao.NoteDao;
 import dao.UserDao;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +30,6 @@ public class NoteServiceUserTest {
         noteService = new NoteService(noteDao, userDao);
     }
     
-    //logout
     
     @Test
     public void creatingNewUserWithNewUsernameWorks(){
@@ -43,7 +43,7 @@ public class NoteServiceUserTest {
     
     @Test
     public void creatingNewUserWithTakenUsernameReturnsFalse(){  
-        User user = new User("name", "username");
+        User user = new User("name", "username", 123);
         when(userDao.findByUsername("username")).thenReturn(user);
         
         noteService.createUser("name", "username");
@@ -52,15 +52,17 @@ public class NoteServiceUserTest {
     
     /*
     @Test
-    public void creatingNewUserButDatabaseThrowsException(){
+    public void creatingNewUserDoesNotWorkWhenDatabaseThrowsException(){
         
     }
     */
     
+    
+    
     @Test
     public void loggingOutWorks(){
         
-        User user = new User("name", "username");
+        User user = new User("name", "username", 123);
         when(userDao.findByUsername("username")).thenReturn(user);
         
         noteService.login("username");
@@ -72,12 +74,23 @@ public class NoteServiceUserTest {
     @Test
     public void loginWithExistingUsernameWorks() {
         
-        User user = new User("name", "username");
+        User user = new User("name", "username", 123);
         when(userDao.findByUsername("username")).thenReturn(user);
         
         assertTrue(noteService.login("username"));        
         assertEquals(user, noteService.getLoggedUser());
         
     }
+    
+    
+    @Test 
+    public void loginWithNonExistingUsernameDoesNotWork() {
+        
+        when(userDao.findByUsername("abcd")).thenReturn(null);
+        
+        assertFalse(noteService.login("abcd"));
+    }
+
+
     
 }
