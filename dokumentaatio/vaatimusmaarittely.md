@@ -19,7 +19,7 @@ Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Käytt
   - järjestelmä antaa virheilmoituksen jos syötettyä käyttäjätunnusta ei olekaan olemassa 
 
 ### Kirjautumisen jälkeen
-- käyttäjä näkee kuinka monta kilometriä hän on pyöräillyt kokonaisuudessaan
+- käyttäjä näkee kuinka monta kilometriä hän on pyöräillyt kokonaisuudessaan (tehty)
 - käyttäjä näkee listan päiväkohtaisista kilometrisaldoista ja niihin liittyvistä muistiinpanoista (tehty)
 - käyttäjä voi lisätä päiväkohtaisen merkinnän (tehty)
   - yhdellä kalenteripäivällä voi olla 1 merkintä, tai ei yhtään merkintää
