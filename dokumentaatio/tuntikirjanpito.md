@@ -19,7 +19,7 @@
 | 2.12. |  1   | Note-olion id:n käsittely järkevämmäksi|
 | 2.12. |  1   | Koodattu metodi: käyttäjä näkee listan kaikista muistiinpanoista|
 | 2.12. |  4   | Note-olioon liittyviä testejä|
-| 3.12. |  3   | 1 uusi testi, kilometrisaldon näyttäminen käyttäjälle, sekvenssikaavio sisäänkirjautumisesta|
-| yht   |  48  | |
+| 3.12. |  4   | testejä, kilometrisaldon näyttäminen, 1. sekvenssikaavio, 1. release|
+| yht   |  49  | |
 
   
