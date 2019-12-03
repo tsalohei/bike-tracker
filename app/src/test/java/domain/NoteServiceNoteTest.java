@@ -2,6 +2,7 @@ package domain;
 
 import dao.NoteDao;
 import dao.UserDao;
+import java.time.LocalDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -23,22 +24,29 @@ public class NoteServiceNoteTest {
     UserDao userDao;
     
     NoteService noteService;
+    User user;
+    Note note;
     
     @Before
     public void setup() {
-        noteService = new NoteService(noteDao, userDao);
+        this.noteService = new NoteService(noteDao, userDao);
+        this.user = this.userDao.create("Cynthia Cyclist", "cycy");
     }
     
-    /*
+    
     @Test
-    public void testi(){
+    public void creatingNewNoteForLoggedUserWorks() throws Exception{
         
+        LocalDate date = LocalDate.now();
+        Note note = new Note(date, 22, "foo", user, 1);
         
-        //when().thenReturn();
-        //assertEquals(true, );
+        when(noteDao.create(date, 22, "foo", user)).thenReturn(note);
         
-    }
-*/
+        assertEquals(true, noteService.createNote(date, 22, "foo"));
 
+    }
+   
+    
+    
     
 }

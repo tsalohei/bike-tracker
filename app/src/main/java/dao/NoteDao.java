@@ -14,6 +14,8 @@ public interface NoteDao {
     
     List<Note> getAll(User user);
     
+    int kmTotal(User user);
+    
     void remove(Note note);
     
 }

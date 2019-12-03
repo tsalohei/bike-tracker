@@ -26,12 +26,18 @@ public class NoteService {
     
     //NOTE-METODIT
     
-    //tarkista kilometrisaldo (kokonaisuudessaan)
+    //tarkista kilometrisaldo total
     //päiväkirjamerkinnän poistaminen
-    //päiväkirjamerkinnän muokkaaminen
+    
+    public int kmTotal(){
+        return noteDao.kmTotal(currentUser);
+    }
     
     //kirjautuneen käyttäjän kaikki pyöräilymerkinnät
     public List<Note> getAll() {
+        //if noteDao.getAll(currentUser).size() == 0
+        //lista on tyhjä, tee jotain. Tässä vai ui:n puolella?
+        
         return noteDao.getAll(currentUser);   
     }
     

@@ -38,7 +38,7 @@ public class TextUi {
         commands.put("1", "1: login");
         commands.put("2", "2: register as a new user");
         commands.put("3", "3: add a new cycling note");
-        //4: paljonko kilometrejä yhteensä
+        commands.put("4", "4: total kilometer count");
         commands.put("5", "5: list all cycling notes");
         commands.put("6", "6: logout");
         return commands;
@@ -66,6 +66,8 @@ public class TextUi {
                 createUser();
             } else if (command.equals("3")) {
                 createNote();
+            } else if (command.equals("4")) {
+                kmTotal();
             } else if (command.equals("5")) {
                 listAllNotes();            
             } else if (command.equals("6")) {
@@ -75,6 +77,11 @@ public class TextUi {
         }
     }
 
+    private void kmTotal() {
+        int total = noteService.kmTotal();
+        System.out.println(total);
+    }
+    
     private void listAllNotes(){
         List<Note> notes = noteService.getAll();
         for (Note n : notes){

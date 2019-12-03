@@ -27,7 +27,7 @@ public class NoteServiceUserTest {
     
     @Before
     public void setup() {
-        noteService = new NoteService(noteDao, userDao);
+        this.noteService = new NoteService(noteDao, userDao);
     }
     
     
@@ -57,7 +57,7 @@ public class NoteServiceUserTest {
     }
     */
     
-    
+    //creatingNewUserFailsIfUsernameNotUnique
     
     @Test
     public void loggingOutWorks(){
