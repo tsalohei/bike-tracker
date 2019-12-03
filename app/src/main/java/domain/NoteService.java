@@ -29,7 +29,7 @@ public class NoteService {
     //tarkista kilometrisaldo total
     //päiväkirjamerkinnän poistaminen
     
-    public int kmTotal(){
+    public int kmTotal() {
         return noteDao.kmTotal(currentUser);
     }
     
