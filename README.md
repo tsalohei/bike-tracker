@@ -23,11 +23,11 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen kilometrie
 
 ### Testit
 
-Suorita testit komennolla:
+Suorita testit ollessasi hakemistossa app  komennolla:
 
 	mvn test
 
-Luo testikattavuusraportti komennolla:
+Luo testikattavuusraportti ollessasi hakemistossa app komennolla:
 
 	mvn test jacoco:report
 
@@ -35,7 +35,7 @@ Raporttia pääsee katsomaan, kun avaa selaimessa hakemistosta app/target/site/j
 
 ### Jar-tiedoston luominen
 
-Luo suoritettava jar-tiedosto komennolla:
+Luo suoritettava jar-tiedosto ollessasi hakemistossa app komennolla:
 
 	mvn package
 
@@ -43,7 +43,7 @@ minkä jälkeen hakemistosta _target_ löytyy suoritettava jar-tiedosto nimeltä
 
 ### Checkstyle
 
-Suorita tiedostoon [checkstyle.xml](https://github.com/tsalohei/bike-tracker/blob/master/app/checkstyle.xml)  määritellyt tarkistukset komennolla: 
+Suorita tiedostoon [checkstyle.xml](https://github.com/tsalohei/bike-tracker/blob/master/app/checkstyle.xml)  määritellyt tarkistukset ollessasi hakemistossa app komennolla: 
 
 	mvn jxr:jxr checkstyle:checkstyle
 
