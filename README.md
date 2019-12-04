@@ -17,6 +17,8 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen kilometrie
 
 ## Releaset
 
+[Viikko 5](https://github.com/tsalohei/bike-tracker/releases)
+
 ## Käskyt komentoriviltä
 
 ### Testit
@@ -37,7 +39,7 @@ Luo suoritettava jar-tiedosto komennolla:
 
 	mvn package
 
-minkä jälkeen hakemistosta _target_ löytyy suoritettava jar-tiedosto nimeltä app-1.0-SNAPSHOT.jar
+minkä jälkeen hakemistosta _target_ löytyy suoritettava jar-tiedosto nimeltä bike-tracker-1.0-SNAPSHOT.jar
 
 ### Checkstyle
 
