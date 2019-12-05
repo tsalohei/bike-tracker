@@ -20,6 +20,8 @@
 | 2.12. |  1   | Koodattu metodi: käyttäjä näkee listan kaikista muistiinpanoista|
 | 2.12. |  4   | Note-olioon liittyviä testejä|
 | 3.12. |  4   | testejä, kilometrisaldon näyttäminen, 1. sekvenssikaavio, 1. release|
-| yht   |  49  | |
+| 4.12. |  2   | hakemiston uudelleenjärjestelyä, uusia metodeita|
+| 5.12. |  6   | uusia metodeita, uusia testejä|
+| yht   |  57  | |
 
   
