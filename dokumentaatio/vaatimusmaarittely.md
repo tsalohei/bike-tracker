@@ -21,10 +21,9 @@ Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Käytt
 ### Kirjautumisen jälkeen
 - käyttäjä näkee kuinka monta kilometriä hän on pyöräillyt kokonaisuudessaan (tehty)
 - käyttäjä näkee listan päiväkohtaisista kilometrisaldoista ja niihin liittyvistä muistiinpanoista (tehty)
-- käyttäjä voi lisätä päiväkohtaisen merkinnän (tehty)
-  - yhdellä kalenteripäivällä voi olla 1 merkintä, tai ei yhtään merkintää
-  - päiväkohtaisen kilometrisaldon tulee olla 1-500 kilometriä
-  - muistiinpano voi olla 0-200 merkkiä pitkä
+- käyttäjä voi lisätä päiväkohtaisen merkinnän (yhteen päivään voi liittyä yksi tai ei yhtään merkintää) (tehty)
+  - päiväkohtaisen kilometrisaldon tulee olla 1-500 kilometriä (tehty)
+  - muistiinpano voi olla 1-200 merkkiä pitkä (tehty)
 - käyttäjä voi poistaa päiväkohtaisen merkinnän (tehty)
 - käyttäjä voi kirjautua ulos järjestelmästä (tehty)
 

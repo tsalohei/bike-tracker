@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.sql.DriverManager;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -52,13 +53,10 @@ public class TextUi {
             System.out.println();
             System.out.print("Command: ");
             String command = scanner.nextLine();
-            
-            //komentojen käsittely omaksi metodikseen?
             if (!commands.keySet().contains(command)) {
                 System.out.println("Command was not recognized");
                 printInstructions();
             }
-            
             if (command.equals("x")) {
                 break;
             } else if (command.equals("1")) {
@@ -82,12 +80,18 @@ public class TextUi {
 
     private void deleteNote() {
         System.out.println("Which day's note would you like to remove?");
-        System.out.print("Date (dd/mm/yyyy): ");
-        String stringDate = scanner.nextLine();
-        LocalDate localDate = formatStringDateToLocalDate(stringDate);
+        
+        LocalDate localDate = null;
+        while (localDate == null) {
+            System.out.print("Date (dd/mm/yyyy): ");
+            String stringDate = scanner.nextLine();
+        
+            localDate = formatStringDateToLocalDate(stringDate);
+        }
+        
         boolean result = noteService.deleteNote(localDate);
         if (result == false) {
-            System.out.println("You have no cycling note with this date");
+            System.out.println("You don't have a cycling note with this date");
         } else {
             System.out.println("The note has been deleted");
         }
@@ -110,25 +114,64 @@ public class TextUi {
         }
     }
     
-    private void createNote() {
-        System.out.print("Date (dd/mm/yyyy): ");
-        String stringDate = scanner.nextLine();
-        System.out.print("Kilometers: ");
-        String stringKm = scanner.nextLine();
-        int km = Integer.parseInt(stringKm);
-        System.out.print("Your notes about the day: ");
-        String content = scanner.nextLine();
+    private void createNote() {        
+        LocalDate localDate = null;
+        while (localDate == null) {
+            System.out.print("Date (dd/mm/yyyy): ");
+            String stringDate = scanner.nextLine();
         
-        LocalDate localDate = formatStringDateToLocalDate(stringDate);
+            localDate = formatStringDateToLocalDate(stringDate);
+        }
+        
+        Integer km = null;
+        while (km == null) {
+            System.out.print("Kilometers: ");
+            String stringKm = scanner.nextLine();
+            km = validateKmInput(stringKm);
+        }
+        
+        String content = null;
+        while (content == null) {
+            System.out.print("Your notes about the day: ");
+            content = scanner.nextLine();
+            if (content.length() <= 1 || content.length() > 200) {
+                System.out.println("Invalid, note has to be within 1 and 200 characters");
+                content = null;
+            }
+        }
         
         noteService.createNote(localDate, km, content);
         
     }
     
+    
+    public Integer validateKmInput(String stringKm) {
+        try {
+            int km = Integer.parseInt(stringKm);
+            
+            if (km < 1 || km > 500) {
+                System.out.println("Invalid, daily kilometers need to be within 1 and 500.");
+                return null;
+            }
+            
+            return km;
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid format for kilometers! Use numbers.");
+        }
+        return null;
+    }
+    
+    
     public LocalDate formatStringDateToLocalDate(String stringDate) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate localDate = LocalDate.parse(stringDate, formatter);
-        return localDate;
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate localDate = LocalDate.parse(stringDate, formatter);
+            return localDate;
+        } catch (DateTimeParseException e) {
+            System.out.println("Invalid date format!");
+        }
+        
+        return null;
     }
     
     private void printInstructions() {

@@ -22,6 +22,7 @@
 | 3.12. |  4   | testejä, kilometrisaldon näyttäminen, 1. sekvenssikaavio, 1. release|
 | 4.12. |  2   | hakemiston uudelleenjärjestelyä, uusia metodeita|
 | 5.12. |  6   | uusia metodeita, uusia testejä|
-| yht   |  57  | |
+| 5.12. |  2   | käyttäjän antaman syötteen validointia|
+| yht   |  59  | |
 
   
