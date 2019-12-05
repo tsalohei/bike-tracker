@@ -25,7 +25,7 @@ Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Käytt
   - yhdellä kalenteripäivällä voi olla 1 merkintä, tai ei yhtään merkintää
   - päiväkohtaisen kilometrisaldon tulee olla 1-500 kilometriä
   - muistiinpano voi olla 0-200 merkkiä pitkä
-- käyttäjä voi poistaa päiväkohtaisen merkinnän
+- käyttäjä voi poistaa päiväkohtaisen merkinnän (tehty)
 - käyttäjä voi kirjautua ulos järjestelmästä (tehty)
 
 ## Sovelluksen jatkokehitys
