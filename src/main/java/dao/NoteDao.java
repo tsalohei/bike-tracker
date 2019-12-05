@@ -16,6 +16,6 @@ public interface NoteDao {
     
     int kmTotal(User user);
     
-    void remove(Note note);
+    void deleteNote(LocalDate date, User user);
     
 }

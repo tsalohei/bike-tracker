@@ -72,17 +72,4 @@ public class Note {
         return "Date: " + this.date.format(formatter) + "\n" + "Kilometers: " + 
                 this.km + "\n" + "Your notes: " + this.content;
     }
-    
-    
-    /*
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Note)) {
-            return false;
-        }
-        Note other = (Note) obj;
-        return id == other.id;
-    }
-    */
-
 }

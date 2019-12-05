@@ -40,7 +40,8 @@ public class TextUi {
         commands.put("3", "3: add a new cycling note");
         commands.put("4", "4: total kilometer count");
         commands.put("5", "5: list all cycling notes");
-        commands.put("6", "6: logout");
+        commands.put("6", "6: delete note by date");
+        commands.put("7", "7: logout");
         return commands;
     }
     
@@ -69,14 +70,29 @@ public class TextUi {
             } else if (command.equals("4")) {
                 kmTotal();
             } else if (command.equals("5")) {
-                listAllNotes();            
+                listAllNotes();         
             } else if (command.equals("6")) {
+                deleteNote();
+            } else if (command.equals("7")) {
                 logout();
                 break;
             }
         }
     }
 
+    private void deleteNote() {
+        System.out.println("Which day's note would you like to remove?");
+        System.out.print("Date (dd/mm/yyyy): ");
+        String stringDate = scanner.nextLine();
+        LocalDate localDate = formatStringDateToLocalDate(stringDate);
+        boolean result = noteService.deleteNote(localDate);
+        if (result == false) {
+            System.out.println("You have no cycling note with this date");
+        } else {
+            System.out.println("The note has been deleted");
+        }
+    }
+    
     private void kmTotal() {
         int total = noteService.kmTotal();
         System.out.println(total);
@@ -84,9 +100,13 @@ public class TextUi {
     
     private void listAllNotes(){
         List<Note> notes = noteService.getAll();
-        for (Note n : notes){
-            System.out.println(n.toString());
-            System.out.println("***");
+        if (notes.size() == 0) {
+            System.out.println("You have no cycling notes yet.");
+        } else {
+            for (Note n : notes){
+                System.out.println(n.toString());
+                System.out.println("***");
+            }
         }
     }
     
@@ -99,14 +119,17 @@ public class TextUi {
         System.out.print("Your notes about the day: ");
         String content = scanner.nextLine();
         
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate localDate = LocalDate.parse(stringDate, formatter);
-
+        LocalDate localDate = formatStringDateToLocalDate(stringDate);
+        
         noteService.createNote(localDate, km, content);
         
     }
     
-    
+    public LocalDate formatStringDateToLocalDate(String stringDate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate localDate = LocalDate.parse(stringDate, formatter);
+        return localDate;
+    }
     
     private void printInstructions() {
         System.out.println("Choose one of the following commands:");

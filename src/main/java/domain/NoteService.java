@@ -26,8 +26,21 @@ public class NoteService {
     
     //NOTE-METODIT
     
-    //tarkista kilometrisaldo total
     //päiväkirjamerkinnän poistaminen
+    
+    public boolean deleteNote(LocalDate date) {
+        List<Note> list = noteDao.getAll(currentUser);
+        boolean result = false;
+        for (Note note : list) {
+            if (note.getDate().equals(date)) {
+                result = true;
+            }
+        }
+        if (result == true) {
+            this.noteDao.deleteNote(date, currentUser);
+        } 
+        return result;
+    }
     
     public int kmTotal() {
         return noteDao.kmTotal(currentUser);
@@ -35,9 +48,6 @@ public class NoteService {
     
     //kirjautuneen käyttäjän kaikki pyöräilymerkinnät
     public List<Note> getAll() {
-        //if noteDao.getAll(currentUser).size() == 0
-        //lista on tyhjä, tee jotain. Tässä vai ui:n puolella?
-        
         return noteDao.getAll(currentUser);   
     }
     

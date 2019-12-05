@@ -57,7 +57,6 @@ public class NoteServiceUserTest {
     }
     */
     
-    //creatingNewUserFailsIfUsernameNotUnique
     
     @Test
     public void loggingOutWorks(){

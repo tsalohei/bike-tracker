@@ -53,5 +53,30 @@ public class SqlNoteDaoTest {
         assertEquals(1, list.size());
     }
     
-    //public void listingNotesForNonExistingUserDoesNotWork
+    /*
+    @Test
+    public void listingNotesForNonExistingUserDoesNotWork() {
+    }
+    */
+    
+    @Test
+    public void totalKmCountIsReadCorrectlyFromDatabaseWhenThereAreNotes() throws Exception {
+        this.noteDao.create(LocalDate.now(), 12, "foo", user);
+        
+        int result = this.noteDao.kmTotal(this.user);
+        assertEquals(12, result);
+    }
+    
+    @Test
+    public void totalKmCountIsReadCorrectlyFromDatabaseWhenThereAreNoNotes() throws Exception {
+        int result = this.noteDao.kmTotal(this.user);
+        assertEquals(0, result);
+    }
+    
+    /*
+    @Test
+    public void noteIsDeletedCorrectly() {
+        
+    }
+    */
 }

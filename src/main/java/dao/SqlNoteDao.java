@@ -127,12 +127,28 @@ public class SqlNoteDao implements NoteDao {
     
         return tulos;
     }
-    
-    @Override
-    public void remove(Note note) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
+    @Override
+    public void deleteNote(LocalDate date, User user) {
+        int userId = user.getId();
+        Date sqlDate = Date.valueOf(date);
+        
+        try (Connection conn = database.getConnection()) {
+            
+            PreparedStatement stmt = conn.prepareStatement("DELETE FROM Note WHERE user = ? AND date = ?");
+            stmt.setInt(1, userId);
+            stmt.setDate(2, sqlDate);
+            
+            stmt.executeUpdate();
+   
+            stmt.close();
+            conn.close();
+        } catch (Throwable t) {
+            System.err.println("Error: " + t);            
+        }
+        
+    }
+    
     
  
 }
