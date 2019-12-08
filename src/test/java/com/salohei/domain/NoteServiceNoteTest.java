@@ -1,19 +1,16 @@
-package domain;
+package com.salohei.domain;
 
 
-import dao.NoteDao;
-import dao.UserDao;
+import com.salohei.dao.NoteDao;
+import com.salohei.dao.UserDao;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.MockitoJUnitRunner;
 

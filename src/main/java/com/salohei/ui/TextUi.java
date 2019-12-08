@@ -1,22 +1,17 @@
-package ui;
+package com.salohei.ui;
 
 
-import dao.Database;
-import dao.NoteDao;
-import dao.SqlNoteDao; //OTA NÄMÄ KAKSI POIS
-import dao.SqlUserDao;
-import dao.UserDao;
-import domain.Note;
-import domain.NoteService;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import com.salohei.dao.Database;
+import com.salohei.dao.NoteDao;
+import com.salohei.dao.SqlNoteDao; //OTA NÄMÄ KAKSI POIS
+import com.salohei.dao.SqlUserDao;
+import com.salohei.dao.UserDao;
+import com.salohei.domain.Note;
+import com.salohei.domain.NoteService;
 import java.io.InputStream;
-import java.sql.DriverManager;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;

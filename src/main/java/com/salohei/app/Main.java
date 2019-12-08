@@ -1,6 +1,7 @@
+package com.salohei.app;
 
-import java.util.Scanner;
-import ui.TextUi;
+
+import com.salohei.ui.TextUi;
 
 public class Main {
     public static void main(String[] args) throws Exception {

@@ -1,9 +1,9 @@
 
 
-package dao;
+package com.salohei.dao;
 
-import domain.Note;
-import domain.User;
+import com.salohei.domain.Note;
+import com.salohei.domain.User;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;

@@ -1,6 +1,6 @@
-package dao;
+package com.salohei.dao;
 
-import domain.User;
+import com.salohei.domain.User;
 import java.sql.*;
 import java.util.List;
 

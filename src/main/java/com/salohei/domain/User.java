@@ -1,4 +1,4 @@
-package domain;
+package com.salohei.domain;
 
 /**
  * Käyttäjää edustava luokka
