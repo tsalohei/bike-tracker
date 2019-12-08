@@ -14,6 +14,9 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Luokka...
+ */
 public class SqlNoteDaoTest {
     
     Database database;

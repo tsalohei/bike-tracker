@@ -3,6 +3,9 @@ package com.salohei.dao;
 
 import java.sql.*;
 
+/** 
+ * Luokka luo tietokannan sovellukselle ja tallentaa sen parametrina annettuun osoitteeseen.
+ */ 
 public class Database {
 
     private String databaseAddress;
@@ -10,13 +13,23 @@ public class Database {
     public Database(String databaseAddress) throws ClassNotFoundException {
         this.databaseAddress = databaseAddress;
     }
-    
-    //avataan tietokantayhteys olemassaolevaan tietokantaan
+  
+    /**
+     * Metodi luo yhteyden tietokantaan.
+     * 
+     * @see java.sql.DriverManager#getConnection(String url)
+     * 
+     * @return yhteys tietokantaan
+     * 
+     * @throws SQLException 
+     */
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(databaseAddress);
     }
     
-    //luodaan tietokantaan tietokantataulut (ensimmäisellä kerralla)
+    /**
+     * Metodi luo tietokantaan tietokantataulut.
+     */
     public void createTables() {
         String userTable = "CREATE TABLE IF NOT EXISTS User (\n"
             +   "id integer PRIMARY KEY,\n"

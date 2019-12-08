@@ -9,10 +9,8 @@ import java.util.stream.Collectors;
 
 
 /**
- * Sovelluslogiikasta vastaava luokka
+ * Sovelluslogiikasta vastaava luokka. 
  */
-
-
 public class NoteService {
     private NoteDao noteDao;
     private UserDao userDao;
@@ -24,10 +22,14 @@ public class NoteService {
     }
     
     
-    //NOTE-METODIT
-    
-    //päiväkirjamerkinnän poistaminen
-    
+    /**
+     * Metodi poistaa muistiinpanon nykyisen käyttäjän antamalta
+     * päivämäärältä.
+     * 
+     * @param date Nykyisen käyttäjän antama päivämäärä
+     * @return palautetaan true jos muistiinpanon poistaminen onnistui,
+     * muuten palautetaan false
+     */
     public boolean deleteNote(LocalDate date) {
         List<Note> list = noteDao.getAll(currentUser);
         boolean result = false;
@@ -41,18 +43,35 @@ public class NoteService {
         } 
         return result;
     }
+
+    /**
+     * Metodi palauttaa nykyisen käyttäjän kokonaiskilometrit.
+     * 
+     * @return pyöräillyt kilometrit yhteensä, tai 0 jos ei kilometreja
+     */
     
     public int kmTotal() {
         return noteDao.kmTotal(currentUser);
     }
     
-    //kirjautuneen käyttäjän kaikki pyöräilymerkinnät
+    /**
+     * Metodi palauttaa nykyisen käyttäjän kaikki muistiinpanot.
+     * 
+     * @return lista muistiinpanoista, tai tyhjä lista jos muistiinpanoja ei ole
+     */
     public List<Note> getAll() {
         return noteDao.getAll(currentUser);   
     }
     
-    
-    //uusi päiväkirjamerkintä kirjautuneelle käyttäjälle
+    /**
+     * Metodi luo uuden muistiinpanon nykyiselle käyttäjälle
+     * 
+     * @param date Muistiinpanon päivämäärä
+     * @param km kuinka monta kilometria muistiinpanoon liittyy
+     * @param content Teksti, joka halutaan liittää osaksi muistiinpanoa
+     * 
+     * @return true jos muistiinpanon luominen onnistuu, false jos ei onnistu
+     */
     public boolean createNote(LocalDate date, int km, String content) {
         
         try {
@@ -63,8 +82,13 @@ public class NoteService {
         }
     }
     
-    //käyttäjän sisäänkirjautuminen
-    
+    /**
+     * Metodin avulla käyttäjä, jolla on jo käyttäjätunnus, kirjautuu sisään
+     * 
+     * @param username Käyttäjänimi
+     * 
+     * @return true jos sisäänkirjautuminen onnistuu, false jos ei onnistu 
+     */
     public boolean login(String username) {
         User user = userDao.findByUsername(username);
         if (user == null) {
@@ -74,13 +98,21 @@ public class NoteService {
         return true;
     }
     
-    //uloskirjautuminen
-    
+    /**
+     * Metodi kirjaa nykyisen käyttäjän ulos ohjelmasta
+     */
     public void logout() {
         currentUser = null;
     }
     
-    //uusi käyttäjä
+    /**
+     * Metodi luo uuden käyttäjän.
+     * 
+     * @param name Käyttäjän nimi
+     * @param username Käyttäjän käyttäjänimi
+     * 
+     * @return true jos käyttäjän luominen onnistuu, false jos ei onnistu 
+     */
     public boolean createUser(String name, String username) {
         if (userDao.findByUsername(username) != null) {
             return false;
@@ -93,8 +125,11 @@ public class NoteService {
         return true;
     }
 
-    //kirjautunut käyttäjä
-    
+    /**
+     * Metodi palauttaa nykyisen käyttäjän.
+     * 
+     * @return nykyinen käyttäjä 
+     */
     public User getLoggedUser() {
         return currentUser;
     }

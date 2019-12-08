@@ -10,7 +10,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Luokka vastaa käyttäjän muistiinpanojen käsittelystä ja tietojen 
+ * tallentamisesta SQL-tietokantaan.
+ */
 public class SqlNoteDao implements NoteDao {
     
     private Database database;
@@ -19,7 +22,18 @@ public class SqlNoteDao implements NoteDao {
         this.database = database;
     }
 
-    
+    /**
+     * Metodi luo muistiinpanon, joka vastaa parametreina saatuja tietoja.
+     * 
+     * @param date Muistiinpanon päivämäärä
+     * @param km Kuinka monta kilometria muistiinpanoon liittyy
+     * @param content Teksti, joka halutaan liittää osaksi muistiinpanoa
+     * @param user Käyttäjä, johon muistiinpano liittyy
+     * 
+     * @return Luotu muistiinpano, tai null jos luominen ei onnistu
+     * 
+     * @throws Exception 
+     */
     @Override
     public Note create(LocalDate date, int km, String content, User user) throws Exception {
         
@@ -44,6 +58,16 @@ public class SqlNoteDao implements NoteDao {
     
     }
 
+    /**
+     * Metodi hakee tietokannasta tietokannan luoman tunnisteen (id) 
+     * muistiinpanolle ja palauttaa näitä tietoja vastaavan muistiinpanon.
+     * 
+     * @param user Käyttäjä, joka on luonut muistiinpanon
+     * @param date Päivämäärä, jolle muistiinpano on luotu
+     * 
+     * @return Luotu muistiinpano, tai null jos muistiinpanon luominen
+     * ei onnistu
+     */
     public Note findByUsernameAndDate(User user, LocalDate date) {
         String username = user.getUsername();        
         
@@ -71,7 +95,14 @@ public class SqlNoteDao implements NoteDao {
         }
         
     }
-
+    
+    /**
+     * Metodi palauttaa kaikki käyttäjään liittyvät muistiinpanot.
+     * 
+     * @param user Käyttäjä, johon muistiinpanot liittyvät
+     * 
+     * @return lista muistiinpanoista, tai tyhjä lista jos muistiinpanoja ei ole
+     */
     @Override
     public List<Note> getAll(User user) {
         List<Note> list = new ArrayList<>();
@@ -101,6 +132,13 @@ public class SqlNoteDao implements NoteDao {
         return list;
     }
 
+    /**
+    * Metodi palauttaa käyttäjän kokonaiskilometrit.
+    * 
+    * @param user Käyttäjä
+    * 
+    * @return pyöräillyt kilometrit yhteensä, tai 0 jos ei kilometreja
+    */
     @Override
     public int kmTotal(User user) {
         int userId = user.getId();
@@ -126,6 +164,12 @@ public class SqlNoteDao implements NoteDao {
         return tulos;
     }
 
+    /**
+     * Metodi poistaa muistiinpanon pyydetyltä päivämäärältä.
+     * 
+     * @param date Käyttäjän antama päivämäärä
+     * @param user Käyttäjä
+     */
     @Override
     public void deleteNote(LocalDate date, User user) {
         int userId = user.getId();

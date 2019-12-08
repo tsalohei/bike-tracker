@@ -197,12 +197,23 @@ public class TextUi {
         noteService.createUser(name, username);
     
     }
-    
+    /**
+     * Metodi käynnistää käyttöliittymän
+     * @param args
+     * @throws Exception 
+     */
     public static void main(String[] args) throws Exception {
         TextUi ui = new TextUi();
         ui.init();  
     }
     
+    /**
+     * Metodi hakee config.properties-nimisestä tiedostosta tiedon siitä, mihin
+     * osoitteeseen tietokanta luodaan, alustaa tietokannan, ja luo 
+     * sovelluslogiikasta vastaavan NoteService-olion.
+     * 
+     * @throws Exception 
+     */
     private void init() throws Exception {
         Properties properties = new Properties();
         InputStream cpResource = this.getClass().getClassLoader().getResourceAsStream("config.properties");

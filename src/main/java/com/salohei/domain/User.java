@@ -1,10 +1,8 @@
 package com.salohei.domain;
 
 /**
- * Käyttäjää edustava luokka
+ * Luokka edustaa käyttäjää.
  */
-
-
 public class User {
     private String name;
     private String username;
@@ -23,7 +21,6 @@ public class User {
     public String getUsername() {
         return username;
     }    
-    
     
     public int getId() {
         return this.id;

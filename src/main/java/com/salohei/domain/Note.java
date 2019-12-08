@@ -8,9 +8,8 @@ import java.time.format.FormatStyle;
 import java.util.Date;
 
 /**
- * Päiväkohtaista muistiinpanoa edustava luokka
+ * Luokka edustaa päiväkohtaista muistiinpanoa.  
  */
-
 public class Note {
     
     private LocalDate date;

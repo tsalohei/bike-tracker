@@ -2,9 +2,11 @@ package com.salohei.dao;
 
 import com.salohei.domain.User;
 import java.sql.*;
-import java.util.List;
 
-
+/**
+ * Luokka vastaa käyttäjän luomisesta ja käyttäjän tietojen etsimisestä 
+ * SQL-tietokannasta.
+ */
 public class SqlUserDao implements UserDao {
 
     private Database database;
@@ -13,6 +15,14 @@ public class SqlUserDao implements UserDao {
         this.database = database;
     }
   
+     /**
+     * Metodi luo uuden käyttäjän.
+     * 
+     * @param name Käyttäjän nimi
+     * @param username Käyttäjän käyttäjänimi
+     * 
+     * @return Luotu käyttäjä, tai null jos käyttäjän luominen ei onnistu
+     */
     @Override    
     public User create(String name, String username) {
         try (Connection conn = database.getConnection()) {    
@@ -34,6 +44,13 @@ public class SqlUserDao implements UserDao {
         
     }
 
+    /**
+     * Metodi etsii annettua käyttäjänimeä vastaavan käyttäjän tietokannasta.
+     * 
+     * @param username Käyttäjänimi
+     * 
+     * @return Käyttäjä, tai null jos käyttäjän hakeminen ei onnistu 
+     */
     @Override
     public User findByUsername(String username) {
         try (Connection conn = database.getConnection()) {
