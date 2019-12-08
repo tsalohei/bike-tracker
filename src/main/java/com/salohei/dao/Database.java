@@ -29,7 +29,7 @@ public class Database {
             +   "date date NOT NULL,\n"
             +   "km integer NOT NULL,\n"
             +   "content text NOT NULL,\n"
-            +   "user integer NOT NULL,\n" //USER
+            +   "user integer NOT NULL,\n" 
             +    "FOREIGN KEY(user) REFERENCES User(id)\n"    
             +   ");";  
 
@@ -39,7 +39,7 @@ public class Database {
             stmt.execute(noteTable);
             
         } catch (Throwable t) {
-            System.out.println("Error: " + t);
+            
         }
     }
 }

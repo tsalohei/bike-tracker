@@ -39,7 +39,6 @@ public class SqlNoteDao implements NoteDao {
             return findByUsernameAndDate(user, date);
             
         } catch (Throwable t) {
-            System.err.println("Error: " + t);
             return null;
         }
     
@@ -68,7 +67,6 @@ public class SqlNoteDao implements NoteDao {
             return n;
             
         } catch (Throwable t) {
-            System.err.println("Error: " + t);
             return null;
         }
         
@@ -97,7 +95,7 @@ public class SqlNoteDao implements NoteDao {
             stmt.close();
             conn.close();
         } catch (Throwable t) {
-            System.err.println("Error: " + t);            
+            
         }
        
         return list;
@@ -122,7 +120,7 @@ public class SqlNoteDao implements NoteDao {
             stmt.close();
             conn.close();
         } catch (Throwable t) {
-            System.err.println("Error: " + t);            
+                       
         }
     
         return tulos;
@@ -144,7 +142,7 @@ public class SqlNoteDao implements NoteDao {
             stmt.close();
             conn.close();
         } catch (Throwable t) {
-            System.err.println("Error: " + t);            
+                     
         }
         
     }
