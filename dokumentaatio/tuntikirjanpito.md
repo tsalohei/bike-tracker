@@ -23,6 +23,7 @@
 | 4.12. |  2   | hakemiston uudelleenjärjestelyä, uusia metodeita|
 | 5.12. |  6   | uusia metodeita, uusia testejä|
 | 5.12. |  2   | käyttäjän antaman syötteen validointia|
-| yht   |  59  | |
+| 8.12. |  2   | ohjeiden lukemista (clean code), pakkausten uudelleen järjestäminen| 
+| yht   |  61  | |
 
   
