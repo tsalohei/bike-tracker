@@ -24,6 +24,7 @@
 | 5.12. |  6   | uusia metodeita, uusia testejä|
 | 5.12. |  2   | käyttäjän antaman syötteen validointia|
 | 8.12. |  2   | ohjeiden lukemista (clean code), pakkausten uudelleen järjestäminen| 
-| yht   |  61  | |
+| 8.12. |  3   | Javadoc-alkuun|
+| yht   |  64  | |
 
   
