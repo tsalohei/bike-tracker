@@ -19,7 +19,7 @@ public interface UserDao {
     User create(String name, String username); 
     
     /**
-     * Metodi etsii annettua käyttäjänimeä vastaavan käyttäjän
+     * Metodi etsii annettua käyttäjänimeä vastaavan käyttäjän.
      * 
      * @param username Käyttäjänimi
      * 

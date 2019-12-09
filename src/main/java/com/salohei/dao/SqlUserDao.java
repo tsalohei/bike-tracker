@@ -11,6 +11,10 @@ public class SqlUserDao implements UserDao {
 
     private Database database;
     
+    /**
+     * Konstruktori.
+     * @param database tietokanta 
+     */
     public SqlUserDao(Database database) {
         this.database = database;
     }

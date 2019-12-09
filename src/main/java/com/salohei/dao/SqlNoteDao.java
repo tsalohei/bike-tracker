@@ -18,6 +18,10 @@ public class SqlNoteDao implements NoteDao {
     
     private Database database;
     
+    /**
+     * Konstruktori.
+     * @param database tietokanta 
+     */
     public SqlNoteDao(Database database) {
         this.database = database;
     }

@@ -18,6 +18,15 @@ public class Note {
     private User user;
     private int id;
  
+    /**
+     * Konstruktori.
+     * 
+     * @param date Päivämäärä, jolle muistiinpano on luotu
+     * @param km Kuinka monta kilometria muistiinpanoon liittyy
+     * @param content Teksti, joka halutaan liittää osaksi muistiinpanoa
+     * @param user Käyttäjä, johon muistiinpano liittyy
+     * @param id Muistiinpanon tunnus
+     */
     public Note(LocalDate date, int km, String content, User user, int id) {
         
         this.date = date;

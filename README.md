@@ -49,3 +49,10 @@ Suorita tiedostoon [checkstyle.xml](https://github.com/tsalohei/bike-tracker/blo
 
 Checkstyle-raporttia virheilmoituksineen pääsee tarkastelemaan, kun avaa selaimella tiedoston /target/site/checkstyle.html  
  
+### JavaDoc
+
+Luo JavaDocista HTML-versio komennolla: 
+	
+	mvn javadoc:javadoc
+
+Luotu JavaDoc löytyy hakemistosta target/site/apidocs/.

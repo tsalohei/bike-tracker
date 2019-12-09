@@ -10,14 +10,17 @@ public class Database {
 
     private String databaseAddress;
     
+    /**
+     * Konstruktori.
+     * @param databaseAddress Tietokannan osoite
+     * @throws ClassNotFoundException 
+     */
     public Database(String databaseAddress) throws ClassNotFoundException {
         this.databaseAddress = databaseAddress;
     }
   
     /**
      * Metodi luo yhteyden tietokantaan.
-     * 
-     * @see java.sql.DriverManager#getConnection(String url)
      * 
      * @return yhteys tietokantaan
      * 

@@ -16,6 +16,11 @@ public class NoteService {
     private UserDao userDao;
     private User currentUser;
     
+    /**
+     * Konstruktori.
+     * @param noteDao Käyttäjän muistiinpanojen käsittely
+     * @param userDao  Käyttäjän tietojen käsittely
+     */
     public NoteService(NoteDao noteDao, UserDao userDao) {
         this.noteDao = noteDao;
         this.userDao = userDao;
@@ -64,10 +69,10 @@ public class NoteService {
     }
     
     /**
-     * Metodi luo uuden muistiinpanon nykyiselle käyttäjälle
+     * Metodi luo uuden muistiinpanon nykyiselle käyttäjälle.
      * 
      * @param date Muistiinpanon päivämäärä
-     * @param km kuinka monta kilometria muistiinpanoon liittyy
+     * @param km Kuinka monta kilometria muistiinpanoon liittyy
      * @param content Teksti, joka halutaan liittää osaksi muistiinpanoa
      * 
      * @return true jos muistiinpanon luominen onnistuu, false jos ei onnistu
@@ -83,7 +88,7 @@ public class NoteService {
     }
     
     /**
-     * Metodin avulla käyttäjä, jolla on jo käyttäjätunnus, kirjautuu sisään
+     * Metodin avulla käyttäjä, jolla on jo käyttäjätunnus, kirjautuu sisään.
      * 
      * @param username Käyttäjänimi
      * 
@@ -99,7 +104,7 @@ public class NoteService {
     }
     
     /**
-     * Metodi kirjaa nykyisen käyttäjän ulos ohjelmasta
+     * Metodi kirjaa nykyisen käyttäjän ulos ohjelmasta.
      */
     public void logout() {
         currentUser = null;
