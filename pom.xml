@@ -50,7 +50,8 @@
             <version>0.8.3</version>
             <configuration>
                 <excludes>
-                    <exclude>ui/*</exclude>
+                    <exclude>com/salohei/ui/*</exclude>
+                    <exclude>com/salohei/app/*</exclude>
                 </excludes>
             </configuration>    
             <executions>

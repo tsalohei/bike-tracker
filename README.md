@@ -21,6 +21,12 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen kilometrie
 
 ## Käskyt komentoriviltä
 
+### Ohjelman suorittaminen
+
+Ohjelma käynnistetään komennolla. 
+
+	mvn compile exec:java -Dexec.mainClass=com.salohei.app.Main
+
 ### Testit
 
 Suorita testit ollessasi  komennolla:
