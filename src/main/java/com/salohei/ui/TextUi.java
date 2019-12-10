@@ -46,8 +46,9 @@ public class TextUi {
         printInstructions();
         while (true) {
             System.out.println();
-            System.out.println("Command: "); //TESTI!
+            System.out.println("Command: "); 
             String command = scanner.nextLine();
+            System.out.println("");
             if (!commands.keySet().contains(command)) {
                 System.out.println("Command was not recognized");
                 printInstructions();
@@ -78,7 +79,7 @@ public class TextUi {
         
         LocalDate localDate = null;
         while (localDate == null) {
-            System.out.print("Date (dd/mm/yyyy): ");
+            System.out.println("Date (dd/mm/yyyy): ");
             String stringDate = scanner.nextLine();
         
             localDate = formatStringDateToLocalDate(stringDate);
@@ -94,7 +95,7 @@ public class TextUi {
     
     private void kmTotal() {
         int total = noteService.kmTotal();
-        System.out.println(total);
+        System.out.println("Your total kilometer count: " + total);
     }
     
     private void listAllNotes(){
@@ -120,14 +121,14 @@ public class TextUi {
         
         Integer km = null;
         while (km == null) {
-            System.out.print("Kilometers: ");
+            System.out.println("Kilometers: ");
             String stringKm = scanner.nextLine();
             km = validateKmInput(stringKm);
         }
         
         String content = null;
         while (content == null) {
-            System.out.print("Your notes about the day: ");
+            System.out.println("Your notes about the day: ");
             content = scanner.nextLine();
             if (content.length() <= 1 || content.length() > 200) {
                 System.out.println("Invalid, note has to be within 1 and 200 characters");
@@ -178,20 +179,20 @@ public class TextUi {
     
     private void logout() {
         noteService.logout();
-        System.out.print("You have been logged out");      
+        System.out.println("You have been logged out");      
     }
     
     private void login() {
-        System.out.print("Username: ");
+        System.out.println("Username: ");
         String username = scanner.nextLine();
         
         noteService.login(username);
     }
     
     private void createUser() {
-        System.out.println("Name: "); //TESTI
+        System.out.println("Name: ");
         String name = scanner.nextLine();
-        System.out.println("Username: "); //TESTI
+        System.out.println("Username: "); 
         String username = scanner.nextLine();
         
         noteService.createUser(name, username);
