@@ -1,3 +1,11 @@
+# Rakenne
+
+Ohjelman on rakenteeltaan kolmitasoinen kerrosarkkitehtuuri. Pakkausrakenne on seuraavanlainen:
+
+
+
+
+
 # Luokkakaavio
 
 
