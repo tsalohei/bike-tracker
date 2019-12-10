@@ -56,7 +56,7 @@ public class NoteServiceNoteTest {
     }
     
     @Test
-    public void gettinListofNotesForLoggedUserWorksWhenThereAreNotes() {
+    public void gettingListofNotesForLoggedUserWorksWhenThereAreNotes() {
         Note note = new Note(LocalDate.now(), 22, "foo", user, 1);
         List<Note> list = new ArrayList<>();
         list.add(note);
