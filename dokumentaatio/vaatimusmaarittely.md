@@ -6,7 +6,7 @@ Sovelluksen avulla käyttäjien on mahdollista pitää kirjaa siitä, kuinka pal
 
 ## Toimintaympäristön rajoitteet
 
-Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Käyttäjien ja heidän pyöräilymerkintöjensä tiedot tallennetaan paikallisen koneen levylle. 
+Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Sovellus toimii Javan versiolla 1.8. Lisäksi, jotta JavaDoc toimii, tulee JAVA_HOME-muuttujan olla asetettu. Käyttäjien ja heidän pyöräilymerkintöjensä tiedot tallennetaan paikallisen koneen levylle. 
 
 ## Perusversion tarjoama toiminnallisuus 
 
