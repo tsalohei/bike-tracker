@@ -30,7 +30,7 @@ Uusi pyöräilymuistiinpano luodaan kirjoittamalla komento 3, ja antamalla vasta
 
 ## Muut toiminnot
 
-Muut toiminnot (kokonaiskilometrien katsominen, kaikkien muistiinpanojen selaaminen ja pyöräilymuistiinpanon poistaminen) toimivat samalla periaatteella kuin ylläkuvatut toiminnot: käyttäjä kirjoittaa haluamansa komennon, painaa enter, ja kirjoittaa lisätietoja jos käyttöliittymä pyytää niitä.
+Muut toiminnot (kokonaiskilometrien katsominen, kaikkien muistiinpanojen selaaminen, pyöräilymuistiinpanon poistaminen, uloskirjautuminen) toimivat samalla periaatteella kuin ylläkuvatut toiminnot: käyttäjä kirjoittaa haluamansa komennon, painaa enter, ja kirjoittaa lisätietoja jos käyttöliittymä pyytää niitä.
 
  
 
