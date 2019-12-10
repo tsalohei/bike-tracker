@@ -20,6 +20,19 @@ Luokat User ja Note muodostavat ohjelman loogisen datamallin. Luokat kuvaavat oh
 
 ![class diagram](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/luokkakaavio_simple.png "Class diagram") 
 
+Ohjelmassa on kerrallaan vain yksi olio luokasta NoteService. Tämä olio vastaa siitä, että käyttöliittymän omista metodeista syntyy erilaisia toiminnallisia kokonaisuuksia vastaavat toimintoketjut. Käytännössä NoteService-luokka tarjoaa käyttöliittymän kaikille toiminnoille omat metodit, esimerkiksi:
+
+* boolean createUser(String name, String username)
+* boolean login(String username)
+* boolean createNote(LocalDate date, int km, String content)
+* List<Note> getAll()
+* int kmTotal()
+* boolean deleteNote(LocalDate date)
+
+NoteService ei pääse suoraan käsiksi käyttäjien ja muistiinpanojen tietoihin. Tämä tapahtuu välillisesti NoteDao- ja UserDao rajapinnat toteuttavien luokkien SqlUserDao ja SqlNoteDao kautta. Luokat SqlUserDao ja SqlNoteDao injektoidaan sovelluslogiikan toteuttavalle NoteService oliolle NoteService-olion konstruktorikutsun yhteydessä. 
+
+Tämä yhdistetty luokka/pakkauskaavio kuvaa ohjelman eri osien suhdetta toisiinsa: 
+
 ## Luokkakaavio
 
 
