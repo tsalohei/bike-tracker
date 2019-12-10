@@ -35,9 +35,22 @@ Tämä yhdistetty luokka/pakkauskaavio kuvaa ohjelman eri osien suhdetta toisiin
 
 ![Luokat ja pakkaukset](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/luokka-ja-pakkauskaavio.png "Luokat ja pakkaukset")
 
+## Tietojen pysyväistallennus
 
-# Sekvenssikaaviot
+Tietokannan kuvaus.
 
-## Käyttäjän sisäänkirjautuminen
+## Päätoiminnallisuudet
+
+### Käyttäjän sisäänkirjautuminen
 
 ![sequence diagram](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/sequenceDiagramUserLogsIn.png "Sequence diagram")
+
+### Uuden pyöräilymuistiinpanon luominen
+
+### Kaikkien pyöräilymuistiinpanojen tarkasteleminen
+
+### Kokonaiskilometrimäärän tarkasteleminen
+
+### Pyöräilymuistiinpanon poistaminen päivämäärän perusteella
+
+
