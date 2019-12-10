@@ -46,7 +46,7 @@ public class TextUi {
         printInstructions();
         while (true) {
             System.out.println();
-            System.out.print("Command: ");
+            System.out.println("Command: "); //TESTI!
             String command = scanner.nextLine();
             if (!commands.keySet().contains(command)) {
                 System.out.println("Command was not recognized");
@@ -112,7 +112,7 @@ public class TextUi {
     private void createNote() {        
         LocalDate localDate = null;
         while (localDate == null) {
-            System.out.print("Date (dd/mm/yyyy): ");
+            System.out.println("Date (dd/mm/yyyy): "); //TESTI
             String stringDate = scanner.nextLine();
         
             localDate = formatStringDateToLocalDate(stringDate);
@@ -189,9 +189,9 @@ public class TextUi {
     }
     
     private void createUser() {
-        System.out.print("Name: ");
+        System.out.println("Name: "); //TESTI
         String name = scanner.nextLine();
-        System.out.print("Username: ");
+        System.out.println("Username: "); //TESTI
         String username = scanner.nextLine();
         
         noteService.createUser(name, username);
