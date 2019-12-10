@@ -9,6 +9,8 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen kilometrie
 
 ## Dokumentaatio
 
+[Kayttöohje](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/kayttoohje.md)
+
 [Vaatimusmäärittely](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuurikuvaus](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/arkkitehtuuri.md)
