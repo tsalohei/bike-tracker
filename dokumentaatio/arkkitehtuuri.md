@@ -33,10 +33,7 @@ NoteService ei pääse suoraan käsiksi käyttäjien ja muistiinpanojen tietoihi
 
 Tämä yhdistetty luokka/pakkauskaavio kuvaa ohjelman eri osien suhdetta toisiinsa: 
 
-## Luokkakaavio
-
-
-![class diagram](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/class-diagram.png "Class diagram")
+![Luokat ja pakkaukset](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/luokat-ja-pakkaukset.png "Luokat ja pakkaukset")
 
 
 # Sekvenssikaaviot
