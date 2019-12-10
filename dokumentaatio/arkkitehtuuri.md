@@ -2,7 +2,7 @@
 
 Ohjelman on rakenteeltaan kolmitasoinen kerrosarkkitehtuuri. Pakkausrakenne on seuraavanlainen:
 
-
+![Pakkauskaavio](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/pakkauskaavio.png "Pakkauskaavio")
 
 
 
