@@ -2,7 +2,7 @@
 
 Ohjelma on rakenteeltaan kolmitasoinen kerrosarkkitehtuuri. Pakkausrakenne on seuraavanlainen:
 
-![Pakkauskaavio](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/pakkauskaavio.png "Pakkauskaavio")
+![Pakkauskaavio](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/bike-tracker_pakkauskaavio.png "Pakkauskaavio")
 
 Pakkaus com.salohei.ui sisältää tekstikäyttöliittymänä toteutetun käyttöliittymän, com.salohei.domain sovelluslogiikan ja com.salohei.dao sisältää koodin, joka vastaa tietojen pysyväistalletuksesta. 
 
