@@ -113,7 +113,7 @@ public class TextUi {
     private void createNote() {        
         LocalDate localDate = null;
         while (localDate == null) {
-            System.out.println("Date (dd/mm/yyyy): "); //TESTI
+            System.out.println("Date (dd/mm/yyyy): "); 
             String stringDate = scanner.nextLine();
         
             localDate = formatStringDateToLocalDate(stringDate);
