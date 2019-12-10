@@ -12,7 +12,7 @@ Käynnistä ohjelma seuraavalla komennolla kun olet samassa hakemistossa tiedost
 
 ## Kirjautuminen
 
-Sovellus käynnistyy näkymään, jossa on listattu kaikki tarjolla olevat toiminnot. Jo aiemmin rekisteröityneen käyttäjän kirjautuminen tapahtuu valitsemalla komento 1, kirjoittamalla käyttäjänimi tekstikenttään, ja painamalla enter.
+Sovellus käynnistyy näkymään, jossa on listattu kaikki tarjolla olevat toiminnot. Jo aiemmin rekisteröityneen käyttäjän kirjautuminen tapahtuu valitsemalla komento 1, painamalla enter, kirjoittamalla käyttäjänimi tekstikenttään, ja painamalla enter.
 
 ![Login](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/login.png "Kirjautuminen")
 
