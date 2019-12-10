@@ -6,9 +6,9 @@ Lataa tiedosto bike-tracker.jar (viimeisimmästä releasesta)
 
 ## Ohjelman käynnistäminen
 
-Ohjelma käynnistetään komennolla:
+Käynnistä ohjelma seuraavalla komennolla kun olet samassa hakemistossa tiedoston bike-tracker.jar kanssa:
 
-	java -jar bike-tracker.jar kun olet samassa hakemistossa tiedoston bike-tracker.jar kanssa. 
+	java -jar bike-tracker.jar
 
 ## Kirjautuminen
 
