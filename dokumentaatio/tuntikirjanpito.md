@@ -25,6 +25,7 @@
 | 5.12. |  2   | käyttäjän antaman syötteen validointia|
 | 8.12. |  2   | ohjeiden lukemista (clean code), pakkausten uudelleen järjestäminen| 
 | 8.12. |  3   | Javadoc-alkuun|
-| yht   |  64  | |
+| 9.12. |  8   | Javadoc-checkstyle, bugien selvittelyä|
+| yht   |  72  | |
 
   
