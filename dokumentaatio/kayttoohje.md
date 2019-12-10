@@ -26,7 +26,7 @@ Uusi käyttäjä luodaan kirjoittamalla komento 2 ja painamalla enter, kirjoitta
 
 Uusi pyöräilymuistiinpano luodaan kirjoittamalla komento 3, ja antamalla vastaukset kuhunkin käyttöliittymän kysymään kohtaan: päivämäärä, kilometrien määrä, ja vapaamuotoiset muistiinpanot. Jokaisen kohdan jälkeen painetaan enter.
 
-![Uusi muistiinpano](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/new_note.png "Uusi muistiinpano")
+![Uusi muistiinpano](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/new-note.png "Uusi muistiinpano")
 
 ## Muut toiminnot
 
