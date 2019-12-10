@@ -19,7 +19,7 @@ Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen kilometrie
 
 ## Releaset
 
-[Viikko 5](https://github.com/tsalohei/bike-tracker/releases)
+[Viikko 6](https://github.com/tsalohei/bike-tracker/releases/tag/vko6)
 
 ## Käskyt komentoriviltä
 
