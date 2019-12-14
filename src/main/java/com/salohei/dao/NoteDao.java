@@ -51,7 +51,8 @@ public interface NoteDao {
      * 
      * @param date Käyttäjän antama päivämäärä
      * @param user Käyttäjä
+     * @return true jos poistaminen onnistui, false jos ei onnistunut
      */
-    void deleteNote(LocalDate date, User user);
+    boolean deleteNote(LocalDate date, User user);
     
 }

@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,7 +40,7 @@ public class NoteServiceNoteTest {
     
     
     @Test
-    public void creatingNewNoteForLoggedUserWorks() throws Exception{
+    public void creatingNewNoteForCurrentUserWorks() throws Exception{
         
         LocalDate date = LocalDate.now();
         Note note = new Note(date, 22, "foo", user, 1);
@@ -48,15 +50,26 @@ public class NoteServiceNoteTest {
         assertEquals(true, noteService.createNote(date, 22, "foo"));
     }
     
+    /*
+    //TARKISTA TÄMÄ
     @Test
-    public void gettingKmCountForLoggedUserWorks() {
+    public void creatingNewNoteForCurrentReturnsFalseWhenDatabaseThrowsException() throws Exception {
+        LocalDate date = LocalDate.now();
+        when(noteDao.create(date, 22, "foo", user)).thenReturn(null);
+        //mutta tää johtaa silti true:n palautukseen?
+    }
+    */
+    
+    
+    @Test
+    public void gettingKmCountForCurrentUserWorks() {
         when(noteDao.kmTotal(user)).thenReturn(12);
         
         assertEquals(12, noteService.kmTotal());
     }
     
     @Test
-    public void gettingListofNotesForLoggedUserWorksWhenThereAreNotes() {
+    public void gettingListofNotesForCurrentUserWorksWhenThereAreNotes() {
         Note note = new Note(LocalDate.now(), 22, "foo", user, 1);
         List<Note> list = new ArrayList<>();
         list.add(note);
@@ -68,7 +81,7 @@ public class NoteServiceNoteTest {
    
     
      @Test
-    public void gettinListofNotesForLoggedUserWorksWhenThereAreNoNotes() {
+    public void gettingListOfNotesForCurrentUserWorksWhenThereAreNoNotes() {
         List<Note> list = new ArrayList<>();
         when(noteDao.getAll(user)).thenReturn(list);
         
@@ -77,6 +90,24 @@ public class NoteServiceNoteTest {
     }
     
     
+    @Test
+    public void noteIsDeletedCorrectlyWhenCurrentUserHasACorrespondingNote() {
+        List<Note> list = new ArrayList<>();
+        LocalDate date = LocalDate.now();
+        Note note = new Note(date, 22, "foo", user, 1);
+        list.add(note);
+        when(noteDao.getAll(user)).thenReturn(list);
+        
+        assertTrue(noteService.deleteNote(date));
+    }
     
-    
+    @Test
+    public void tryingToDeleteANoteReturnsFalseWhenCurrentUserHasNoCorrespondingNote() {
+        List<Note> list = new ArrayList<>();
+        LocalDate date = LocalDate.now();
+        
+        when(noteDao.getAll(user)).thenReturn(list);
+        
+        assertFalse(noteService.deleteNote(date));
+    }
 }

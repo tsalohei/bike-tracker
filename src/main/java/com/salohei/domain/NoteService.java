@@ -138,5 +138,13 @@ public class NoteService {
     public User getLoggedUser() {
         return currentUser;
     }
+    
+    public boolean isUserLoggedIn() {
+        if (currentUser == null) {
+            return false;
+        } 
+        return true;
+        //you need to be logged in to perform this operation
+    }
         
 }

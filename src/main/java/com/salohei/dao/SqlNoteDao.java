@@ -175,8 +175,9 @@ public class SqlNoteDao implements NoteDao {
      * @param user Käyttäjä
      */
     @Override
-    public void deleteNote(LocalDate date, User user) {
+    public boolean deleteNote(LocalDate date, User user) {
         int userId = user.getId();
+       
         Date sqlDate = Date.valueOf(date);
         
         try (Connection conn = database.getConnection()) {
@@ -189,12 +190,10 @@ public class SqlNoteDao implements NoteDao {
    
             stmt.close();
             conn.close();
+            return true;
         } catch (Throwable t) {
-                     
-        }
-        
+            return false;         
+        }   
     }
     
-    
- 
 }

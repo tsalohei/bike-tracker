@@ -75,6 +75,10 @@ public class TextUi {
     }
 
     private void deleteNote() {
+        if (noteService.isUserLoggedIn() == false) {
+            System.out.println("You need to be logged in to delete a note!");
+            return;
+        }
         System.out.println("Which day's note would you like to remove?");
         
         LocalDate localDate = null;
@@ -94,11 +98,21 @@ public class TextUi {
     }
     
     private void kmTotal() {
+        if (noteService.isUserLoggedIn() == false) {
+            System.out.println("You need to be logged in to check your kilometer count!");
+            return;
+        }
         int total = noteService.kmTotal();
         System.out.println("Your total kilometer count: " + total);
     }
     
     private void listAllNotes(){
+        if (noteService.isUserLoggedIn() == false) {
+            System.out.println("You need to be logged in to list all notes!");
+            return;
+        }
+        
+        
         List<Note> notes = noteService.getAll();
         if (notes.size() == 0) {
             System.out.println("You have no cycling notes yet.");
@@ -110,38 +124,52 @@ public class TextUi {
         }
     }
     
-    private void createNote() {        
+    private void createNote() {   
+        if (noteService.isUserLoggedIn() == false) {
+            System.out.println("You need to be logged in to create a new note!");
+            return;
+        }
         LocalDate localDate = null;
         while (localDate == null) {
             System.out.println("Date (dd/mm/yyyy): "); 
-            String stringDate = scanner.nextLine();
-        
+            String stringDate = scanner.nextLine();        
             localDate = formatStringDateToLocalDate(stringDate);
-        }
-        
+            localDate = validateDateInput(localDate);            
+        }       
         Integer km = null;
         while (km == null) {
             System.out.println("Kilometers: ");
             String stringKm = scanner.nextLine();
             km = validateKmInput(stringKm);
-        }
-        
+        }        
         String content = null;
         while (content == null) {
             System.out.println("Your notes about the day: ");
             content = scanner.nextLine();
-            if (content.length() <= 1 || content.length() > 200) {
-                System.out.println("Invalid, note has to be within 1 and 200 characters");
-                content = null;
-            }
+            content = validateNoteContentInput(content);
         }
         
         noteService.createNote(localDate, km, content);
-        
     }
     
+    private String validateNoteContentInput(String content) {
+        String trimmedContent = content.trim();
+        if (trimmedContent.length() < 1 || trimmedContent.length() > 200) {
+                System.out.println("Invalid, note has to be within 1 and 200 characters");
+                trimmedContent = null;
+            }
+        return trimmedContent;
+    }
     
-    public Integer validateKmInput(String stringKm) {
+    private LocalDate validateDateInput(LocalDate date) {
+        if (date.compareTo(LocalDate.now()) > 0) {
+            date = null;
+            System.out.println("Select the current date or a date from the past.");  
+        } 
+        return date;
+    }
+    
+    private Integer validateKmInput(String stringKm) {
         try {
             int km = Integer.parseInt(stringKm);
             
@@ -158,7 +186,7 @@ public class TextUi {
     }
     
     
-    public LocalDate formatStringDateToLocalDate(String stringDate) {
+    private LocalDate formatStringDateToLocalDate(String stringDate) {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate localDate = LocalDate.parse(stringDate, formatter);
@@ -183,21 +211,49 @@ public class TextUi {
     }
     
     private void login() {
+        if (noteService.isUserLoggedIn() == true) {
+            System.out.println("Username '" + noteService.getLoggedUser().getUsername() + "' is already logged in.");
+            return;
+        }
         System.out.println("Username: ");
         String username = scanner.nextLine();
         
-        noteService.login(username);
+        if (noteService.login(username) == false) {
+            System.out.println("No such username. You need to register as a new user first!");
+        } 
     }
     
     private void createUser() {
-        System.out.println("Name: ");
-        String name = scanner.nextLine();
-        System.out.println("Username: "); 
-        String username = scanner.nextLine();
+        String name = null;
+        while (name == null) {
+            System.out.println("Name: ");
+            name = scanner.nextLine();
+            name = validateNameAndUsername(name);
+        }
+        String username = null;
+        while (username == null) {
+            System.out.println("Username: "); 
+            username = scanner.nextLine();
+            username = validateNameAndUsername(username);
+        }
+                
         
-        noteService.createUser(name, username);
-    
+        if (noteService.createUser(name, username) == false) {
+            System.out.println("The username is already taken. Select a unique username!");
+        } else {
+            System.out.println("You have now been registered. Select login (1) to continue.");
+        }
     }
+    
+    public String validateNameAndUsername(String input) {
+        String trimmedInput = input.trim();
+        if (trimmedInput.length() == 0 || trimmedInput.length() < 2|| trimmedInput.length() > 30) {
+            System.out.println("Name and username must be between 2 and 30 characters in length!");
+            trimmedInput = null;
+        }
+        return trimmedInput;
+    }
+    
     /**
      * Metodi käynnistää käyttöliittymän
      * @param args

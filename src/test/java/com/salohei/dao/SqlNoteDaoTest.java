@@ -10,7 +10,9 @@ import java.time.LocalDate;
 import java.util.List;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -56,12 +58,6 @@ public class SqlNoteDaoTest {
         assertEquals(1, list.size());
     }
     
-    /*
-    @Test
-    public void listingNotesForNonExistingUserDoesNotWork() {
-    }
-    */
-    
     @Test
     public void totalKmCountIsReadCorrectlyFromDatabaseWhenThereAreNotes() throws Exception {
         this.noteDao.create(LocalDate.now(), 12, "foo", user);
@@ -76,10 +72,14 @@ public class SqlNoteDaoTest {
         assertEquals(0, result);
     }
     
-    /*
+    
     @Test
-    public void noteIsDeletedCorrectly() {
+    public void noteIsDeletedCorrectlyWhenTheNoteExists() throws Exception {
+        LocalDate date = LocalDate.now();
+        this.noteDao.create(date, 1, "foo", this.user);  
+        boolean result = this.noteDao.deleteNote(date, this.user);
         
+        assertTrue(result);
     }
-    */
+      
 }

@@ -26,7 +26,9 @@
 | 8.12. |  2   | ohjeiden lukemista (clean code), pakkausten uudelleen järjestäminen| 
 | 8.12. |  3   | Javadoc-alkuun|
 | 9.12. |  8   | Javadoc-checkstyle, bugien selvittelyä|
-| 10.12.|  8   | Käyttöliittymä-bugin selvittämistä, arkkitehtuurikuvaus ja käyttöohje alkuun|
-| yht   |  80  | |
+| 10.12.|  8   | käyttöliittymä-bugin selvittämistä, arkkitehtuurikuvaus ja käyttöohje alkuun|
+| 11.12.|  2   | testejä, dokumentaatiota|
+| 14.12.|  1   | user input validointia|
+| yht   |  83  | |
 
   

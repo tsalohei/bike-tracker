@@ -12,11 +12,11 @@ Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Sovell
 
 ### Ennen kirjautumista
 - uusi käyttäjä voi luoda järjestelmään käyttäjätunnuksen (tehty) 
-  - käyttäjätunnuksen tulee olla uniikki ja pituudeltaan vähintään 3 merkkiä 
-  - järjestelmä antaa virheilmoituksen mikäli käyttäjätunnus ei täytä kriteereitä 
+  - käyttäjän nimen tulee olla pituudeltaan 2-30 merkkiä; järjestelmä antaa virheilmoituksen mikäli nimi ei täytä kriteereitä (tehty)
+  - käyttäjätunnuksen tulee olla uniikki ja pituudeltaan 2-30  merkkiä; järjestelmä antaa virheilmoituksen mikäli käyttäjätunnus ei täytä kriteereitä (tehty)
 
 - käyttäjä voi kirjautua järjestelmään syöttämällä aiemmin luomansa käyttäjätunnuksen käyttöliittymään (tehty)
-  - järjestelmä antaa virheilmoituksen jos syötettyä käyttäjätunnusta ei olekaan olemassa 
+  - järjestelmä antaa virheilmoituksen jos syötettyä käyttäjätunnusta ei olekaan olemassa (tehty)
 
 ### Kirjautumisen jälkeen
 - käyttäjä näkee kuinka monta kilometriä hän on pyöräillyt kokonaisuudessaan (tehty)
