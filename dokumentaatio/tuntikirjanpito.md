@@ -30,6 +30,9 @@
 | 11.12.|  2   | testejä, dokumentaatiota|
 | 14.12.|  1   | user input validointia|
 | 14.12.|  1   | poikkeustilanteiden käsittelyn suunnittelua|
-| yht   |  84  | |
+| 15.12.|  2   | poikkeustilanteiden käsittelyä|
+| 16.12.|  3   | testeissä olleen bugin selvittäminen, poikkeusten käsittelyä|
+| 16.12.|  5   | JavaDoc, textUi-metodeja, user input validointia, integraatiotestaus alkuun|
+| yht   |  94  | |
 
   
