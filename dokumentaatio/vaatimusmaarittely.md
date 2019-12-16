@@ -18,6 +18,7 @@ Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Sovell
 
 - käyttäjä voi kirjautua järjestelmään syöttämällä aiemmin luomansa käyttäjätunnuksen käyttöliittymään (tehty)
   - järjestelmä antaa virheilmoituksen jos syötettyä käyttäjätunnusta ei olekaan olemassa (tehty)
+- jos ei-kirjautunut käyttäjä yrittää tehdä jotain, mikä edellyttää kirjautumista, antaa järjestelmä virheilmoituksen (tehty)
 
 ### Kirjautumisen jälkeen
 - käyttäjä näkee kuinka monta kilometriä hän on pyöräillyt kokonaisuudessaan (tehty)
@@ -29,7 +30,6 @@ Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Sovell
   - jos joku käyttäjän antamista tiedoista ei ole odotetun kaltainen, antaa järjestelmä virheilmoituksen ja pyytää tietoa uudelleen (tehty)
 - käyttäjä voi poistaa päiväkohtaisen muistiinpanon (tehty)
   - jos käyttäjä yrittää poistaa päiväkohtaista muistiinpanoa, jota ei ole olemassa, antaa järjestelmä virheilmoituksen (tehty)
-- jos käyttäjä yrittää tehdä jotain, mikä edellyttää kirjautumista, antaa järjestelmä virheilmoituksen (tehty)
 - käyttäjä voi kirjautua ulos järjestelmästä (tehty)
 
 ## Sovelluksen jatkokehitys
