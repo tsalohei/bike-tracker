@@ -2,10 +2,12 @@
 
 ## Sovelluksen kuvaus
 
-Harjoitustyönä tehtävää sovellusta voi käyttää pyöräiltyjen kilometrien kirjanpitoon. Sovelluksessa voi:
+Harjoitustyönä tehtävää sovellusta voi käyttää pyöräilypäiväkirjana, joka koostuu päiväkohtaisista muistiinpanoista. Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä, ja heillä on kaikilla omat yksilölliset muistiinpanonsa. Sovelluksessa voi:
 
-* Kirjata talteen päiväkohtaiset kilometrisaldot ja niihin liittyvät muistiinpanot.
+* Kirjata talteen päiväkohtaiset kilometrisaldot ja päivään liittyvät muistiinpanot.
 * Tarkastella kuinka paljon kilometreja on kertynyt yhteensä.
+* Tarkastella listaa kaikista päiväkohtaisista muistiinpanoista.
+* Poistaa päiväkohtaisen muistiinpanon päivämäärän perusteella.
 
 ## Dokumentaatio
 
@@ -47,7 +49,7 @@ Luo suoritettava jar-tiedosto komennolla:
 
 	mvn package
 
-minkä jälkeen hakemistosta _target_ löytyy suoritettava jar-tiedosto nimeltä bike-tracker-1.0-SNAPSHOT.jar
+minkä jälkeen hakemistosta _target_ löytyy suoritettava jar-tiedosto nimeltä app-1.0-SNAPSHOT.jar
 
 ### Checkstyle
 
