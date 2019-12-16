@@ -11,9 +11,10 @@ Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Sovell
 ## Perusversion tarjoama toiminnallisuus 
 
 ### Ennen kirjautumista
-- uusi käyttäjä voi luoda järjestelmään käyttäjätunnuksen (tehty) 
-  - käyttäjän nimen tulee olla pituudeltaan 2-30 merkkiä, ja järjestelmä antaa virheilmoituksen mikäli nimi ei täytä kriteereitä (tehty)
-  - käyttäjätunnuksen tulee olla uniikki ja pituudeltaan 2-30  merkkiä, ja järjestelmä antaa virheilmoituksen mikäli käyttäjätunnus ei täytä kriteereitä (tehty)
+- uusi käyttäjä voi luoda järjestelmään käyttäjätunnuksen, joka on uniikki ja pituudeltaan 2-30 merkkiä (tehty) 
+  - järjestelmä antaa virheilmoituksen mikäli käyttäjätunnus ei täytä kriteereitä (tehty)
+- uudelta käyttäjältä pyydetään käyttäjätunnuksen luomisen yhteydessä myös nimeä, jonka tulee olla pituudeltaan 2-30 merkkiä (tehty)
+  - järjestelmä antaa virheilmoituksen mikäli nimi ei täytä kriteereitä (tehty)
 
 - käyttäjä voi kirjautua järjestelmään syöttämällä aiemmin luomansa käyttäjätunnuksen käyttöliittymään (tehty)
   - järjestelmä antaa virheilmoituksen jos syötettyä käyttäjätunnusta ei olekaan olemassa (tehty)
@@ -22,14 +23,18 @@ Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Sovell
 - käyttäjä näkee kuinka monta kilometriä hän on pyöräillyt kokonaisuudessaan (tehty)
 - käyttäjä näkee listan päiväkohtaisista muistiinpanoista (tehty)
 - käyttäjä voi lisätä päiväkohtaisen muistiinpanon (yhteen päivään voi liittyä yksi tai ei yhtään merkintää) (tehty)
+  - päivämäärä ei voi olla tulevaisuudessa, ja päivämäärä tulee antaa käyttöliittymän pyytämässä muodossa (tehty)
   - päiväkohtaisen kilometrisaldon tulee olla 1-500 kilometriä (tehty)
   - muistiinpano voi olla 1-200 merkkiä pitkä (tehty)
-- käyttäjä voi poistaa päiväkohtaisen merkinnän (tehty)
+  - jos joku käyttäjän antamista tiedoista ei ole odotetun kaltainen, antaa järjestelmä virheilmoituksen ja pyytää tietoa uudelleen (tehty)
+- käyttäjä voi poistaa päiväkohtaisen muistiinpanon (tehty)
+  - jos käyttäjä yrittää poistaa päiväkohtaista muistiinpanoa, jota ei ole olemassa, antaa järjestelmä virheilmoituksen (tehty)
+- jos käyttäjä yrittää tehdä jotain, mikä edellyttää kirjautumista, antaa järjestelmä virheilmoituksen (tehty)
 - käyttäjä voi kirjautua ulos järjestelmästä (tehty)
 
 ## Sovelluksen jatkokehitys
 
 Jos aikaa on vielä jäljellä kun perusversio on toteutettu, täydennetään ohjelmaa esimerkiksi seuraavilla toiminnallisuuksilla:
-- käyttäjä voi muokata päiväkohtaista merkintää (kilometrimäärää ja muistiinpanoa)
+- käyttäjä voi muokata päiväkohtaista muistiinpanoa
 - käyttäjälle lisätään salasana, joka pitää syöttää kirjautumisen yhteydessä
 
