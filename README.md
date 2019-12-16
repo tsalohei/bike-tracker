@@ -2,7 +2,7 @@
 
 ## Sovelluksen kuvaus
 
-Harjoitustyönä tehtävää sovellusta voi käyttää pyöräilypäiväkirjana, joka koostuu päiväkohtaisista muistiinpanoista. Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä, ja heillä on kaikilla omat yksilölliset muistiinpanonsa. Sovelluksessa voi:
+Sovellusta voi käyttää pyöräilypäiväkirjana, joka koostuu päiväkohtaisista muistiinpanoista. Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä, ja heillä on kaikilla omat yksilölliset muistiinpanonsa. Sovelluksessa voi:
 
 * Kirjata talteen päiväkohtaiset kilometrisaldot ja päivään liittyvät muistiinpanot.
 * Tarkastella kuinka paljon kilometreja on kertynyt yhteensä.
