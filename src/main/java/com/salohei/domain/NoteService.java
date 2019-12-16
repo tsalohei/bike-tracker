@@ -2,8 +2,10 @@ package com.salohei.domain;
 
 import com.salohei.dao.NoteDao;
 import com.salohei.dao.UserDao;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,8 +36,10 @@ public class NoteService {
      * @param date Nykyisen käyttäjän antama päivämäärä
      * @return palautetaan true jos muistiinpanon poistaminen onnistui,
      * muuten palautetaan false
+     * 
+     * throws SQLException virhe tietokannassa
      */
-    public boolean deleteNote(LocalDate date) {
+    public boolean deleteNote(LocalDate date) throws SQLException  {
         List<Note> list = noteDao.getAll(currentUser);
         boolean result = false;
         for (Note note : list) {
@@ -48,14 +52,17 @@ public class NoteService {
         } 
         return result;
     }
+    
 
     /**
      * Metodi palauttaa nykyisen käyttäjän kokonaiskilometrit.
      * 
      * @return pyöräillyt kilometrit yhteensä, tai 0 jos ei kilometreja
+     * 
+     * throws SQLException virhe tietokannassa
      */
     
-    public int kmTotal() {
+    public int kmTotal() throws SQLException {
         return noteDao.kmTotal(currentUser);
     }
     
@@ -63,9 +70,12 @@ public class NoteService {
      * Metodi palauttaa nykyisen käyttäjän kaikki muistiinpanot.
      * 
      * @return lista muistiinpanoista, tai tyhjä lista jos muistiinpanoja ei ole
+     * 
+     * throws SQLException virhe tietokannassa
      */
-    public List<Note> getAll() {
-        return noteDao.getAll(currentUser);   
+    public List<Note> getAll() throws SQLException {
+        return noteDao.getAll(currentUser);
+          
     }
     
     /**
@@ -75,16 +85,13 @@ public class NoteService {
      * @param km Kuinka monta kilometria muistiinpanoon liittyy
      * @param content Teksti, joka halutaan liittää osaksi muistiinpanoa
      * 
-     * @return true jos muistiinpanon luominen onnistuu, false jos ei onnistu
+     * @return true jos muistiinpanon luominen onnistuu
+     * 
+     * throws SQLException virhe tietokannassa
      */
-    public boolean createNote(LocalDate date, int km, String content) {
-        
-        try {
-            Note note = noteDao.create(date, km, content, currentUser);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+    public boolean createNote(LocalDate date, int km, String content) throws SQLException {       
+        noteDao.create(date, km, content, currentUser);  
+        return true;
     }
     
     /**
@@ -92,9 +99,12 @@ public class NoteService {
      * 
      * @param username Käyttäjänimi
      * 
-     * @return true jos sisäänkirjautuminen onnistuu, false jos ei onnistu 
+     * @return true jos sisäänkirjautuminen onnistuu, false jos käyttäjänimeä
+     * ei ole olemassa
+     * 
+     * throws SQLException virhe tietokannassa
      */
-    public boolean login(String username) {
+    public boolean login(String username) throws SQLException {
         User user = userDao.findByUsername(username);
         if (user == null) {
             return false;
@@ -117,16 +127,14 @@ public class NoteService {
      * @param username Käyttäjän käyttäjänimi
      * 
      * @return true jos käyttäjän luominen onnistuu, false jos ei onnistu 
+     * 
+     * throws SQLException
      */
-    public boolean createUser(String name, String username) {
+    public boolean createUser(String name, String username) throws SQLException {
         if (userDao.findByUsername(username) != null) {
             return false;
         }
-        try {
-            User user = userDao.create(name, username);
-        } catch (Exception e) {
-            return false;
-        }
+        userDao.create(name, username);
         return true;
     }
 
@@ -144,7 +152,6 @@ public class NoteService {
             return false;
         } 
         return true;
-        //you need to be logged in to perform this operation
     }
         
 }

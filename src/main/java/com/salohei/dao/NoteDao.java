@@ -5,6 +5,7 @@ package com.salohei.dao;
 import com.salohei.domain.Note;
 import com.salohei.domain.User;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -25,17 +26,19 @@ public interface NoteDao {
      * @return Luotu muistiinpano, tai null jos muistiinpanon luominen ei 
      * onnistu
      * 
-     * @throws Exception 
+     * @throws SQLException 
      */
-    Note create(LocalDate date, int km, String content, User user) throws Exception;
+    Note create(LocalDate date, int km, String content, User user) throws SQLException;
     
     /**
      * Metodi palauttaa kaikki käyttäjään liittyvät muistiinpanot.
      * 
      * @param user Käyttäjä, johon muistiinpanot liittyvät
      * @return lista muistiinpanoja (lista voi olla myös tyhjä)
+     * 
+     * @throws SQLException jos tulee tietokantavirhe
      */
-    List<Note> getAll(User user);
+    List<Note> getAll(User user) throws SQLException;
     
     /**
      * Metodi palauttaa luvun, joka kertoo kuinka paljon käyttäjä
@@ -43,8 +46,10 @@ public interface NoteDao {
      * 
      * @param user Käyttäjä
      * @return pyöräillyt kilometrit yhteensä
+     * 
+     * @throws SQLException jos tulee tietokantavirhe
      */
-    int kmTotal(User user);
+    int kmTotal(User user) throws SQLException;
     
     /**
      * Metodi poistaa muistiinpanon tietyltä päivämäärältä.
@@ -52,7 +57,9 @@ public interface NoteDao {
      * @param date Käyttäjän antama päivämäärä
      * @param user Käyttäjä
      * @return true jos poistaminen onnistui, false jos ei onnistunut
+     * 
+     * @throws SQLException jos tulee tietokantavirhe
      */
-    boolean deleteNote(LocalDate date, User user);
+    boolean deleteNote(LocalDate date, User user) throws SQLException;
     
 }

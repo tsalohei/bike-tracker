@@ -13,7 +13,7 @@ public class Database {
     /**
      * Konstruktori.
      * @param databaseAddress Tietokannan osoite
-     * @throws ClassNotFoundException 
+     * @throws ClassNotFoundException virhe tietokannassa
      */
     public Database(String databaseAddress) throws ClassNotFoundException {
         this.databaseAddress = databaseAddress;
@@ -24,7 +24,7 @@ public class Database {
      * 
      * @return yhteys tietokantaan
      * 
-     * @throws SQLException 
+     * @throws SQLException virhe tietokannassa
      */
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(databaseAddress);
@@ -32,8 +32,10 @@ public class Database {
     
     /**
      * Metodi luo tietokantaan tietokantataulut.
+     * 
+     * throws SQLException virhe tietokannassa
      */
-    public void createTables() {
+    public void createTables() throws SQLException {
         String userTable = "CREATE TABLE IF NOT EXISTS User (\n"
             +   "id integer PRIMARY KEY,\n"
             +   "name text NOT NULL,\n"
@@ -49,13 +51,9 @@ public class Database {
             +    "FOREIGN KEY(user) REFERENCES User(id)\n"    
             +   ");";  
 
-        try (Connection conn = getConnection()) {
-            Statement stmt = conn.createStatement(); 
-            stmt.execute(userTable);
-            stmt.execute(noteTable);
-            
-        } catch (Throwable t) {
-            
-        }
+        Connection conn = getConnection();
+        Statement stmt = conn.createStatement(); 
+        stmt.execute(userTable);
+        stmt.execute(noteTable);
     }
 }

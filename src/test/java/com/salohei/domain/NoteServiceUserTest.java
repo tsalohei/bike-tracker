@@ -2,6 +2,7 @@ package com.salohei.domain;
 
 import com.salohei.dao.NoteDao;
 import com.salohei.dao.UserDao;
+import java.sql.SQLException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -33,7 +34,7 @@ public class NoteServiceUserTest {
     
     
     @Test
-    public void creatingNewUserWithNewUsernameWorks(){
+    public void creatingNewUserWithNewUsernameWorks() throws SQLException{
         
         when(userDao.findByUsername("username")).thenReturn(null);
         
@@ -43,7 +44,7 @@ public class NoteServiceUserTest {
     
     
     @Test
-    public void creatingNewUserWithTakenUsernameReturnsFalse(){  
+    public void creatingNewUserWithTakenUsernameReturnsFalse() throws SQLException{  
         User user = new User("name", "username", 123);
         when(userDao.findByUsername("username")).thenReturn(user);
         
@@ -51,16 +52,8 @@ public class NoteServiceUserTest {
         assertEquals(false, noteService.createUser("name", "username"));
     }
     
-    /*
     @Test
-    public void creatingNewUserDoesNotWorkWhenDatabaseThrowsException(){
-        
-    }
-    */
-    
-    
-    @Test
-    public void loggingOutWorks(){
+    public void loggingOutWorks() throws SQLException{
         
         User user = new User("name", "username", 123);
         when(userDao.findByUsername("username")).thenReturn(user);
@@ -72,7 +65,7 @@ public class NoteServiceUserTest {
     }
     
     @Test
-    public void loginWithExistingUsernameWorks() {
+    public void loginWithExistingUsernameWorks() throws SQLException {
         
         User user = new User("name", "username", 123);
         when(userDao.findByUsername("username")).thenReturn(user);
@@ -84,7 +77,7 @@ public class NoteServiceUserTest {
     
     
     @Test 
-    public void loginWithNonExistingUsernameDoesNotWork() {
+    public void loginWithNonExistingUsernameDoesNotWork() throws SQLException {
         
         when(userDao.findByUsername("abcd")).thenReturn(null);
         

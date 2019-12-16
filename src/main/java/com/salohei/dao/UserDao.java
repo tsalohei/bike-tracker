@@ -1,6 +1,7 @@
 package com.salohei.dao;
 
 import com.salohei.domain.User;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -14,17 +15,22 @@ public interface UserDao {
      * @param name Käyttäjän nimi
      * @param username Käyttäjän käyttäjänimi
      * 
-     * @return Luotu käyttäjä, tai null jos käyttäjän luominen ei onnistu 
+     * @return Luotu käyttäjä 
+     * 
+     * throws SQLException virhe tietokannassa
      */
-    User create(String name, String username); 
+    User create(String name, String username) throws SQLException; 
     
     /**
      * Metodi etsii annettua käyttäjänimeä vastaavan käyttäjän.
      * 
      * @param username Käyttäjänimi
      * 
-     * @return Käyttäjä, tai null jos käyttäjän hakeminen ei onnistu
+     * @return parametrina annettuun käyttäjänimeen liittyvä käyttäjä,
+     * tai null jos käyttäjänimi on vielä vapaa
+     * 
+     * throws SQLException virhe tietokannassa
      */
-    User findByUsername(String username);
+    User findByUsername(String username) throws SQLException;
     
 }

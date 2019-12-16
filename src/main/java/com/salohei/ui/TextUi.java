@@ -9,6 +9,7 @@ import com.salohei.dao.UserDao;
 import com.salohei.domain.Note;
 import com.salohei.domain.NoteService;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -44,37 +45,41 @@ public class TextUi {
     public void start() {
         System.out.println("***Kilometer tracker for cycling***");
         printInstructions();
-        while (true) {
-            System.out.println();
-            System.out.println("Command: "); 
-            String command = scanner.nextLine();
-            System.out.println("");
-            if (!commands.keySet().contains(command)) {
-                System.out.println("Command was not recognized");
-                printInstructions();
+        try {
+            while (true) {
+                System.out.println();
+                System.out.println("Command: "); 
+                String command = scanner.nextLine();
+                System.out.println("");
+                if (!commands.keySet().contains(command)) {
+                    System.out.println("Command was not recognized");
+                    printInstructions();
+                }
+                if (command.equals("x")) {
+                    break;
+                } else if (command.equals("1")) {
+                    login();
+                } else if (command.equals("2")) {
+                    createUser();
+                } else if (command.equals("3")) {
+                    createNote();
+                } else if (command.equals("4")) {
+                    kmTotal();
+                } else if (command.equals("5")) {
+                    listAllNotes();         
+                } else if (command.equals("6")) {
+                    deleteNote();
+                } else if (command.equals("7")) {
+                    logout();
+                    break;
+                }
             }
-            if (command.equals("x")) {
-                break;
-            } else if (command.equals("1")) {
-                login();
-            } else if (command.equals("2")) {
-                createUser();
-            } else if (command.equals("3")) {
-                createNote();
-            } else if (command.equals("4")) {
-                kmTotal();
-            } else if (command.equals("5")) {
-                listAllNotes();         
-            } else if (command.equals("6")) {
-                deleteNote();
-            } else if (command.equals("7")) {
-                logout();
-                break;
-            }
+        } catch (SQLException e) {
+            System.out.println("Oops, something went wrong. The program is closed. Please try again later");
         }
     }
 
-    private void deleteNote() {
+    private void deleteNote() throws SQLException {
         if (noteService.isUserLoggedIn() == false) {
             System.out.println("You need to be logged in to delete a note!");
             return;
@@ -88,7 +93,6 @@ public class TextUi {
         
             localDate = formatStringDateToLocalDate(stringDate);
         }
-        
         boolean result = noteService.deleteNote(localDate);
         if (result == false) {
             System.out.println("You don't have a cycling note with this date");
@@ -97,7 +101,7 @@ public class TextUi {
         }
     }
     
-    private void kmTotal() {
+    private void kmTotal() throws SQLException {
         if (noteService.isUserLoggedIn() == false) {
             System.out.println("You need to be logged in to check your kilometer count!");
             return;
@@ -106,7 +110,7 @@ public class TextUi {
         System.out.println("Your total kilometer count: " + total);
     }
     
-    private void listAllNotes(){
+    private void listAllNotes() throws SQLException{
         if (noteService.isUserLoggedIn() == false) {
             System.out.println("You need to be logged in to list all notes!");
             return;
@@ -124,7 +128,7 @@ public class TextUi {
         }
     }
     
-    private void createNote() {   
+    private void createNote() throws SQLException {   
         if (noteService.isUserLoggedIn() == false) {
             System.out.println("You need to be logged in to create a new note!");
             return;
@@ -210,7 +214,7 @@ public class TextUi {
         System.out.println("You have been logged out");      
     }
     
-    private void login() {
+    private void login() throws SQLException {
         if (noteService.isUserLoggedIn() == true) {
             System.out.println("Username '" + noteService.getLoggedUser().getUsername() + "' is already logged in.");
             return;
@@ -223,7 +227,7 @@ public class TextUi {
         } 
     }
     
-    private void createUser() {
+    private void createUser() throws SQLException {
         String name = null;
         while (name == null) {
             System.out.println("Name: ");

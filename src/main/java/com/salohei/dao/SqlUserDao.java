@@ -28,23 +28,22 @@ public class SqlUserDao implements UserDao {
      * @return Luotu käyttäjä, tai null jos käyttäjän luominen ei onnistu
      */
     @Override    
-    public User create(String name, String username) {
-        try (Connection conn = database.getConnection()) {    
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO User (name, username) VALUES (?,?)");
-            
-            stmt.setString(1, name);
-            stmt.setString(2, username);
-            
-            stmt.executeUpdate();
+    public User create(String name, String username) throws SQLException {
+        Connection conn = database.getConnection();  
+        
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO User (name, username) VALUES (?,?)");
 
-            stmt.close();
-            conn.close();
+        stmt.setString(1, name);
+        stmt.setString(2, username);
 
-            return findByUsername(username);
-            
-        } catch (Throwable t) {
-            return null;
-        }
+        stmt.executeUpdate();
+
+        stmt.close();
+        conn.close();
+
+        return findByUsername(username);
+
+        
         
     }
 
@@ -53,33 +52,31 @@ public class SqlUserDao implements UserDao {
      * 
      * @param username Käyttäjänimi
      * 
-     * @return Käyttäjä, tai null jos käyttäjän hakeminen ei onnistu 
+     * @return parametrina annettuun käyttäjänimeen liittyvä käyttäjä,
+     * tai null jos käyttäjänimi on vielä vapaa
+     * 
+     * throws SQLException virhe tietokannassa
      */
     @Override
-    public User findByUsername(String username) {
-        try (Connection conn = database.getConnection()) {
+    public User findByUsername(String username) throws SQLException{
+        Connection conn = database.getConnection();
             
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE username = ?");
-            
-            stmt.setString(1, username);
-            
-            ResultSet rs = stmt.executeQuery();
-            boolean hasOne = rs.next();
-            if (!hasOne) {
-                return null;
-            }
-            
-            User u = new User(rs.getString("name"), rs.getString("username"), rs.getInt("id"));
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE username = ?");
 
-            stmt.close();
-            conn.close();
+        stmt.setString(1, username);
 
-            return u;
-            
-        } catch (Throwable t) {
+        ResultSet rs = stmt.executeQuery();
+        
+        boolean hasOne = rs.next();
+        if (!hasOne) {
             return null;
         }
         
+        User u = new User(rs.getString("name"), rs.getString("username"), rs.getInt("id"));
+
+        stmt.close();
+        conn.close();
+
+        return u;
     }
-    
 }
