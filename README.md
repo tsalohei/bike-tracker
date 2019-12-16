@@ -1,4 +1,4 @@
-# Ohjelmistotekniikka-kurssin harjoitustyö: Bike tracker
+# Bike tracker
 
 ## Sovelluksen kuvaus
 
