@@ -74,8 +74,7 @@ public class NoteService {
      * @throws SQLException virhe tietokannassa
      */
     public List<Note> getAll() throws SQLException {
-        return noteDao.getAll(currentUser);
-          
+        return noteDao.getAll(currentUser);          
     }
     
     /**
@@ -147,6 +146,11 @@ public class NoteService {
         return currentUser;
     }
     
+    /**
+     * Metodi kertoo onko käyttäjä kirjautuneena sisään.
+     * 
+     * @return false jos käyttäjä on sisäänkirjautuneena, false jos ei
+     */
     public boolean isUserLoggedIn() {
         if (currentUser == null) {
             return false;

@@ -3,8 +3,8 @@ package com.salohei.ui;
 
 import com.salohei.dao.Database;
 import com.salohei.dao.NoteDao;
-import com.salohei.dao.SqlNoteDao; //??
-import com.salohei.dao.SqlUserDao; //??
+import com.salohei.dao.SqlNoteDao; 
+import com.salohei.dao.SqlUserDao; 
 import com.salohei.dao.UserDao;
 import com.salohei.domain.Note;
 import com.salohei.domain.NoteService;
@@ -278,30 +278,18 @@ public class TextUi {
         return trimmedInput;
     }
     
-    /**
-     * Metodi käynnistää käyttöliittymän
-     * @param args
-     * @throws Exception 
-     */
     public static void main(String[] args) throws Exception {
         TextUi ui = new TextUi();
         ui.init();  
     }
     
-    /**
-     * Metodi hakee config.properties-nimisestä tiedostosta tiedon siitä, mihin
-     * osoitteeseen tietokanta luodaan, alustaa tietokannan, ja luo 
-     * sovelluslogiikasta vastaavan NoteService-olion.
-     * 
-     * @throws Exception 
-     */
     private void init() throws Exception {
         Properties properties = new Properties();
         InputStream cpResource = this.getClass().getClassLoader().getResourceAsStream("config.properties");
         properties.load(cpResource);
         String databaseAddress = properties.getProperty("databaseAddress");
         Database db = new Database(databaseAddress);
-        db.getConnection();
+        //db.getConnection();
         db.createTables();
         UserDao userDao = new SqlUserDao(db); 
         NoteDao noteDao = new SqlNoteDao(db);
@@ -313,6 +301,4 @@ public class TextUi {
         this.noteService = noteService;
         start();    
     }
-
-    
 }

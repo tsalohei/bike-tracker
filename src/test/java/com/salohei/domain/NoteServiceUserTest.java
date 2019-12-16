@@ -13,9 +13,6 @@ import org.mockito.Mock;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.MockitoJUnitRunner;
 
-/**
- * Luokka...
- */
 @RunWith(MockitoJUnitRunner.class)
 public class NoteServiceUserTest {
     

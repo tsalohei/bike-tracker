@@ -16,9 +16,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Luokka...
- */
 public class SqlNoteDaoTest {
     
     Database database;
@@ -29,14 +26,11 @@ public class SqlNoteDaoTest {
     @Before
     public void setup() throws Exception {
         database = new Database("jdbc:sqlite:test-tietokanta.db");
-        Connection connection = database.getConnection();
         database.createTables();
         
         this.userDao = new SqlUserDao(database);
         this.user = this.userDao.create("Cynthia Cyclist", "cycy");
         this.noteDao = new SqlNoteDao(database);
-        
-        connection.close();
     }
     
     @After

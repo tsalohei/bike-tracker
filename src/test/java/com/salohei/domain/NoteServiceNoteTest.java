@@ -17,9 +17,6 @@ import org.mockito.Mock;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.MockitoJUnitRunner;
 
-/**
- * Luokka...
- */
 @RunWith(MockitoJUnitRunner.class)
 public class NoteServiceNoteTest {
     
@@ -78,8 +75,7 @@ public class NoteServiceNoteTest {
         
         when(noteDao.getAll(user)).thenReturn(list);
         
-        assertEquals(list, noteService.getAll());
-        
+        assertEquals(list, noteService.getAll());    
     }
     
     

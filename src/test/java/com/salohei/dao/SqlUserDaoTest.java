@@ -13,9 +13,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Luokka...
- */
 public class SqlUserDaoTest {
     
     Database database;
@@ -26,14 +23,10 @@ public class SqlUserDaoTest {
     @Before
     public void setup() throws Exception {
         database = new Database("jdbc:sqlite:test-tietokanta.db");
-        Connection connection = database.getConnection();
         database.createTables();
         
         this.userDao = new SqlUserDao(database);
-        this.user = this.userDao.create("Cynthia Cyclist", "cycy");
-        
-        connection.close();
-            
+        this.user = this.userDao.create("Cynthia Cyclist", "cycy");      
     }
     
     @After
