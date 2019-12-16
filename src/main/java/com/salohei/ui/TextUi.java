@@ -207,8 +207,13 @@ public class TextUi {
     }
     
     private void logout() {
-        noteService.logout();
-        System.out.println("You have been logged out");      
+        if (noteService.isUserLoggedIn() == true) {
+            noteService.logout();
+            System.out.println("You have been logged out.");
+        } else {
+            System.out.println("The program has been closed.");
+        }
+              
     }
     
     private void login() throws SQLException {
