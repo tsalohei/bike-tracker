@@ -51,7 +51,7 @@ public class TextUi {
                 String command = scanner.nextLine();
                 System.out.println("");
                 if (!commands.keySet().contains(command)) {
-                    System.out.println("Command was not recognized");
+                    System.out.println("Command was not recognized.");
                     printInstructions();
                 }
                 if (command.equals("x")) {
@@ -72,7 +72,7 @@ public class TextUi {
                 } 
             }
         } catch (SQLException e) {
-            System.out.println("Oops, something went wrong. The program is closed. Please try again later");
+            System.out.println("Oops, something went wrong. The program is closed. Please try again later!");
         }
     }
 
@@ -83,7 +83,7 @@ public class TextUi {
         }
         System.out.println("Which day's note would you like to remove?");
         
-        LocalDate localDate = null;
+        LocalDate localDate = null; 
         while (localDate == null) {
             System.out.println("Date (dd/mm/yyyy): ");
             String stringDate = scanner.nextLine();
@@ -92,9 +92,9 @@ public class TextUi {
         }
         boolean result = noteService.deleteNote(localDate);
         if (result == false) {
-            System.out.println("You don't have a cycling note with this date");
+            System.out.println("You don't have a cycling note with this date.");
         } else {
-            System.out.println("The note has been deleted");
+            System.out.println("The note has been deleted.");
         }
     }
     
@@ -112,7 +112,6 @@ public class TextUi {
             System.out.println("You need to be logged in to list all notes!");
             return;
         }
-        
         
         List<Note> notes = noteService.getAll();
         if (notes.size() == 0) {
@@ -135,7 +134,8 @@ public class TextUi {
             System.out.println("Date (dd/mm/yyyy): "); 
             String stringDate = scanner.nextLine();        
             localDate = formatStringDateToLocalDate(stringDate);
-            localDate = validateDateInput(localDate);            
+            localDate = validateDateInputDateNotInTheFuture(localDate);  
+            localDate = validateDateInputDateIsUnique(localDate);
         }       
         Integer km = null;
         while (km == null) {
@@ -156,19 +156,35 @@ public class TextUi {
     private String validateNoteContentInput(String content) {
         String trimmedContent = content.trim();
         if (trimmedContent.length() < 1 || trimmedContent.length() > 200) {
-                System.out.println("Invalid, note has to be within 1 and 200 characters");
+                System.out.println("Invalid, note has to be within 1 and 200 characters.");
                 trimmedContent = null;
             }
         return trimmedContent;
     }
     
-    private LocalDate validateDateInput(LocalDate date) {
+    private LocalDate validateDateInputDateIsUnique(LocalDate date) throws SQLException {
+        LocalDate result = date;
+        List<Note> list = noteService.getAll();
+        for (Note note : list) {
+            if (note.getDate().equals(date)) {
+                result = null;
+                System.out.println("You already have a note with this date.");
+            }
+        }
+        return result;
+    }
+    
+    private LocalDate validateDateInputDateNotInTheFuture(LocalDate date) {
+        if (date == null) {
+            return date;
+        }
         if (date.compareTo(LocalDate.now()) > 0) {
             date = null;
             System.out.println("Select the current date or a date from the past.");  
         } 
         return date;
     }
+    
     
     private Integer validateKmInput(String stringKm) {
         try {
@@ -194,8 +210,7 @@ public class TextUi {
             return localDate;
         } catch (DateTimeParseException e) {
             System.out.println("Invalid date format!");
-        }
-        
+        }   
         return null;
     }
     
@@ -212,8 +227,7 @@ public class TextUi {
             System.out.println("You have been logged out.");
         } else {
             System.out.println("The program has been closed.");
-        }
-              
+        }       
     }
     
     private void login() throws SQLException {
@@ -230,6 +244,10 @@ public class TextUi {
     }
     
     private void createUser() throws SQLException {
+        if (noteService.isUserLoggedIn() == true) {
+            System.out.println("You are already logged in. Logout first if you want to create a new account.");
+            return;
+        }
         String name = null;
         while (name == null) {
             System.out.println("Name: ");
