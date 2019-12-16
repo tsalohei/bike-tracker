@@ -3,6 +3,7 @@ package com.salohei.domain;
 
 import com.salohei.dao.NoteDao;
 import com.salohei.dao.UserDao;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,18 +31,18 @@ public class NoteServiceNoteTest {
     
     NoteService noteService;
     User user;
-    Note note;
     
     @Before
-    public void setup() {
+    public void setup() throws SQLException {
         this.noteService = new NoteService(noteDao, userDao);
-        this.user = this.userDao.create("Cynthia Cyclist", "cycy");
-    }
-    
-    
-    @Test
-    public void creatingNewNoteForCurrentUserWorks() throws Exception{
+        this.user = new User("Cynthia Cyclist", "cycy", 1);
         
+        when(userDao.findByUsername("cycy")).thenReturn(user);
+        noteService.login("cycy");
+    }
+       
+    @Test
+    public void creatingNewNoteForCurrentUserWorks() throws Exception{      
         LocalDate date = LocalDate.now();
         Note note = new Note(date, 22, "foo", user, 1);
         
@@ -50,29 +51,20 @@ public class NoteServiceNoteTest {
         assertEquals(true, noteService.createNote(date, 22, "foo"));
     }
     
-    /*
-    //TARKISTA TÄMÄ
     @Test
-    public void creatingNewNoteForCurrentReturnsFalseWhenDatabaseThrowsException() throws Exception {
-        LocalDate date = LocalDate.now();
-        when(noteDao.create(date, 22, "foo", user)).thenReturn(null);
-        //mutta tää johtaa silti true:n palautukseen?
-    }
-    */
-    
-    
-    @Test
-    public void gettingKmCountForCurrentUserWorks() {
+    public void gettingKmCountForCurrentUserWorks() throws SQLException {
         when(noteDao.kmTotal(user)).thenReturn(12);
         
         assertEquals(12, noteService.kmTotal());
+        
     }
     
-    @Test
-    public void gettingListofNotesForCurrentUserWorksWhenThereAreNotes() {
+    @Test 
+    public void gettingListofNotesForCurrentUserWorksWhenThereAreNotes() throws SQLException {
         Note note = new Note(LocalDate.now(), 22, "foo", user, 1);
         List<Note> list = new ArrayList<>();
         list.add(note);
+
         when(noteDao.getAll(user)).thenReturn(list);
         
         assertEquals(list, noteService.getAll());
@@ -81,8 +73,9 @@ public class NoteServiceNoteTest {
    
     
      @Test
-    public void gettingListOfNotesForCurrentUserWorksWhenThereAreNoNotes() {
+    public void gettingListOfNotesForCurrentUserWorksWhenThereAreNoNotes() throws SQLException {
         List<Note> list = new ArrayList<>();
+        
         when(noteDao.getAll(user)).thenReturn(list);
         
         assertEquals(list, noteService.getAll());
@@ -90,19 +83,20 @@ public class NoteServiceNoteTest {
     }
     
     
-    @Test
-    public void noteIsDeletedCorrectlyWhenCurrentUserHasACorrespondingNote() {
+    @Test 
+    public void noteIsDeletedCorrectlyWhenCurrentUserHasACorrespondingNote() throws SQLException {
         List<Note> list = new ArrayList<>();
         LocalDate date = LocalDate.now();
         Note note = new Note(date, 22, "foo", user, 1);
         list.add(note);
+        
         when(noteDao.getAll(user)).thenReturn(list);
         
         assertTrue(noteService.deleteNote(date));
     }
     
     @Test
-    public void tryingToDeleteANoteReturnsFalseWhenCurrentUserHasNoCorrespondingNote() {
+    public void tryingToDeleteANoteReturnsFalseWhenCurrentUserHasNoCorrespondingNote() throws SQLException {
         List<Note> list = new ArrayList<>();
         LocalDate date = LocalDate.now();
         
@@ -110,4 +104,17 @@ public class NoteServiceNoteTest {
         
         assertFalse(noteService.deleteNote(date));
     }
+    
+    @Test
+    public void checkingIfUserIsLoggedInWorksWhenUserIsLoggedIn() throws SQLException {
+        assertTrue(noteService.isUserLoggedIn());
+    }
+    
+    @Test
+    public void checkingIfUserIsLoggedInWorksWhenUserIsNotLoggedIn() {
+        noteService.logout();
+        
+        assertFalse(noteService.isUserLoggedIn());
+    }
+       
 }
