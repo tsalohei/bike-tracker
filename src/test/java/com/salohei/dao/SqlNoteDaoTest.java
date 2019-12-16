@@ -46,7 +46,8 @@ public class SqlNoteDaoTest {
     
     @Test
     public void noteIsCreatedWithoutError() throws Exception {
-        Note result = this.noteDao.create(LocalDate.now(), 1, "foo", user);        
+        Note result = this.noteDao.create(LocalDate.now(), 1, "foo", user); 
+        
         assertNotNull(result);
     }
     
@@ -55,6 +56,7 @@ public class SqlNoteDaoTest {
         this.noteDao.create(LocalDate.now(), 1, "foo", user);
         
         List<Note> list = noteDao.getAll(this.user);
+        
         assertEquals(1, list.size());
     }
     
@@ -63,12 +65,14 @@ public class SqlNoteDaoTest {
         this.noteDao.create(LocalDate.now(), 12, "foo", user);
         
         int result = this.noteDao.kmTotal(this.user);
+        
         assertEquals(12, result);
     }
     
     @Test
     public void totalKmCountIsReadCorrectlyFromDatabaseWhenThereAreNoNotes() throws Exception {
         int result = this.noteDao.kmTotal(this.user);
+        
         assertEquals(0, result);
     }
     

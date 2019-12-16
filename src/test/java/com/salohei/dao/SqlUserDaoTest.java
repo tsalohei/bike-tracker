@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
@@ -18,7 +19,9 @@ import org.junit.Test;
 public class SqlUserDaoTest {
     
     Database database;
-    UserDao dao; 
+    UserDao userDao; 
+    
+    User user;
     
     @Before
     public void setup() throws Exception {
@@ -26,16 +29,11 @@ public class SqlUserDaoTest {
         Connection connection = database.getConnection();
         database.createTables();
         
-        PreparedStatement stmt = connection.prepareStatement("INSERT INTO User (name, username) VALUES (?,?)");
-            stmt.setString(1, "Cynthia Cyclist");
-            stmt.setString(2, "cycy");
-
-            stmt.executeUpdate();
-
-            stmt.close();
-            connection.close();   
+        this.userDao = new SqlUserDao(database);
+        this.user = this.userDao.create("Cynthia Cyclist", "cycy");
+        
+        connection.close();
             
-            this.dao = new SqlUserDao(database);
     }
     
     @After
@@ -44,23 +42,25 @@ public class SqlUserDaoTest {
     }
     
     @Test
-    public void existingUserIsFound(){
-        User user = dao.findByUsername("cycy");
+    public void existingUserIsFound() throws SQLException{
+        User user = userDao.findByUsername("cycy");
+        
         assertEquals("Cynthia Cyclist", user.getName());
         assertEquals("cycy", user.getUsername());   
     }
     
     @Test
-    public void nonExistingUserIsFound(){
-        User user = dao.findByUsername("batman");
+    public void nonExistingUserIsFound() throws SQLException{
+        User user = userDao.findByUsername("batman");
+        
         assertEquals(null, user);
     }
     
     @Test 
-    public void newUserIsFound() {
-        dao.create("Jill Homer", "jill");
+    public void newUserIsFound() throws SQLException {
+        userDao.create("Jill Homer", "jill");
         
-        User user = dao.findByUsername("jill");
+        User user = userDao.findByUsername("jill");
         
         assertEquals("Jill Homer", user.getName());
         assertEquals("jill", user.getUsername());
