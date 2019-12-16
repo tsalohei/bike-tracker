@@ -35,9 +35,9 @@ public class NoteService {
      * 
      * @param date Nykyisen käyttäjän antama päivämäärä
      * @return palautetaan true jos muistiinpanon poistaminen onnistui,
-     * muuten palautetaan false
+     * tai palautetaan false jos annetulla päivämäärällä ei ole muistiinpanoa
      * 
-     * throws SQLException virhe tietokannassa
+     * @throws SQLException virhe tietokannassa
      */
     public boolean deleteNote(LocalDate date) throws SQLException  {
         List<Note> list = noteDao.getAll(currentUser);
@@ -59,7 +59,7 @@ public class NoteService {
      * 
      * @return pyöräillyt kilometrit yhteensä, tai 0 jos ei kilometreja
      * 
-     * throws SQLException virhe tietokannassa
+     * @throws SQLException virhe tietokannassa
      */
     
     public int kmTotal() throws SQLException {
@@ -71,7 +71,7 @@ public class NoteService {
      * 
      * @return lista muistiinpanoista, tai tyhjä lista jos muistiinpanoja ei ole
      * 
-     * throws SQLException virhe tietokannassa
+     * @throws SQLException virhe tietokannassa
      */
     public List<Note> getAll() throws SQLException {
         return noteDao.getAll(currentUser);
@@ -87,7 +87,7 @@ public class NoteService {
      * 
      * @return true jos muistiinpanon luominen onnistuu
      * 
-     * throws SQLException virhe tietokannassa
+     * @throws SQLException virhe tietokannassa
      */
     public boolean createNote(LocalDate date, int km, String content) throws SQLException {       
         noteDao.create(date, km, content, currentUser);  
@@ -102,7 +102,7 @@ public class NoteService {
      * @return true jos sisäänkirjautuminen onnistuu, false jos käyttäjänimeä
      * ei ole olemassa
      * 
-     * throws SQLException virhe tietokannassa
+     * @throws SQLException virhe tietokannassa
      */
     public boolean login(String username) throws SQLException {
         User user = userDao.findByUsername(username);
@@ -128,7 +128,7 @@ public class NoteService {
      * 
      * @return true jos käyttäjän luominen onnistuu, false jos ei onnistu 
      * 
-     * throws SQLException
+     * @throws SQLException
      */
     public boolean createUser(String name, String username) throws SQLException {
         if (userDao.findByUsername(username) != null) {

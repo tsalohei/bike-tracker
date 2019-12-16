@@ -33,7 +33,7 @@ public class Database {
     /**
      * Metodi luo tietokantaan tietokantataulut.
      * 
-     * throws SQLException virhe tietokannassa
+     * @throws SQLException virhe tietokannassa
      */
     public void createTables() throws SQLException {
         String userTable = "CREATE TABLE IF NOT EXISTS User (\n"

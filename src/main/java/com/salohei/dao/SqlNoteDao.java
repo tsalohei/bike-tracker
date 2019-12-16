@@ -127,7 +127,7 @@ public class SqlNoteDao implements NoteDao {
     }
 
     /**
-    * Metodi palauttaa käyttäjän kokonaiskilometrit.
+    * Metodi kertoo kuinka paljon käyttäjä on yhteensä pyöräillyt.
     * 
     * @param user Käyttäjä
     * 
@@ -158,11 +158,12 @@ public class SqlNoteDao implements NoteDao {
     }
 
     /**
-     * Metodi poistaa muistiinpanon pyydetyltä päivämäärältä.
+     * Metodi poistaa muistiinpanon tietyltä päivämäärältä.
      * 
      * @param date Käyttäjän antama päivämäärä
      * @param user Käyttäjä
-     * 
+     *
+     * @return true jos poistaminen onnistui 
      * @throws SQLException virhe tietokannassa
      */
     @Override

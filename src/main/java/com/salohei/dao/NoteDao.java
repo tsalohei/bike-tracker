@@ -10,8 +10,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Rajapinta vastaa käyttäjän muistiinpanojen käsittelystä ja tietojen
- * tallentamisesta. 
+ * Rajapinnan toteuttava luokka vastaa käyttäjän muistiinpanojen käsittelystä ja 
+ * tietojen tallentamisesta. 
  */
 public interface NoteDao {
     
@@ -23,10 +23,9 @@ public interface NoteDao {
      * @param content Teksti, joka halutaan liittää osaksi muistiinpanoa
      * @param user Käyttäjä, johon muistiinpano liittyy
      * 
-     * @return Luotu muistiinpano, tai null jos muistiinpanon luominen ei 
-     * onnistu
+     * @return Luotu muistiinpano
      * 
-     * @throws SQLException 
+     * @throws SQLException virhe tietokannassa
      */
     Note create(LocalDate date, int km, String content, User user) throws SQLException;
     
@@ -34,20 +33,19 @@ public interface NoteDao {
      * Metodi palauttaa kaikki käyttäjään liittyvät muistiinpanot.
      * 
      * @param user Käyttäjä, johon muistiinpanot liittyvät
-     * @return lista muistiinpanoja (lista voi olla myös tyhjä)
+     * @return lista muistiinpanoja tai tyhjä lista jos muistiinpanoja ei ole
      * 
-     * @throws SQLException jos tulee tietokantavirhe
+     * @throws SQLException virhe tietokannassa
      */
     List<Note> getAll(User user) throws SQLException;
     
     /**
-     * Metodi palauttaa luvun, joka kertoo kuinka paljon käyttäjä
-     * on yhteensä pyöräillyt.
+     * Metodi kertoo kuinka paljon käyttäjä on yhteensä pyöräillyt.
      * 
      * @param user Käyttäjä
-     * @return pyöräillyt kilometrit yhteensä
+     * @return pyöräillyt kilometrit yhteensä, tai 0 jos ei kilometreja
      * 
-     * @throws SQLException jos tulee tietokantavirhe
+     * @throws SQLException virhe tietokannassa
      */
     int kmTotal(User user) throws SQLException;
     
@@ -56,7 +54,8 @@ public interface NoteDao {
      * 
      * @param date Käyttäjän antama päivämäärä
      * @param user Käyttäjä
-     * @return true jos poistaminen onnistui, false jos ei onnistunut
+     * 
+     * @return true jos poistaminen onnistui
      * 
      * @throws SQLException jos tulee tietokantavirhe
      */

@@ -25,7 +25,8 @@ public class SqlUserDao implements UserDao {
      * @param name Käyttäjän nimi
      * @param username Käyttäjän käyttäjänimi
      * 
-     * @return Luotu käyttäjä, tai null jos käyttäjän luominen ei onnistu
+     * @return Luotu käyttäjä
+     * @throws SQLException virhe tietokannassa
      */
     @Override    
     public User create(String name, String username) throws SQLException {
@@ -55,7 +56,7 @@ public class SqlUserDao implements UserDao {
      * @return parametrina annettuun käyttäjänimeen liittyvä käyttäjä,
      * tai null jos käyttäjänimi on vielä vapaa
      * 
-     * throws SQLException virhe tietokannassa
+     * @throws SQLException virhe tietokannassa
      */
     @Override
     public User findByUsername(String username) throws SQLException{

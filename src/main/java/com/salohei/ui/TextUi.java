@@ -3,8 +3,8 @@ package com.salohei.ui;
 
 import com.salohei.dao.Database;
 import com.salohei.dao.NoteDao;
-import com.salohei.dao.SqlNoteDao; //OTA NÄMÄ KAKSI POIS
-import com.salohei.dao.SqlUserDao;
+import com.salohei.dao.SqlNoteDao; //??
+import com.salohei.dao.SqlUserDao; //??
 import com.salohei.dao.UserDao;
 import com.salohei.domain.Note;
 import com.salohei.domain.NoteService;
@@ -31,14 +31,13 @@ public class TextUi {
     
     private TreeMap<String, String> createCommands() {
         TreeMap commands = new TreeMap<>();
-        commands.put("x", "x: close the program"); 
         commands.put("1", "1: login");
         commands.put("2", "2: register as a new user");
         commands.put("3", "3: add a new cycling note");
         commands.put("4", "4: total kilometer count");
         commands.put("5", "5: list all cycling notes");
         commands.put("6", "6: delete note by date");
-        commands.put("7", "7: logout");
+        commands.put("x", "x: logout and close the program");
         return commands;
     }
     
@@ -56,6 +55,7 @@ public class TextUi {
                     printInstructions();
                 }
                 if (command.equals("x")) {
+                    logout();
                     break;
                 } else if (command.equals("1")) {
                     login();
@@ -69,10 +69,7 @@ public class TextUi {
                     listAllNotes();         
                 } else if (command.equals("6")) {
                     deleteNote();
-                } else if (command.equals("7")) {
-                    logout();
-                    break;
-                }
+                } 
             }
         } catch (SQLException e) {
             System.out.println("Oops, something went wrong. The program is closed. Please try again later");
