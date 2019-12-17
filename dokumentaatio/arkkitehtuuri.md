@@ -37,7 +37,40 @@ Tämä yhdistetty luokka/pakkauskaavio kuvaa ohjelman eri osien suhdetta toisiin
 
 ## Tietojen pysyväistallennus
 
-Tietokannan kuvaus.
+Pakkauksen com.salohei.dao luokat SqlUserDao ja SqlNoteDao ovat vastuussa tietojen tallettamisesta tietokantaan. 
+
+Luokat ovat yksi mahdollinen toteutus rajapinnoista UserDao ja NoteDao. Jos tietojen tallennustapa haluttaisiin vaihtaa johonkin muuhun, rajapinnoista voitaisiin tehdä jotkut toiset toteutukset. 
+
+### Tietokanta
+
+Sovellus tallentaa käyttäjien ja heidän päiväkohtaisten muistiinpanojensa tiedot yhteen tietokantaan; käyttäjät yhteen tietokantatauluun ja päiväkohtaiset muistiinpanot toiseen tietokantatauluun.
+
+Tietokannan nimi määritellään konfiguraatiotiedostossa nimeltä [config.properties](https://github.com/tsalohei/bike-tracker/blob/master/src/main/resources/config.properties). 
+
+Sovellus tallettaa käyttäjien tiedot seuraavankaltaiseen tietokantatauluun:
+
+	CREATE TABLE User 
+	(
+	    id integer PRIMARY KEY,
+	    name text NOT NULL,
+	    username text NOT NULL
+	);
+
+Tietokantataulun ensimmäiseen sarakkeeseen talletataan käyttäjän tunniste (id), toiseen sarakkeeseen käyttäjän nimi ja kolmanteen sarakkeeseen käyttäjänimi.
+
+Päiväkohtaiset muistiinpanot talletetaan vastaavasti tällaiseen tietokantatauluun:
+
+	CREATE TABLE Note
+	(
+	    id integer PRIMARY KEY,
+	    date date NOT NULL,
+	    km integer NOT NULL,
+	    content text NOT NULL,
+	    user integer NOT NULL,
+	    FOREIGN KEY(user) REFERENCES User(id)
+	);
+
+Ensimmäisessä sarakkeessa on päiväkohtaisen muistiinpanon yksilöivä tunnus (id), ja tätä seuraavissa sarakkeissa päivämäärä, kilometrit, tekstimuistiinpanot sekä viimeisenä sarakkeena vierasavain käyttäjän tunnukseen.
 
 ## Päätoiminnallisuudet
 
