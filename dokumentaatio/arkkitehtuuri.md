@@ -108,6 +108,10 @@ Aluksi tekstikäyttöliittymä tarkastaa NoteService:n metodia isUserLoggedIn-ku
 
 NoteService-olio kutsuu NoteDao:n metodia kmTotal, antaen sille parametriksi tiedon sisäänkirjautuneesta käyttäjästä. NoteDao:n kmTotal-metodi tekee tietokantahaun, joka kertoo montako kilometria käyttäjä on pyöräillyt yhteensä, ja palauttaa tämän luvun NoteService:n kmTotal-metodille. NoteService:n kmTotal-metodi lähettää saman kilometrimäärän paluuarvona käyttöliittymään sitä kutsuneelle metodille. 
 
+### Muut toiminnallisuudet
+
+Sovellus hyödyntää samaa periaatetta myös muissa toiminnallisuuksissa. Käyttöliittymän metodi kutsuu sovelluslogiikan puolelta haluttua metodia, ja sovelluslogiikka puolestaan kutsuu joko UserDao:n tai NoteDao:n metodeita. 
+
 ## Sovelluksen rakenteeseen jääneitä heikkouksia
 
 Käyttöliittymässä tehdään työtä (printtaukset, listojen läpikäynnit), jonka olisi voinut eriyttää erillisen luokan vastuulle (luokan nimi voisi olla vaikkapa uiServices). Tämä tekisi käyttöliittymän rakenteesta selkeämmän, ja mahdollistaisi sovelluksen laajentamisen esimerkiksi uusiin kieliversioihin. 
