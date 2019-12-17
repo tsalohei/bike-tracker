@@ -127,7 +127,7 @@ public class NoteService {
      * 
      * @return true jos käyttäjän luominen onnistuu, false jos ei onnistu 
      * 
-     * @throws SQLException
+     * @throws SQLException virhe tietokannassa
      */
     public boolean createUser(String name, String username) throws SQLException {
         if (userDao.findByUsername(username) != null) {

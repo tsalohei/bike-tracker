@@ -56,7 +56,7 @@ public class SqlUserDao implements UserDao {
      * @throws SQLException virhe tietokannassa
      */
     @Override
-    public User findByUsername(String username) throws SQLException{
+    public User findByUsername(String username) throws SQLException {
         Connection conn = database.getConnection();
             
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE username = ?");
