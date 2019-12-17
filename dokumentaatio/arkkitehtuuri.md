@@ -110,7 +110,7 @@ NoteService-olio kutsuu NoteDao:n metodia kmTotal, antaen sille parametriksi tie
 
 ### Muut toiminnallisuudet
 
-Sovellus hyödyntää samaa periaatetta myös muissa toiminnallisuuksissa. Käyttöliittymän metodi kutsuu sovelluslogiikan puolelta haluttua metodia, ja sovelluslogiikka puolestaan kutsuu joko UserDao:n tai NoteDao:n metodeita. 
+Sovellus hyödyntää samaa periaatetta myös muissa toiminnallisuuksissa. Käyttöliittymän metodi kutsuu sovelluslogiikan puolelta haluttua metodia, ja sovelluslogiikka puolestaan kutsuu joko UserDao:n tai NoteDao:n metodeita. Dao:t puolestaan palauttavat tietoja NoteServicelle. Kun kontrolli palaa käyttöliittymään, voidaan käyttäjälle näyttää esim. haettu arvo tai tieto pyynnön onnistumisesta.
 
 ## Sovelluksen rakenteeseen jääneitä heikkouksia
 
