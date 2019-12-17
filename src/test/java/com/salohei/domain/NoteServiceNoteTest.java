@@ -39,7 +39,7 @@ public class NoteServiceNoteTest {
     }
        
     @Test
-    public void creatingNewNoteForCurrentUserWorks() throws Exception{      
+    public void creatingNewNoteForCurrentUserWorks() throws Exception {      
         LocalDate date = LocalDate.now();
         Note note = new Note(date, 22, "foo", user, 1);
         
@@ -69,7 +69,7 @@ public class NoteServiceNoteTest {
     }
    
     
-     @Test
+    @Test
     public void gettingListOfNotesForCurrentUserWorksWhenThereAreNoNotes() throws SQLException {
         List<Note> list = new ArrayList<>();
         

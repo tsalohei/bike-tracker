@@ -105,6 +105,10 @@ public class SqlNoteDao implements NoteDao {
     public List<Note> getAll(User user) throws SQLException {
         List<Note> list = new ArrayList<>();
         
+        if (user == null) {
+            return list;
+        }
+        
         int userId = user.getId();
         
         Connection conn = database.getConnection();

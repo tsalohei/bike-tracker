@@ -29,7 +29,7 @@ Sovellusta voi käyttää pyöräilypäiväkirjana, joka koostuu päiväkohtaisi
 
 Ohjelma käynnistetään komennolla. 
 
-	mvn compile exec:java -Dexec.mainClass=com.salohei.app.Main
+	mvn compile exec:java -Dexec.mainClass=com.salohei.Main
 
 ### Testit
 

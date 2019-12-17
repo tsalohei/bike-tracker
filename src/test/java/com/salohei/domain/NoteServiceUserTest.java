@@ -31,7 +31,7 @@ public class NoteServiceUserTest {
     
     
     @Test
-    public void creatingNewUserWithNewUsernameWorks() throws SQLException{
+    public void creatingNewUserWithNewUsernameWorks() throws SQLException {
         
         when(userDao.findByUsername("username")).thenReturn(null);
         
@@ -41,7 +41,7 @@ public class NoteServiceUserTest {
     
     
     @Test
-    public void creatingNewUserWithTakenUsernameReturnsFalse() throws SQLException{  
+    public void creatingNewUserWithTakenUsernameReturnsFalse() throws SQLException {  
         User user = new User("name", "username", 123);
         when(userDao.findByUsername("username")).thenReturn(user);
         
@@ -50,7 +50,7 @@ public class NoteServiceUserTest {
     }
     
     @Test
-    public void loggingOutWorks() throws SQLException{
+    public void loggingOutWorks() throws SQLException {
         
         User user = new User("name", "username", 123);
         when(userDao.findByUsername("username")).thenReturn(user);
@@ -68,8 +68,7 @@ public class NoteServiceUserTest {
         when(userDao.findByUsername("username")).thenReturn(user);
         
         assertTrue(noteService.login("username"));        
-        assertEquals(user, noteService.getLoggedUser());
-        
+        assertEquals(user, noteService.getLoggedUser());    
     }
     
     

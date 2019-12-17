@@ -1,4 +1,4 @@
-package com.salohei.app;
+package com.salohei;
 
 
 import com.salohei.ui.TextUi;
