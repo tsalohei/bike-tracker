@@ -89,7 +89,7 @@ NoteService-olio kutsuu UserDao:n metodia findByUsername, antaen sille parametri
 
 ### Uuden päivittäisen muistiinpanon luominen
 
-Kun käyttäjä syöttää käyttöliittymään Create new note -toiminnallisuutta vastaavan komennon 3 ja painaa enter, etenee sovellluksen kontrolli seuraavalla tavalla:
+Kun käyttäjä syöttää käyttöliittymään create new note -toiminnallisuutta vastaavan komennon 3 ja painaa enter, etenee sovellluksen kontrolli seuraavalla tavalla:
 
 ![sequence diagram](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/sequenceDiagramUserCreatesNewNote.png "Sequence diagram")
 
@@ -98,11 +98,9 @@ Aluksi tekstikäyttöliittymä tarkastaa NoteService:n metodia kutsumalla, että
 NoteService-olio kutsuu NoteDao:n metodia createNote, antaen sille parametriksi kaikki tiedot mitä äsken sai itse käyttöliittymästä, ja sen lisäksi tiedon sisäänkirjautuneesta käyttäjästä. NoteDao luo näitä tietoja vastaavan note:n tietokantaan, ja palauttaa note:n NoteService-oliolle. Jos palautus tapahtuu onnistuneesti, lähettää NoteService paluuarvona sitä kutsuneelle käyttöliittymän metodille arvon “true”. 
 
 
-### Kaikkien pyöräilymuistiinpanojen tarkasteleminen
-
 ### Kokonaiskilometrimäärän tarkasteleminen
 
-### Pyöräilymuistiinpanon poistaminen päivämäärän perusteella
+Kun käyttäjä syöttää käyttöliittymään total kilometer count -toiminnallisuutta vastaavan komennon 4 ja painaa enter, etenee sovelluksen kontrolli seuraavalla tavalla:
 
 ## Sovelluksen rakenteeseen jääneitä heikkouksia
 
