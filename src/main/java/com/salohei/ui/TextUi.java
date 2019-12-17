@@ -289,7 +289,6 @@ public class TextUi {
         properties.load(cpResource);
         String databaseAddress = properties.getProperty("databaseAddress");
         Database db = new Database(databaseAddress);
-        //db.getConnection();
         db.createTables();
         UserDao userDao = new SqlUserDao(db); 
         NoteDao noteDao = new SqlNoteDao(db);

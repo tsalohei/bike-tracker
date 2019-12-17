@@ -55,5 +55,8 @@ public class Database {
         Statement stmt = conn.createStatement(); 
         stmt.execute(userTable);
         stmt.execute(noteTable);
+        
+        stmt.close();
+        conn.close();
     }
 }
