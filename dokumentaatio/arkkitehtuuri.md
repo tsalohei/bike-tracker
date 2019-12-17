@@ -80,10 +80,14 @@ Ensimmäisessä sarakkeessa on päiväkohtaisen muistiinpanon yksilöivä tunnus
 
 ### Uuden pyöräilymuistiinpanon luominen
 
+![sequence diagram](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/sequenceDiagramUserCreatesNewNote.png "Sequence diagram")
+
 ### Kaikkien pyöräilymuistiinpanojen tarkasteleminen
 
 ### Kokonaiskilometrimäärän tarkasteleminen
 
 ### Pyöräilymuistiinpanon poistaminen päivämäärän perusteella
 
+## Sovelluksen rakenteeseen jääneitä heikkouksia
 
+Käyttöliittymässä on koodia, joka käsittelee listoja ja printtaa 
