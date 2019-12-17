@@ -4,7 +4,7 @@ Lataa tiedosto bike-tracker.jar
 
 ## Asentaminen ja konfigurointi
 
-Käyttäjän tulee luoda konfiguraatiotiedosto _config.properties_, joka määrittelee käytettävän tietokannan nimen. Tiedoston tulee sijaita ohjelman käynnistyshakemistossa. Tiedoston formaatti on seuraava: 
+Käyttäjän täytyy luoda konfiguraatiotiedosto _config.properties_, joka määrittelee käytettävän tietokannan nimen. Tiedoston tulee sijaita ohjelman käynnistyshakemistossa. Tiedoston formaatti on seuraava: 
 
 	databaseAddress=jdbc:sqlite:tietokanta.db
 
