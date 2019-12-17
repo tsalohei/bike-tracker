@@ -37,13 +37,13 @@ Tämä yhdistetty luokka/pakkauskaavio kuvaa ohjelman eri osien suhdetta toisiin
 
 ## Tietojen pysyväistallennus
 
-Pakkauksen com.salohei.dao luokat SqlUserDao ja SqlNoteDao ovat vastuussa tietojen tallettamisesta tietokantaan. 
+Pakkauksen com.salohei.dao luokat SqlUserDao ja SqlNoteDao ovat vastuussa tietojen tallettamisesta SQLite-tietokantaan. 
 
 Luokat ovat yksi mahdollinen toteutus rajapinnoista UserDao ja NoteDao. Jos tietojen tallennustapa haluttaisiin vaihtaa johonkin muuhun, rajapinnoista voitaisiin tehdä jotkut toiset toteutukset. 
 
 ### Tietokanta
 
-Sovellus tallentaa käyttäjien ja heidän päiväkohtaisten muistiinpanojensa tiedot yhteen tietokantaan; käyttäjät yhteen tietokantatauluun ja päiväkohtaiset muistiinpanot toiseen tietokantatauluun.
+Sovellus tallentaa käyttäjien ja heidän päiväkohtaisten muistiinpanojensa tiedot yhteen SQLite-tietokantaan; käyttäjät yhteen tietokantatauluun ja päiväkohtaiset muistiinpanot toiseen tietokantatauluun. Tietokantataulut luodaan pakkauksen com.salohei.dao luokassa [Database](https://github.com/tsalohei/bike-tracker/blob/master/src/main/java/com/salohei/dao/Database.java).
 
 Tietokannan nimi määritellään konfiguraatiotiedostossa nimeltä [config.properties](https://github.com/tsalohei/bike-tracker/blob/master/src/main/resources/config.properties). 
 
