@@ -82,7 +82,7 @@ Kun käyttäjä syöttää käyttöliittymään login-toiminnallisuutta vastaava
 
 ![sequence diagram](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/sequenceDiagramUserLogsIn.png "Sequence diagram")
 
-Kun käyttäjä on antanut komennon 1, tekstikäyttöliittymä tarkastaa NoteService:n metodia kutsumalla, että järjestelmässä ei ole ketään kirjautuneena sisään. Mikäli asia on kunnossa, tekstikäyttöliittymän login-metodi kutsuu NoteService-olion omaa login-metodia antaen sille parametriksi käyttäjän antaman käyttäjätunnuksen. 
+Kun käyttäjä on antanut komennon 1, tekstikäyttöliittymä tarkastaa NoteService:n isUserLoggedIn-metodia kutsumalla, että järjestelmässä ei ole ketään kirjautuneena sisään. Mikäli asia on kunnossa, tekstikäyttöliittymän login-metodi kutsuu NoteService-olion omaa login-metodia antaen sille parametriksi käyttäjän antaman käyttäjätunnuksen. 
 
 NoteService-olio kutsuu UserDao:n metodia findByUsername, antaen sille parametriksi äsken käyttöliittymästä saadun käyttäjänimen. Jos käyttäjänimeä vastaava käyttäjä löytyy, UserDao antaa sen paluuarvona NoteServicelle. Tämän jälkeen NoteService asetettaa kyseisen käyttäjän kirjautuneeksi sisään, ja palauttaa käyttöliittymään arvon true.
 
@@ -95,7 +95,7 @@ Kun käyttäjä syöttää käyttöliittymään create new note -toiminnallisuut
 
 Aluksi tekstikäyttöliittymä tarkastaa NoteService:n isUserLoggedIn-metodia kutsumalla, että komennon 3 antanut käyttäjä on myös kirjautunut sisään järjestelmään. Mikäli näin on, tekstikäyttöliittymän createNote-metodi kutsuu NoteService-olion omaa createNote-metodia antaen sille parametriksi käyttäjän antamat tiedot: päivämäärän, kilometrimäärän, ja tekstimuistiinpanot. NoteService-oliolla on tieto siitä, kuka on sovelluksen senhetkinen, sisäänkirjautunut käyttäjä. 
 
-NoteService-olio kutsuu NoteDao:n metodia createNote, antaen sille parametriksi kaikki tiedot mitä äsken sai itse käyttöliittymästä, ja sen lisäksi tiedon sisäänkirjautuneesta käyttäjästä. NoteDao luo näitä tietoja vastaavan note:n tietokantaan, ja palauttaa note:n NoteService-oliolle. Jos palautus tapahtuu onnistuneesti, lähettää NoteService paluuarvona sitä kutsuneelle käyttöliittymän metodille arvon “true”. 
+NoteService-olion createNote-metodi kutsuu NoteDao:n metodia createNote, antaen sille parametriksi kaikki tiedot mitä äsken sai itse käyttöliittymästä, ja sen lisäksi tiedon sisäänkirjautuneesta käyttäjästä. NoteDao luo näitä tietoja vastaavan note:n tietokantaan, ja palauttaa note:n NoteService-oliolle. Jos palautus tapahtuu onnistuneesti, lähettää NoteService paluuarvona sitä kutsuneelle käyttöliittymän metodille arvon “true”. 
 
 
 ### Kokonaiskilometrimäärän tarkasteleminen
