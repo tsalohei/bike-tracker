@@ -6,13 +6,13 @@ Ohjelma on rakenteeltaan kolmitasoinen kerrosarkkitehtuuri. Pakkausrakenne on se
 
 ![Pakkauskaavio](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/bike-tracker_pakkauskaavio.png "Pakkauskaavio")
 
-Pakkaus com.salohei.ui sisältää tekstikäyttöliittymänä toteutetun käyttöliittymän, com.salohei.domain sovelluslogiikan ja com.salohei.dao sisältää koodin, joka vastaa tietojen pysyväistalletuksesta. 
+Pakkaus _com.salohei.ui_ sisältää tekstikäyttöliittymänä toteutetun käyttöliittymän, _com.salohei.domain_ sovelluslogiikan ja _com.salohei.dao_ sisältää koodin, joka vastaa tietojen pysyväistalletuksesta. 
 
 ## Käyttöliittymä
 
-Käyttöliittymä on toteutettu tekstikäyttöliittymänä. Ohjelman käynnistyessä käyttäjälle näytetään eri toimintoihin liittyvät komennot ja käyttäjä voi valita näistä haluamansa. Käyttöliittymän koodi löytyy luokasta com.salohei.ui.TextUi. Sama luokka vastaa myös virheviestien näyttämisestä käyttäjälle. 
+Käyttöliittymä on toteutettu tekstikäyttöliittymänä. Ohjelman käynnistyessä käyttäjälle näytetään eri toimintoihin liittyvät komennot ja käyttäjä voi valita näistä haluamansa. Käyttöliittymän koodi löytyy luokasta [com.salohei.ui.TextUi](https://github.com/tsalohei/bike-tracker/blob/master/src/main/java/com/salohei/ui/TextUi.java). Sama luokka vastaa myös virheviestien näyttämisestä käyttäjälle. 
 
-Käyttöliittymä on pyritty pitämään erillään sovelluslogiikasta. Käyttöliittymä pyytää käyttäjältä tietoja, ja välittää niitä parametreina sovelluslogiikan toteuttavan NoteService-olion metodeille. Myös virheviestien näyttäminen perustuu siihen, mitä paluuarvoja NoteServicen kutsutut metodit palauttavat. 
+Käyttöliittymä on pyritty pitämään erillään sovelluslogiikasta. Käyttöliittymä pyytää käyttäjältä tietoja, ja välittää niitä parametreina sovelluslogiikan toteuttavan NoteService-olion metodeille. Virheviestien näyttäminen perustuu käyttäjän antamiin syötteisiin sekä siihen, mitä paluuarvoja NoteServicen kutsutut metodit palauttavat. 
 
 ## Sovelluslogiikka
 
