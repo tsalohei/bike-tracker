@@ -24,7 +24,7 @@ Sovellus toimii koneissa, joissa on Linux- tai OSX-käyttöjärjestelmä. Sovell
 - käyttäjä näkee kuinka monta kilometriä hän on pyöräillyt kokonaisuudessaan (tehty)
 - käyttäjä näkee listan päiväkohtaisista muistiinpanoista (tehty)
 - käyttäjä voi lisätä päiväkohtaisen muistiinpanon (yhteen päivään voi liittyä yksi tai ei yhtään merkintää) (tehty)
-  - päivämäärä ei voi olla tulevaisuudessa, ja päivämäärä tulee antaa käyttöliittymän pyytämässä muodossa (tehty)
+  - päivämäärä ei voi olla tulevaisuudessa, ja päivämäärä tulee antaa käyttöliittymän pyytämässä formaatissa (tehty)
   - päiväkohtaisen kilometrisaldon tulee olla 1-500 kilometriä (tehty)
   - muistiinpano voi olla 1-200 merkkiä pitkä (tehty)
   - jos joku käyttäjän antamista tiedoista ei ole odotetun kaltainen, antaa järjestelmä virheilmoituksen ja pyytää tietoa uudelleen (tehty)
