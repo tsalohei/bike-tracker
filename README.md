@@ -4,10 +4,10 @@
 
 Sovellusta voi käyttää pyöräilypäiväkirjana, joka koostuu päiväkohtaisista muistiinpanoista. Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä, ja heillä on kaikilla omat yksilölliset muistiinpanonsa. Sovelluksessa voi:
 
-* Kirjata talteen päiväkohtaiset kilometrisaldot ja päivään liittyvät muistiinpanot.
-* Tarkastella kuinka paljon kilometreja on kertynyt yhteensä.
-* Tarkastella listaa kaikista päiväkohtaisista muistiinpanoista.
-* Poistaa päiväkohtaisen muistiinpanon päivämäärän perusteella.
+* kirjata talteen päiväkohtaiset kilometrisaldot ja päivään liittyvät muistiinpanot
+* tarkastella kuinka paljon kilometreja on kertynyt yhteensä
+* tarkastella listaa kaikista päiväkohtaisista muistiinpanoista
+* poistaa päiväkohtaisen muistiinpanon
 
 ## Dokumentaatio
 
