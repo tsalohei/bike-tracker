@@ -84,7 +84,7 @@ Kun käyttäjä syöttää käyttöliittymään login-toiminnallisuutta vastaava
 
 
 
-### Uuden pyöräilymuistiinpanon luominen
+### Uuden päivittäisen muistiinpanon luominen
 
 Kun käyttäjä syöttää käyttöliittymään Create new note -toiminnallisuutta vastaavan komennon 3 ja painaa enter, etenee sovellluksen kontrolli seuraavalla tavalla:
 
