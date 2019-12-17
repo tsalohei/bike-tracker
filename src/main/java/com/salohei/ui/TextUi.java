@@ -8,7 +8,7 @@ import com.salohei.dao.SqlUserDao;
 import com.salohei.dao.UserDao;
 import com.salohei.domain.Note;
 import com.salohei.domain.NoteService;
-import java.io.InputStream;
+import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -285,8 +285,8 @@ public class TextUi {
     
     private void init() throws Exception {
         Properties properties = new Properties();
-        InputStream cpResource = this.getClass().getClassLoader().getResourceAsStream("config.properties");
-        properties.load(cpResource);
+        properties.load(new FileInputStream("config.properties"));
+        
         String databaseAddress = properties.getProperty("databaseAddress");
         Database db = new Database(databaseAddress);
         db.createTables();
