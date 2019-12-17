@@ -43,9 +43,6 @@ public class SqlUserDao implements UserDao {
         conn.close();
 
         return findByUsername(username);
-
-        
-        
     }
 
     /**

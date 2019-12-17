@@ -57,7 +57,7 @@ public interface NoteDao {
      * 
      * @return true jos poistaminen onnistui
      * 
-     * @throws SQLException jos tulee tietokantavirhe
+     * @throws SQLException virhe tietokannassa
      */
     boolean deleteNote(LocalDate date, User user) throws SQLException;
     
