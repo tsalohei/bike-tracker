@@ -12,15 +12,15 @@ Pakkaus _com.salohei.ui_ sisältää tekstikäyttöliittymänä toteutetun käyt
 
 Käyttöliittymä on toteutettu tekstikäyttöliittymänä. Ohjelman käynnistyessä käyttäjälle näytetään eri toimintoihin liittyvät komennot ja käyttäjä voi valita näistä haluamansa. Käyttöliittymän koodi löytyy luokasta [com.salohei.ui.TextUi](https://github.com/tsalohei/bike-tracker/blob/master/src/main/java/com/salohei/ui/TextUi.java). Sama luokka vastaa myös virheviestien näyttämisestä käyttäjälle. 
 
-Käyttöliittymä on pyritty pitämään erillään sovelluslogiikasta. Käyttöliittymä pyytää käyttäjältä tietoja, ja välittää niitä parametreina sovelluslogiikan toteuttavan NoteService-olion metodeille. Virheviestien näyttäminen perustuu käyttäjän antamiin syötteisiin sekä siihen, mitä paluuarvoja NoteServicen kutsutut metodit palauttavat. 
+Käyttöliittymä on pyritty pitämään erillään sovelluslogiikasta. Käyttöliittymä pyytää käyttäjältä tietoja, ja välittää niitä parametreina sovelluslogiikan toteuttavan NoteService-olion metodeille. Virheviestien näyttäminen perustuu käyttäjän antamiin syötteisiin sekä siihen, mitä paluuarvoja NoteServicen metodit palauttavat. 
 
 ## Sovelluslogiikka
 
-Luokat User ja Note muodostavat ohjelman loogisen datamallin. Luokat kuvaavat ohjelman käyttäjiä ja käyttäjien pyöräilymuistiinpanoja: 
+Luokat [User](https://github.com/tsalohei/bike-tracker/blob/master/src/main/java/com/salohei/domain/User.java) ja [Note](https://github.com/tsalohei/bike-tracker/blob/master/src/main/java/com/salohei/domain/Note.java) muodostavat ohjelman loogisen datamallin. Luokat kuvaavat ohjelman käyttäjiä ja käyttäjien päiväkohtaisia muistiinpanoja: 
 
 ![class diagram](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/luokkakaavio_simple.png "Class diagram") 
 
-Ohjelmassa on kerrallaan vain yksi olio luokasta NoteService. Tämä olio vastaa siitä, että käyttöliittymän omista metodeista syntyy erilaisia toiminnallisia kokonaisuuksia vastaavat toimintoketjut. Käytännössä NoteService-luokka tarjoaa käyttöliittymän kaikille toiminnoille omat metodit, esimerkiksi:
+Ohjelmassa on kerrallaan vain yksi olio luokasta [NoteService](https://github.com/tsalohei/bike-tracker/blob/master/src/main/java/com/salohei/domain/NoteService.java). Tämä olio vastaa siitä, että käyttöliittymän omista metodeista syntyy erilaisia toiminnallisia kokonaisuuksia vastaavat toimintoketjut. Käytännössä NoteService-luokka tarjoaa käyttöliittymän kaikille toiminnoille omat metodit, esimerkiksi:
 
 * boolean createUser(String name, String username)
 * boolean login(String username)
@@ -29,7 +29,7 @@ Ohjelmassa on kerrallaan vain yksi olio luokasta NoteService. Tämä olio vastaa
 * int kmTotal()
 * boolean deleteNote(LocalDate date)
 
-NoteService ei pääse suoraan käsiksi käyttäjien ja muistiinpanojen tietoihin. Tämä tapahtuu välillisesti NoteDao- ja UserDao rajapinnat toteuttavien luokkien SqlUserDao ja SqlNoteDao kautta. Luokat SqlUserDao ja SqlNoteDao injektoidaan sovelluslogiikan toteuttavalle NoteService oliolle NoteService-olion konstruktorikutsun yhteydessä. 
+NoteService ei pääse suoraan käsiksi käyttäjien ja muistiinpanojen tietoihin. Tämä tapahtuu välillisesti [NoteDao](https://github.com/tsalohei/bike-tracker/blob/master/src/main/java/com/salohei/dao/NoteDao.java)- ja [UserDao](https://github.com/tsalohei/bike-tracker/blob/master/src/main/java/com/salohei/dao/UserDao.java) rajapinnat toteuttavien luokkien [SqlUserDao](https://github.com/tsalohei/bike-tracker/blob/master/src/main/java/com/salohei/dao/SqlUserDao.java) ja [SqlNoteDao](https://github.com/tsalohei/bike-tracker/blob/master/src/main/java/com/salohei/dao/SqlNoteDao.java) kautta. Luokat SqlUserDao ja SqlNoteDao injektoidaan sovelluslogiikan toteuttavalle NoteService oliolle NoteService-olion konstruktorikutsun yhteydessä. 
 
 Tämä yhdistetty luokka/pakkauskaavio kuvaa ohjelman eri osien suhdetta toisiinsa: 
 
