@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto bike-tracker.jar 
+Lataa tiedosto [bike-tracker.jar](https://github.com/tsalohei/bike-tracker/releases/tag/loppupalautus) 
 
 ## Asentaminen ja konfigurointi
 
