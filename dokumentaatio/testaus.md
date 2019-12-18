@@ -16,9 +16,11 @@ Molemmat DAO-luokat on testattu luomalla keskusmuistiin tallennettava testitieto
 
 ### Testauskattavuus
 
-Sovelluksen testauksen rivikattavuus on 89% ja haaraumakattavuus 86%. Käyttöliittymää ei kuitenkaan sisällytetty testeihin eikä näihin lukuihin. 
+Sovelluksen testauksen rivikattavuus on 89% ja haaraumakattavuus 86%. Käyttöliittymää ei sisällytetty testeihin eikä näihin lukuihin.
 
 ![Testauskattavuus](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/testauskattavuus.png "Testauskattavuus")
+
+Testejä ei tehty tilanteesta, jossa käyttäjä ei ole tehnyt [käyttöohjeessa](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/kayttoohje.md) kuvattua konfiguraatiotiedostoa. Testit eivät myöskään kata tilanteita, joissa ei-kirjautunut käyttäjä yrittää tehdä kirjautumista vaativia toimintoja (esim. luoda päiväkohtaista muistiinpanoa), koska sovelluksessa oletetaan, että käyttäjän sisäänkirjautuminen tarkastetaan jo käyttöliittymässä.
 
 ## Järjestelmätestaus
 
@@ -26,11 +28,11 @@ Sovelluksen järjestelmätestaus suoritettiin manuaalisesti.
 
 ### Asennus ja konfigurointi
 
-ASENNUS JA KONFIGUROINTI
+Sovellusta on testattu sekä OSX-että Linux-ympäristössä, suorittamalla sekä jar-tiedosto että suoraan githubista kloonatussa repositoriossa olevaa sovellusta. Jar-tiedoston tapauksessa asentaminen ja testaus on tapahtunut [käyttöohjeen](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/kayttoohje.md) mukaisesti, eli niin että käynnistyshakemistossa on ollut käyttöohjeen kuvauksen mukainen config.properties-tiedosto.
+
+Testaus on tehty niin että config.properties-tiedostossa kuvattu tietokantatiedosto on jo ollut olemassa, sekä niin ettei tiedostoa ole vielä ole ollut missä tapauksessa ohjelma on luonut ne itse.
 
 ### Toiminnallisuuksien testaaminen
 
 Kaikki [vaatimusmäärittelydokumentissa](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/vaatimusmaarittely.md) kerrotut toiminnallisuudet on testattu manuaalisesti. Sovelluksen toimintaa on testattu myös täyttämällä syötekentät virheellisillä arvoilla kuten tyhjillä kentillä ja kirjaimilla numeroa edellyttävissä kentissä.
-
-LAATUONGELMAT 
 
