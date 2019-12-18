@@ -41,6 +41,7 @@ public class Database {
             +   "name text NOT NULL,\n"
             +   "username text NOT NULL\n"       
             +   ");";
+        
         String noteTable = "CREATE TABLE IF NOT EXISTS Note (\n"
             +   "id integer PRIMARY KEY,\n" 
             +   "date date NOT NULL,\n"
@@ -49,10 +50,12 @@ public class Database {
             +   "user integer NOT NULL,\n" 
             +    "FOREIGN KEY(user) REFERENCES User(id)\n"    
             +   ");";  
+        
         Connection conn = getConnection();
         Statement stmt = conn.createStatement();         
         stmt.execute(userTable);
         stmt.execute(noteTable);
+        
         stmt.close();
         conn.close();
     }
