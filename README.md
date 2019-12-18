@@ -23,7 +23,7 @@ Sovellusta voi käyttää pyöräilypäiväkirjana, joka koostuu päiväkohtaisi
 
 ## Releaset
 
-[Viikko 6](https://github.com/tsalohei/bike-tracker/releases/tag/vko6)
+[Loppupalautus](https://github.com/tsalohei/bike-tracker/releases/tag/loppupalautus)
 
 ## Käskyt komentoriviltä
 
