@@ -34,6 +34,7 @@
 | 16.12.|  3   | testeissä olleen bugin selvittäminen, poikkeusten käsittelyä|
 | 16.12.|  5   | JavaDoc, textUi-metodeja, user input validointia, integraatiotestaus alkuun|
 | 17.12.|  9   | Integraatiotestaus, konfiguraatiotiedoston ja Main-metodin siirto, dokumentaatiota|
-| yht   | 103  | |
+| 18.12.|  8   | Testausdokumentti, jar-tiedosto kuntoon, viimeistelyä|
+| yht   | 111  | |
 
   
