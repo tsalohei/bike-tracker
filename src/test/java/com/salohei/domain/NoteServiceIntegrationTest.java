@@ -38,29 +38,6 @@ public class NoteServiceIntegrationTest {
         Files.deleteIfExists(Paths.get("test-tietokanta2.db"));
     }
     
-    /*
-    @Test    
-    public void getAllreturnsEmptyListforNewUser() throws SQLException {
-        loginUser();        
-        assertEquals(0, noteService.getAll().size());
-    }
-    */
-    /*
-    @Test    
-    public void getAllreturnsEmptyListforNoCurrentUser() throws SQLException {
-        assertEquals(0, noteService.getAll().size());
-    }
-    */
-    
-    //TESTIIIII
-    @Test
-    public void gettingListOfNotesForXXXUserWorksWhenThereAreNoNotes() throws SQLException {
-        System.out.println("jee");
-        System.out.println(noteService.getAll().size());
-        System.out.println("grr");
-        //assertEquals(0, noteService.getAll().size());
-    }
-    
     private void loginUser() throws SQLException {
         noteService.createUser("Helena Testaaja", "hellu");
         noteService.login("hellu");        
