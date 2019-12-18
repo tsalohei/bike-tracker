@@ -107,27 +107,19 @@ public class SqlNoteDao implements NoteDao {
      */
     @Override
     public List<Note> getAll(User user) throws SQLException {
-        List<Note> list = new ArrayList<>();
-        
-        if (user == null) {
-            return list;
-        }
-        
+        List<Note> list = new ArrayList<>();              
         int userId = user.getId();
         
-        Connection conn = database.getConnection();
-            
+        Connection conn = database.getConnection();            
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Note WHERE user = ? ORDER BY date DESC");
         stmt.setInt(1, userId);
-
         ResultSet rs = stmt.executeQuery();
-
         while (rs.next()) {
             Note n = new Note(rs.getDate("date").toLocalDate(), 
                     rs.getInt("km"), rs.getString("content"), user, 
                     rs.getInt("id"));
             list.add(n);
-        }
+        }       
         
         rs.close();
         stmt.close();
