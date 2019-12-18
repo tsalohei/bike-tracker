@@ -16,7 +16,7 @@ Molemmat DAO-luokat on testattu luomalla keskusmuistiin tallennettava testitieto
 
 ### Testauskattavuus
 
-Sovelluksen testauksen rivikattavuus on 87% ja haaraumakattavuus 86%. Käyttöliittymää ei sisällytetty testeihin eikä näihin lukuihin.
+Sovelluksen testauksen rivikattavuus on 88% ja haaraumakattavuus 90%. Käyttöliittymää ei sisällytetty testeihin eikä näihin lukuihin.
 
 ![Testauskattavuus](https://raw.githubusercontent.com/tsalohei/bike-tracker/master/dokumentaatio/kuvat/testauskattavuus.png "Testauskattavuus")
 
