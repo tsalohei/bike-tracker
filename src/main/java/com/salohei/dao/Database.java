@@ -52,7 +52,7 @@ public class Database {
             +   ");";  
 
         Connection conn = getConnection();
-        Statement stmt = conn.createStatement(); 
+        Statement stmt = conn.createStatement();         
         stmt.execute(userTable);
         stmt.execute(noteTable);
         

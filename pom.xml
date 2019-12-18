@@ -51,7 +51,7 @@
             <configuration>
                 <excludes>
                     <exclude>com/salohei/ui/*</exclude>
-                    <exclude>com/salohei/app/*</exclude>
+                    <exclude>com/salohei/Main.class</exclude>
                 </excludes>
             </configuration>    
             <executions>
