@@ -67,11 +67,15 @@ public class SqlUserDao implements UserDao {
         
         boolean hasOne = rs.next();
         if (!hasOne) {
+            rs.close();
+            stmt.close();
+            conn.close();
             return null;
         }
         
         User u = new User(rs.getString("name"), rs.getString("username"), rs.getInt("id"));
-
+        
+        rs.close();
         stmt.close();
         conn.close();
 

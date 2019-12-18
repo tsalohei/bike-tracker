@@ -81,11 +81,15 @@ public class SqlNoteDao implements NoteDao {
         ResultSet rs = stmt.executeQuery();
         boolean hasOne = rs.next();
         if (!hasOne) {
+            rs.close();
+            stmt.close();
+            conn.close();
             return null;
         }
 
         Note n = new Note(rs.getDate("date").toLocalDate(), rs.getInt("km"), rs.getString("content"), user, rs.getInt("id"));
 
+        rs.close();
         stmt.close();
         conn.close();
 
@@ -124,7 +128,8 @@ public class SqlNoteDao implements NoteDao {
                     rs.getInt("id"));
             list.add(n);
         }
-
+        
+        rs.close();
         stmt.close();
         conn.close();
         return list;
@@ -155,6 +160,7 @@ public class SqlNoteDao implements NoteDao {
             tulos = rs.getInt(1);
         }
 
+        rs.close();
         stmt.close();
         conn.close();
         

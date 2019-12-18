@@ -35,7 +35,7 @@ public class Database {
      * 
      * @throws SQLException virhe tietokannassa
      */
-    public void createTables() throws SQLException {
+    public void createTables() {
         String userTable = "CREATE TABLE IF NOT EXISTS User (\n"
             +   "id integer PRIMARY KEY,\n"
             +   "name text NOT NULL,\n"
@@ -51,6 +51,17 @@ public class Database {
             +    "FOREIGN KEY(user) REFERENCES User(id)\n"    
             +   ");";  
 
+        //testi
+        try (Connection conn = getConnection()) {
+            Statement stmt = conn.createStatement();         
+            stmt.execute(userTable);
+            stmt.execute(noteTable);
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } 
+        /* Tämä allaoleva aiemmin + throws SQLException
         Connection conn = getConnection();
         Statement stmt = conn.createStatement();         
         stmt.execute(userTable);
@@ -58,5 +69,6 @@ public class Database {
         
         stmt.close();
         conn.close();
+        */
     }
 }
