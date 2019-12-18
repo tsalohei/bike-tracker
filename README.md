@@ -11,7 +11,7 @@ Sovellusta voi käyttää pyöräilypäiväkirjana, joka koostuu päiväkohtaisi
 
 ## Dokumentaatio
 
-[Kayttöohje](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/kayttoohje.md)
+[Käyttöohje](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/kayttoohje.md)
 
 [Vaatimusmäärittely](https://github.com/tsalohei/bike-tracker/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
